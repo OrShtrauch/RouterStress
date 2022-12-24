@@ -1,0 +1,27 @@
+{
+    "network": {
+        "ssid": "Alona_Puma7",
+        "interface": "enp0s31f6"
+    },
+    "iterations": [
+        {
+            "duration": 20,
+            "cooldown": 10,
+            "protocols": [
+                {
+                    "containers": [
+                        {
+                            "amount": 300,
+                            "params": {
+                                "domain": "ynet.co.il",
+                                "record_type": "A",
+                                "resolver": "10.0.1.138"
+                            }
+                        }
+                    ],
+                    "mode": "dns"
+                }
+            ]
+        }
+    ]
+}

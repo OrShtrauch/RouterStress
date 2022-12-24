@@ -1,0 +1,86 @@
+{
+    "scenarios": [
+        {
+            "name": "http",
+            "display_name": "HTTP",
+            "pip_dependencies": "httpx",
+            "script": "scripts/http_script.py",
+            "params": [
+                {
+                    "name": "scheme",
+                    "type": "list",
+                    "choices": [
+                        "HTTP",
+                        "HTTPS" 
+                    ],
+                    "display_msg": "HTTP Scheme:"
+                },
+                {
+                    "name": "url",
+                    "type": "str",
+                    "display_msg": "Target URL:",
+                    "validation_function": "validate_url"
+                }
+            ]
+        },
+        {
+            "name": "dns",
+            "display_name": "DNS",
+            "pip_dependencies": "dnspython",
+            "script": "scripts/dns_script.py",
+            "params": [
+                {
+                    "name": "domain",
+                    "type": "str",
+                    "display_msg": "Domain To Resolve:",
+                    "validation_function": "validate_url"
+                },
+                {
+                    "name": "record_type",
+                    "type": "list",
+                    "choices": [
+                        "A",
+                        "AAAA",
+                        "CNAME"
+                    ],
+                    "display_msg": "Record Type To Use"
+                },
+                {
+                    "name": "resolver",
+                    "type": "str",
+                    "display_msg": "resolver address (ipv4):",
+                    "default": "default",
+                    "validation_function": "validate_ip"
+                }
+            ]
+        },
+        {
+            "name": "icmp",
+            "display_name": "ICMP",
+            "pip_dependencies": "scapy",
+            "script": "scripts/icmp_script.py",
+            "params": [
+                {
+                    "name": "target",
+                    "type": "str",
+                    "display_msg": "target ip:",
+                    "validation_function": "validate_ip"
+                }
+            ]
+        },
+        {
+            "name": "port_scan",
+            "display_name": "PORT SCAN",
+            "pip_dependencies": "python-nmap",
+            "script": "scripts/port_scan_script.py",
+            "params": [
+                {
+                    "name": "target",
+                    "type": "str",
+                    "display_msg": "target ip:",
+                    "validation_function": "validate_ip"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+
+        FROM stress:latest
+
+        COPY scripts/dns_script.py script/dns_script.py
+
+        RUN pip3 install dnspython
+
+        CMD ["python3", "script/dns_script.py"]
+        

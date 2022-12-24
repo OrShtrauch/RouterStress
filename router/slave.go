@@ -1,0 +1,209 @@
+package router
+
+import (
+	"bytes"
+	"fmt"
+	"io"
+	"net"
+	"os"
+	"strings"
+	"time"
+
+	"RouterStress/consts"
+)
+
+type Slave struct {
+	Data   RouterData
+	Client Client
+}
+
+var cmds_to_replace = []string{"awk", "nc"}
+
+func NewSlave(ssid string) (*Slave, error) {
+	var slave *Slave
+	var selectedRouter RouterData
+	var c Client
+
+	routers, err := LoadRouters(consts.ROUTERS_PATH)
+
+	if err != nil {
+		return slave, err
+	}
+
+	for _, r := range routers {
+		if r.Ssid == ssid {
+			selectedRouter = r
+
+			break
+		}
+	}
+
+	if !selectedRouter.IsEmpty() {
+		if selectedRouter.Protocol == consts.SSH {
+			var username string
+			var password string
+
+			if len(selectedRouter.Login_info) == 2 {
+				username = selectedRouter.Login_info[0]
+				password = selectedRouter.Login_info[1]
+			}
+
+			c, err = NewSSHClient(selectedRouter.Ip, selectedRouter.Communication_port, username, password)
+
+			if err != nil {
+				return slave, err
+			}
+
+			slave = &Slave{
+				Data:   selectedRouter,
+				Client: c,
+			}
+
+			return slave, err
+		} else {
+			var username string
+			var password string
+			var shell string
+
+			if len(selectedRouter.Login_info) > 0 {
+				username = selectedRouter.Login_info[0]
+				password = selectedRouter.Login_info[1]
+				shell = selectedRouter.Login_info[2]
+			}
+
+			c, err = NewTelnetClient(selectedRouter.Ip, selectedRouter.Communication_port, username, password, shell)
+
+			if err != nil {
+				return slave, err
+			}
+
+			slave = &Slave{
+				Data:   selectedRouter,
+				Client: c,
+			}
+
+			return slave, err
+		}
+	}
+
+	return slave, err
+}
+
+func (s *Slave) Run(cmd string) (string, error) {
+	data, err := s.Client.Run(cmd)
+
+	return data, err
+}
+
+func (s *Slave) TransferSamplerToRouter() error {
+	toRouter := true
+	err := s.WithListener(consts.SOCKET_PORT, toRouter, func() error {
+		host := fmt.Sprintf("%v:%v", s.Data.Ip, consts.SOCKET_PORT)
+		connection, err := net.Dial(consts.TCP, host)
+
+		if err != nil {
+			return err
+		}
+		samplerData, err := s.GetRouterSampler()
+
+		if err != nil {
+			return err
+		}
+
+		time.Sleep(5 * time.Second)
+		_, err = connection.Write([]byte(samplerData))
+
+		if err != nil {
+			panic(err)
+		}
+
+		connection.Close()
+
+		return err
+
+	})
+
+	s.Run(fmt.Sprintf("chmod +x %s", consts.SAMPLER_PATH))
+
+	return err
+}
+
+func (s *Slave) GetSamplerDara() (string, error) {
+	var data string
+
+	toRouter := false
+	err := s.WithListener(consts.SOCKET_PORT, toRouter, func() error {
+		host := fmt.Sprintf("%v:%v", s.Data.Ip, consts.SOCKET_PORT)
+		connection, err := net.Dial(consts.TCP, host)
+
+		if err != nil {
+			return err
+		}
+
+		var buf bytes.Buffer
+		io.Copy(&buf, connection)
+
+		data = buf.String()
+
+		connection.Close()
+
+		return err
+	})
+
+	return data, err
+}
+
+func (s *Slave) WithListener(port string, toRouter bool, cb func() error) error {
+	var cmd_direction string
+
+	if toRouter {
+		cmd_direction = fmt.Sprintf(" >  %v", consts.SAMPLER_PATH)
+	} else {
+		cmd_direction = fmt.Sprintf(" < %v", consts.SAMPLER_DATA_PATH)
+	}
+
+	cmd := fmt.Sprintf("%s -lp %s %s", s.GetCommand(consts.NETCAT), port, cmd_direction)
+	fmt.Println(cmd)
+
+	s.Run(fmt.Sprintf("%v &", cmd))
+	err := cb()
+
+	s.Client.CloseListenerSession(fmt.Sprintf("ps | grep %s | grep -v grep | %s '{print $1}'",
+		consts.NETCAT, s.GetCommand(consts.AWK)))
+
+	return err
+}
+
+func (s *Slave) GetRouterSampler() (string, error) {
+	data, err := os.ReadFile(consts.LOCAL_SAMPLER_PATH)
+
+	text_string := string(data)
+
+	if err != nil {
+		return "", err
+	}
+
+	for _, cmd := range cmds_to_replace {
+		text_string = strings.Replace(text_string, cmd, s.GetCommand(cmd), -1)
+	}
+
+	return text_string, err
+}
+
+func (s *Slave) GetCommand(cmd string) string {
+
+	if s.contains(cmd, cmds_to_replace) {
+		return fmt.Sprintf("%v %v", s.Data.Busybox, cmd)
+	} else {
+		return cmd
+	}
+}
+
+func (s *Slave) contains(cmd string, slice []string) bool {
+	for _, v := range slice {
+		if v == cmd {
+			return true
+		}
+	}
+	return false
+}

@@ -1,0 +1,9 @@
+
+        FROM stress:latest
+
+        COPY scripts/http_script.py script/http_script.py
+
+        RUN pip3 install httpx
+
+        CMD ["python3", "script/http_script.py"]
+        

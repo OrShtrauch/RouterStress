@@ -1,0 +1,4 @@
+2022/12/09 15:35:11 logger.go:27: Called from /home/qa/Documents/RouterStress/main.go, line #32, func: main.main -- test
+2022/12/09 15:36:42 logger.go:27: Called from /home/qa/Documents/RouterStress/main.go, line #32, func: main.main -- test
+2022/12/09 15:38:34 line #32, func: main.main -- test
+2022/12/09 15:39:21  main.main: test

@@ -1,0 +1,9 @@
+
+        FROM stress:latest
+
+        COPY scripts/icmp_script.py script/icmp_script.py
+
+        RUN pip3 install scapy
+
+        CMD ["python3", "script/icmp_script.py"]
+        

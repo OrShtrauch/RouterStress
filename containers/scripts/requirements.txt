@@ -1,0 +1,3 @@
+dnspython
+urllib3
+scapy
