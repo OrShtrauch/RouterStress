@@ -35,7 +35,7 @@ logger: Logger = logging.getLogger("data handler")
 
 # ignore any sigint signal going to the script,
 # the script will exit after sending data
-signal.signal(signal.SIGINT, signal.SIG_IGN)
+signal.signal(signal.SIGTERM, signal.SIG_IGN)
 
 
 def build_json(line: tuple[str, str, int], json_template: dict) -> str | None:

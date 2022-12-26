@@ -64,8 +64,8 @@ func (server *DHCPServer) Lease() (string, error) {
 	if len(server.Pool) > 0 {
 		ip := server.Pool[len(server.Pool)-1]
 		server.Pool = server.Pool[:len(server.Pool)-1]
+		
 		server.Used = append(server.Used, ip)
-		fmt.Printf("used: %v, len: %v\n", server.Used, len(server.Used))
 
 		return ip, err
 	} else {

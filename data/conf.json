@@ -4,7 +4,7 @@
         "debug": true
     },
     "network": {
-        "ssid": "Alona_Puma7",
+        "ssid": "Josh_HT138",
         "interface": "enp0s31f6"
     },
     "iterations": [
@@ -15,7 +15,7 @@
                 {
                     "containers": [
                         {
-                            "amount": 5,
+                            "amount": 50,
                             "params": {
                                 "domain": "ynet.co.il",
                                 "record_type": "A",

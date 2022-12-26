@@ -17,7 +17,7 @@ type Config struct {
 	Network    Network
 	Iterations []Iteration
 	Router     router.RouterData
-	Scenarios  []Scenario
+	Scenarios  Scenarios
 }
 
 type Settings struct {
@@ -59,6 +59,14 @@ func GetConfig() (Config, error) {
 	if err != nil {
 		return config, err
 	}
+
+	scenarios, err := GetScenarios()
+
+	if err != nil {
+		return config, err
+	}
+
+	config.Scenarios = scenarios
 
 	routers, err := router.LoadRouters(consts.ROUTERS_PATH)
 
@@ -108,7 +116,7 @@ func ParseIteration(iteration Iteration) []map[string]string {
 func (c *Config) BuildDockerFiles() error {
 	var eg errgroup.Group
 
-	for _, s := range c.Scenarios {
+	for _, s := range c.Scenarios.Scenarios {
 		scenario := s
 		eg.Go(func() error {
 			return writeDockerFile(scenario)

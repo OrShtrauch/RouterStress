@@ -6,6 +6,10 @@ import (
 	"os"
 )
 
+type Scenarios struct {
+	Scenarios []Scenario
+}
+
 type Scenario struct {
 	Name string
 	PipDependencies string
@@ -13,16 +17,16 @@ type Scenario struct {
 	Params []string
 }
 
-func GetScenarios() (Config, error) {
-	var config Config
+func GetScenarios() (Scenarios, error) {
+	var scenarios Scenarios
 	jsonData, err := os.ReadFile(consts.SCENARIOS_PATH)
 
 	if err != nil {
-		return config, err
+		return scenarios, err
 	}
 
-	err = json.Unmarshal(jsonData, &config)
+	err = json.Unmarshal(jsonData, &scenarios)
 
-	return config, err
+	return scenarios, err
 	
 }

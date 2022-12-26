@@ -4,6 +4,7 @@ import (
 	"RouterStress/conf"
 	"RouterStress/consts"
 	"fmt"
+	"io"
 	"os"
 
 	dockerlib "github.com/fsouza/go-dockerclient"
@@ -40,7 +41,17 @@ func InitDocker(config *conf.Config) (*Docker, error) {
 
 	docker.Client = client
 
-	docker.Cleanup()
+	err = docker.Cleanup()
+
+	if err != nil {
+		return &docker, err
+	}
+
+	err = docker.BuildImages(config)
+
+	if err != nil {
+		return &docker, err
+	}
 
 	network, err := docker.createMacvlan(config)
 
@@ -151,6 +162,7 @@ func (d *Docker) startContainer(c *dockerlib.Container) error {
 }
 
 func (d *Docker) KillContainer(c *dockerlib.Container) error {
+	fmt.Print("killing container\n")
 	return d.Client.KillContainer(dockerlib.KillContainerOptions{
 		ID:     c.ID,
 		Signal: consts.SIGTERM,
@@ -160,7 +172,7 @@ func (d *Docker) KillContainer(c *dockerlib.Container) error {
 func (d *Docker) BuildImages(config *conf.Config) error {
 	var eg errgroup.Group
 
-	for _, s := range config.Scenarios {
+	for _, s := range config.Scenarios.Scenarios {
 		scenario := s
 
 		eg.Go(func() error {
@@ -173,11 +185,13 @@ func (d *Docker) BuildImages(config *conf.Config) error {
 
 func (d *Docker) buildImage(mode string) error {
 	imageName := fmt.Sprintf("stress-%v:%v", mode, consts.CONTAINER_VERSION)
-	dockerFile := fmt.Sprintf("stress.%v", mode)
+	dockerFile := fmt.Sprintf("Dockerfile.%v", mode)
 
 	return d.Client.BuildImage(dockerlib.BuildImageOptions{
 		Name:       imageName,
-		Dockerfile: dockerFile,
+		Dockerfile: dockerFile,		
+		ContextDir: "containers/",
+		OutputStream: io.Discard,
 	})
 }
 

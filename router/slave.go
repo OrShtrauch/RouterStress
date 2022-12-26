@@ -179,11 +179,10 @@ func (s *Slave) WithListener(port string, toRouter bool, cb func() error) error 
 	}
 
 	cmd := fmt.Sprintf("%s -lp %s %s", s.GetCommand(consts.NETCAT), port, cmd_direction)
-	fmt.Println(cmd)
 
 	s.Run(fmt.Sprintf("%v &", cmd))
 
-	time.Sleep(time.Millisecond * 500)
+	time.Sleep(time.Second)
 
 	err := cb()
 

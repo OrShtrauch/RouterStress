@@ -39,7 +39,7 @@ running: bool = True
 def signal_handler(signal_number, frame):
     global running
 
-    logger.info("got SIGINT signal, calling data_handler")
+    logger.info("got SIGTERM signal, calling data_handler")
     logger.info(f"sending data handler {len(data)} lines")
     running = False
     data_handler.run(data, domain=domain, record_type=record_type)
@@ -48,7 +48,7 @@ def signal_handler(signal_number, frame):
 
 
 if __name__ == "__main__":
-    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
 
     dns_res = dns.resolver.Resolver()
     dns_cache = dns.resolver.Cache()

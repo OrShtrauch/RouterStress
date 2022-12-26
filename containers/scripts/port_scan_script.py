@@ -38,7 +38,7 @@ def signal_handler(signal_number, frame):
     global running
 
     logger.info("data")
-    logger.info("got SIGINT signal, calling data_handler")
+    logger.info("got SIGTERM signal, calling data_handler")
     logger.info(f"sending data handler {len(data)} lines")
     running = False
     data_handler.run(data, target=target)
@@ -47,7 +47,7 @@ def signal_handler(signal_number, frame):
 
 
 if __name__ == "__main__":
-    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
 
     nm: PortScanner = PortScanner()
 

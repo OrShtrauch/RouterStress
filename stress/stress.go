@@ -50,6 +50,8 @@ func NewStress(config *conf.Config) (Stress, error) {
 		return setupDHCP(&stress)
 	})
 
+
+
 	return stress, eg.Wait()
 }
 
@@ -176,7 +178,7 @@ func (s *Stress) Cleanup() error {
 func createTestDir(testID string) error {
 	dirName := fmt.Sprintf("results/%v", testID)
 
-	err := os.Mkdir(dirName, 0755)
+	err := os.Mkdir(dirName, 0766)
 
 	if err != nil {
 		return err

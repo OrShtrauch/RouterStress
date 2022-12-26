@@ -3,6 +3,7 @@ package router
 import (
 	"fmt"
 	"net"
+	"os"
 	"strings"
 	"time"
 
@@ -43,21 +44,24 @@ func (client *TelnetClient) login(creds []string) error {
 	var err error
 	duration := 3
 
-	for cred := range creds {
+	client.receiveForDuration(duration)
+
+	for _, cred := range creds {
 		_, err = client.session.Write([]byte(fmt.Sprintf("%v\n", cred)))
 
 		if err != nil {
 			return err
 		}
 
-		_, err = client.receiveForDuration(duration)
+		_, err = client.receiveForDuration(duration)		
 		
-		if err != nil {
+		if err != nil && !os.IsTimeout(err) {
+			fmt.Println(err.Error())
 			return err
 		}
 	}
 
-	_, err  = client.receiveForDuration(duration)
+	_, err = client.receiveForDuration(duration)
 
 	return err
 }
