@@ -3,6 +3,7 @@ package main
 import (
 	"RouterStress/conf"
 	"RouterStress/log"
+	"RouterStress/stress"
 	"os"
 
 	"go.uber.org/zap"
@@ -19,33 +20,22 @@ func main() {
 	InitLogger(&config)
 
 
-	// fmt.Println(ip)
-	// fmt.Println(len(server.Used))
+	stress, err := stress.NewStress(&config)
 
-	// fmt.Printf("\n\n\n")
-	// server.Release(ip)
-	// fmt.Println(len(server.Used))
-	// var wg sync.WaitGroup
-	// for i := 1; i < 5; i++ {
-	// 	wg.Add(1)
+	if err != nil {
+		log.Logger.Error(err.Error())
+		panic(err)
+	}
 
-	// 	i := i
-	// 	go func() {
-	// 		defer wg.Done()
-	// 		worker(i)
-	// 	}()
+	err = stress.Start()
 
-	// }
+	if err != nil {
+		log.Logger.Error(err.Error())
+		stress.Cleanup()
+		panic(err)
+	}
 
-	// wg.Wait()
-
-	// fmt.Printf("done\n")
-
-	// x := 5
-
-	// y := x + 5
-
-	// fmt.Println(y)
+	stress.Cleanup()
 }
 
 func InitLogger(config *conf.Config) {

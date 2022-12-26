@@ -1,14 +1,15 @@
 package conf
 
 import (
-	"golang.org/x/sync/errgroup"
 	"RouterStress/consts"
 	"RouterStress/errors"
 	"RouterStress/router"
 	"encoding/json"
 	"fmt"
-	"strings"
 	"os"
+	"strings"
+
+	"golang.org/x/sync/errgroup"
 )
 
 type Config struct {
@@ -16,7 +17,7 @@ type Config struct {
 	Network    Network
 	Iterations []Iteration
 	Router     router.RouterData
-	Scenarios []Scenario
+	Scenarios  []Scenario
 }
 
 type Settings struct {
@@ -44,7 +45,6 @@ type Container struct {
 	Amount int
 	Params map[string]string
 }
-
 
 func GetConfig() (Config, error) {
 	var config Config
@@ -74,7 +74,7 @@ func GetConfig() (Config, error) {
 		}
 	}
 
-	return config, &errors.NoSSIDFound{}
+	return config, errors.NoSSIDFound{}
 }
 
 func ParseIteration(iteration Iteration) []map[string]string {
@@ -87,8 +87,8 @@ func ParseIteration(iteration Iteration) []map[string]string {
 			precentToIncrease := 50
 			new_amount := container.Amount
 
-			if consts.Run_index > 0 {
-				new_amount = int(new_amount*(precentToIncrease/100*consts.Run_index)+1) + 1
+			if consts.RUN_INDEX > 0 {
+				new_amount = int(new_amount*(precentToIncrease/100*consts.RUN_INDEX)+1) + 1
 			}
 
 			m["mode"] = protocol.Mode
@@ -105,14 +105,14 @@ func ParseIteration(iteration Iteration) []map[string]string {
 	return iterationMap
 }
 
-func (c *Config)BuildDockerFiles() error {
+func (c *Config) BuildDockerFiles() error {
 	var eg errgroup.Group
-	
+
 	for _, s := range c.Scenarios {
 		scenario := s
 		eg.Go(func() error {
 			return writeDockerFile(scenario)
-		})		
+		})
 	}
 
 	return eg.Wait()
@@ -126,7 +126,7 @@ func writeDockerFile(s Scenario) error {
 	dockerFileText := string(dockerFile)
 
 	if err != nil {
-		return err 
+		return err
 	}
 
 	dockerFileText = strings.Replace(dockerFileText, "{script_path}", consts.CONTAINER_SCRIPTS, -1)

@@ -1,7 +1,7 @@
 {
     "settings": {
         "s3": false,
-        "debug": false
+        "debug": true
     },
     "network": {
         "ssid": "Alona_Puma7",
@@ -9,13 +9,13 @@
     },
     "iterations": [
         {
-            "duration": 20,
+            "duration": 1,
             "cooldown": 10,
             "protocols": [
                 {
                     "containers": [
                         {
-                            "amount": 300,
+                            "amount": 5,
                             "params": {
                                 "domain": "ynet.co.il",
                                 "record_type": "A",

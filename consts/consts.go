@@ -1,9 +1,15 @@
 package consts
 
 import (
-	"fmt"
-
 	"github.com/google/uuid"
+)
+
+var (
+	TEST_UUID = uuid.New().String()
+	TEST_ID   = ""
+	RUN_INDEX = 0
+
+	LOCAL_VOLUME_PATH = "results/" + TEST_ID
 )
 
 const (
@@ -25,15 +31,14 @@ const (
 	TZ         = "Asia/Jerusalem"
 	DELAY      = 1
 
-	SAMPLER_NAME      = "router_sampler.sh"
-	SAMPLER_PATH      = "/var/tmp/" + SAMPLER_NAME
-	SAMPLER_DATA_PATH = "/var/tmp/hardware_data.csv"
+	SAMPLER_NAME       = "router_sampler.sh"
+	SAMPLER_PATH       = "/var/tmp/" + SAMPLER_NAME
+	SAMPLER_DATA_PATH  = "/var/tmp/hardware_data.csv"
+	SAMPLER_LOCAL_NAME = "router_data.csv"
 
-	DOCKERFILES_PATH  = "./containers"
+	DOCKERFILES_PATH  = "containers"
 	CONTAINER_SCRIPTS = DOCKERFILES_PATH + "/scripts"
-)
 
-var (
 	ROUTERS_PATH       = "data/routers.json"
 	CONF_PATH          = "data/conf.json"
 	SCENARIOS_PATH     = "data/scenarios.json"
@@ -41,10 +46,6 @@ var (
 	TRAFFIC_DATA_PATH  = "data/traffic_data.json"
 
 	CONTAINER_VERSION = "latest"
-	TestUUID          = uuid.New().String()
-	TestID            = ""
-	Run_index         = 0
 
-	LOCAL_VOLUME_PATH  = fmt.Sprintf("results/%v", TestID)
 	REMOTE_VOLUME_PATH = "/var/tmp/stress/data"
 )

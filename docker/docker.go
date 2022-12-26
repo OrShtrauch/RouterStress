@@ -4,6 +4,7 @@ import (
 	"RouterStress/conf"
 	"RouterStress/consts"
 	"fmt"
+	"os"
 
 	dockerlib "github.com/fsouza/go-dockerclient"
 	"golang.org/x/sync/errgroup"
@@ -38,6 +39,8 @@ func InitDocker(config *conf.Config) (*Docker, error) {
 	}
 
 	docker.Client = client
+
+	docker.Cleanup()
 
 	network, err := docker.createMacvlan(config)
 
@@ -82,6 +85,7 @@ func (d *Docker) RunContainer(data ContainerData) (*dockerlib.Container, error) 
 		fmt.Sprintf("name=%v", data.Name),
 		fmt.Sprintf("mode=%v", data.Mode),
 		fmt.Sprintf("index=%v", data.Index),
+		fmt.Sprintf("test_id=%v", data.TestID),
 		fmt.Sprintf("iteration_index=%v", data.IterationIndex),
 		fmt.Sprintf("run_index=%v", data.RunIndex),
 		fmt.Sprintf("threads=%v", consts.THREADS),
@@ -112,14 +116,23 @@ func (d *Docker) RunContainer(data ContainerData) (*dockerlib.Container, error) 
 
 func (d *Docker) createContainer(name string, mode string, env []string) (*dockerlib.Container, error) {
 	imageName := fmt.Sprintf("stress-%v:%v", mode, consts.CONTAINER_VERSION)
-	binds := []string{fmt.Sprintf("%v:%v", consts.LOCAL_VOLUME_PATH, consts.REMOTE_VOLUME_PATH)}
+
+	workingDir, err := os.Getwd()
+
+	if err != nil {
+		return nil, err
+	}
+
+	localPath := fmt.Sprintf("%v/%v", workingDir, consts.LOCAL_VOLUME_PATH)
+
+	binds := []string{fmt.Sprintf("%v:%v", localPath, consts.REMOTE_VOLUME_PATH)}
 
 	return d.Client.CreateContainer(dockerlib.CreateContainerOptions{
 		Name: name,
 		Config: &dockerlib.Config{
 			Image: imageName,
 			Env:   env,
-			// Cmd: []string{"sleep", "500"},
+			//Cmd:   []string{"sleep", "500"},
 		},
 		HostConfig: &dockerlib.HostConfig{
 			Binds: binds,
@@ -150,7 +163,7 @@ func (d *Docker) BuildImages(config *conf.Config) error {
 	for _, s := range config.Scenarios {
 		scenario := s
 
-		eg.Go(func() error  {
+		eg.Go(func() error {
 			return d.buildImage(scenario.Name)
 		})
 	}
@@ -159,11 +172,37 @@ func (d *Docker) BuildImages(config *conf.Config) error {
 }
 
 func (d *Docker) buildImage(mode string) error {
-	imageName := fmt.Sprintf("stress-%v:%v", mode , consts.CONTAINER_VERSION)
+	imageName := fmt.Sprintf("stress-%v:%v", mode, consts.CONTAINER_VERSION)
 	dockerFile := fmt.Sprintf("stress.%v", mode)
 
 	return d.Client.BuildImage(dockerlib.BuildImageOptions{
-		Name: imageName,
+		Name:       imageName,
 		Dockerfile: dockerFile,
 	})
+}
+
+func (d *Docker) Cleanup() error {
+	var err error
+
+	_, err = d.Client.PruneContainers(dockerlib.PruneContainersOptions{})
+
+	if err != nil {
+		return err
+	}
+
+	_, err = d.Client.PruneNetworks(dockerlib.PruneNetworksOptions{})
+
+	if err != nil {
+		return err
+	}
+
+	_, err = d.Client.PruneImages(dockerlib.PruneImagesOptions{})
+
+	if err != nil {
+		return err
+	}
+
+	_, err = d.Client.PruneVolumes(dockerlib.PruneVolumesOptions{})
+
+	return err
 }

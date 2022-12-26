@@ -1,2 +1,75 @@
 2022-12-25T15:22:57.079+0200	info	RouterStress/main.go:22	info
 2022-12-25T15:22:57.079+0200	error	RouterStress/main.go:23	error
+2022-12-26T12:19:59.448+0200	info	stress/stress.go:34	TestID: Alona_Puma7_32137866-ce03-4851-9607-de98780d19d5
+2022-12-26T12:19:59.448+0200	debug	stress/stress.go:49	setting up DHCP Server
+2022-12-26T12:19:59.449+0200	debug	stress/stress.go:39	Setting up Router Slave
+2022-12-26T12:19:59.449+0200	debug	stress/stress.go:44	Setting up Docker Client and Network
+2022-12-26T12:20:09.638+0200	error	RouterStress/main.go:26	dial tcp 192.168.0.1:8654: connect: connection refused
+2022-12-26T12:21:10.093+0200	info	stress/stress.go:34	TestID: Alona_Puma7_77864ea3-5dee-4fb0-b0f0-a663c561164b
+2022-12-26T12:21:10.093+0200	debug	stress/stress.go:49	setting up DHCP Server
+2022-12-26T12:21:10.093+0200	debug	stress/stress.go:39	Setting up Router Slave
+2022-12-26T12:21:10.094+0200	debug	stress/stress.go:44	Setting up Docker Client and Network
+2022-12-26T12:21:20.256+0200	error	RouterStress/main.go:26	API error (403): Pool overlaps with other one on this address space
+2022-12-26T13:01:58.586+0200	info	stress/stress.go:34	TestID: Alona_Puma7_201ea54b-514e-4c0f-92b1-dba8e45af68a
+2022-12-26T13:01:58.586+0200	debug	stress/stress.go:49	setting up DHCP Server
+2022-12-26T13:01:58.586+0200	debug	stress/stress.go:39	Setting up Router Slave
+2022-12-26T13:01:58.587+0200	debug	stress/stress.go:44	Setting up Docker Client and Network
+2022-12-26T13:02:08.776+0200	debug	stress/stress.go:97	starting container stress_dns_0_4
+2022-12-26T13:02:08.776+0200	debug	stress/stress.go:97	starting container stress_dns_0_1
+2022-12-26T13:02:08.776+0200	debug	stress/stress.go:97	starting container stress_dns_0_2
+2022-12-26T13:02:08.776+0200	debug	stress/stress.go:97	starting container stress_dns_0_3
+2022-12-26T13:02:08.776+0200	debug	stress/stress.go:97	starting container stress_dns_0_0
+2022-12-26T13:02:08.800+0200	error	RouterStress/main.go:33	API error (400): create results/: "results/" includes invalid characters for a local volume name, only "[a-zA-Z0-9][a-zA-Z0-9_.-]" are allowed. If you intended to pass a host directory, use absolute path
+2022-12-26T13:33:00.738+0200	info	stress/stress.go:34	TestID: Alona_Puma7_a687f17a-fb90-4b34-8253-9e88f38a83b5
+2022-12-26T13:33:00.739+0200	debug	stress/stress.go:49	setting up DHCP Server
+2022-12-26T13:33:00.739+0200	debug	stress/stress.go:39	Setting up Router Slave
+2022-12-26T13:33:00.739+0200	debug	stress/stress.go:44	Setting up Docker Client and Network
+2022-12-26T13:33:10.949+0200	error	RouterStress/main.go:26	dial tcp 192.168.0.1:8654: connect: connection refused
+2022-12-26T13:42:56.924+0200	info	stress/stress.go:34	TestID: Alona_Puma7_a0632caf-6e5a-4c56-aee2-3f9666d1d4b2
+2022-12-26T13:42:56.925+0200	debug	stress/stress.go:49	setting up DHCP Server
+2022-12-26T13:42:56.925+0200	debug	stress/stress.go:39	Setting up Router Slave
+2022-12-26T13:42:56.927+0200	debug	stress/stress.go:44	Setting up Docker Client and Network
+2022-12-26T13:43:07.092+0200	error	RouterStress/main.go:26	API error (403): Pool overlaps with other one on this address space
+2022-12-26T13:43:44.595+0200	info	stress/stress.go:34	TestID: Alona_Puma7_d6b2d490-f451-47ff-9dc9-f46660e90097
+2022-12-26T13:43:44.595+0200	debug	stress/stress.go:49	setting up DHCP Server
+2022-12-26T13:43:44.595+0200	debug	stress/stress.go:39	Setting up Router Slave
+2022-12-26T13:43:44.595+0200	debug	stress/stress.go:44	Setting up Docker Client and Network
+2022-12-26T13:43:54.798+0200	debug	stress/stress.go:97	starting container stress_dns_0_0
+2022-12-26T13:43:54.798+0200	debug	stress/stress.go:97	starting container stress_dns_0_2
+2022-12-26T13:43:54.798+0200	debug	stress/stress.go:97	starting container stress_dns_0_4
+2022-12-26T13:43:54.798+0200	debug	stress/stress.go:97	starting container stress_dns_0_3
+2022-12-26T13:43:54.798+0200	debug	stress/stress.go:97	starting container stress_dns_0_1
+2022-12-26T13:43:54.828+0200	error	RouterStress/main.go:33	API error (400): create results/: "results/" includes invalid characters for a local volume name, only "[a-zA-Z0-9][a-zA-Z0-9_.-]" are allowed. If you intended to pass a host directory, use absolute path
+2022-12-26T13:43:54.828+0200	debug	stress/stress.go:163	Running cleanup
+2022-12-26T13:47:30.603+0200	info	stress/stress.go:34	TestID: Alona_Puma7_26fdff6a-5d9d-456e-ab2c-f1acc7c4e2ca
+2022-12-26T13:47:30.603+0200	debug	stress/stress.go:49	setting up DHCP Server
+2022-12-26T13:47:30.603+0200	debug	stress/stress.go:39	Setting up Router Slave
+2022-12-26T13:47:30.603+0200	debug	stress/stress.go:44	Setting up Docker Client and Network
+2022-12-26T13:47:40.795+0200	debug	stress/stress.go:97	starting container stress_dns_0_4
+2022-12-26T13:47:40.795+0200	debug	stress/stress.go:97	starting container stress_dns_0_1
+2022-12-26T13:47:40.796+0200	debug	stress/stress.go:97	starting container stress_dns_0_0
+2022-12-26T13:47:40.796+0200	debug	stress/stress.go:97	starting container stress_dns_0_3
+2022-12-26T13:47:40.795+0200	debug	stress/stress.go:97	starting container stress_dns_0_2
+2022-12-26T13:48:22.785+0200	info	stress/stress.go:34	TestID: Alona_Puma7_cb6cc3f2-783d-4b03-bca1-560d92c27420
+2022-12-26T13:48:22.785+0200	debug	stress/stress.go:49	setting up DHCP Server
+2022-12-26T13:48:22.785+0200	debug	stress/stress.go:39	Setting up Router Slave
+2022-12-26T13:48:22.786+0200	debug	stress/stress.go:44	Setting up Docker Client and Network
+2022-12-26T13:48:32.989+0200	debug	stress/stress.go:97	starting container stress_dns_0_0
+2022-12-26T13:48:32.989+0200	debug	stress/stress.go:97	starting container stress_dns_0_2
+2022-12-26T13:48:32.989+0200	debug	stress/stress.go:97	starting container stress_dns_0_4
+2022-12-26T13:48:32.989+0200	debug	stress/stress.go:97	starting container stress_dns_0_3
+2022-12-26T13:48:32.989+0200	debug	stress/stress.go:97	starting container stress_dns_0_1
+2022-12-26T13:50:34.006+0200	info	stress/stress.go:34	TestID: Alona_Puma7_abc04786-7ffa-40bc-a94f-13a43b240976
+2022-12-26T13:50:34.006+0200	debug	stress/stress.go:49	setting up DHCP Server
+2022-12-26T13:50:34.006+0200	debug	stress/stress.go:39	Setting up Router Slave
+2022-12-26T13:50:34.008+0200	debug	stress/stress.go:44	Setting up Docker Client and Network
+2022-12-26T13:50:52.725+0200	debug	stress/stress.go:97	starting container stress_dns_0_4
+2022-12-26T13:50:52.725+0200	debug	stress/stress.go:97	starting container stress_dns_0_0
+2022-12-26T13:50:52.725+0200	debug	stress/stress.go:97	starting container stress_dns_0_2
+2022-12-26T13:50:52.725+0200	debug	stress/stress.go:97	starting container stress_dns_0_1
+2022-12-26T13:50:52.725+0200	debug	stress/stress.go:97	starting container stress_dns_0_3
+2022-12-26T13:52:03.989+0200	debug	stress/stress.go:163	Running cleanup
+2022-12-26T13:57:34.846+0200	info	stress/stress.go:34	TestID: Alona_Puma7_f55edc3c-22f8-4f46-88f8-318269811f8f
+2022-12-26T13:57:34.847+0200	debug	stress/stress.go:49	setting up DHCP Server
+2022-12-26T13:57:34.847+0200	debug	stress/stress.go:39	Setting up Router Slave
+2022-12-26T13:57:34.847+0200	debug	stress/stress.go:44	Setting up Docker Client and Network

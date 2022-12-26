@@ -182,6 +182,9 @@ func (s *Slave) WithListener(port string, toRouter bool, cb func() error) error 
 	fmt.Println(cmd)
 
 	s.Run(fmt.Sprintf("%v &", cmd))
+
+	time.Sleep(time.Millisecond * 500)
+
 	err := cb()
 
 	s.Client.CloseListenerSession(fmt.Sprintf("ps | grep %s | grep -v grep | %s '{print $1}'",
@@ -225,11 +228,24 @@ func (s *Slave) contains(cmd string, slice []string) bool {
 }
 
 func (s *Slave) Cleanup() error {
-	
+	err := s.StopSampler()
+
+	if err != nil {
+		return err
+	}
+
+	data, err := s.GetSamplerDara()
+
+	if err != nil {
+		return err
+	}
+
+	return writeSamplerData(data)
+
 }
 
 func writeSamplerData(data string) error {
-	path := fmt.Sprintf("results/%v/router_data.csv", consts.TestID)
+	path := fmt.Sprintf("results/%v/%v", consts.TEST_ID, consts.SAMPLER_LOCAL_NAME)
 
 	return os.WriteFile(path, []byte(data), 0644)
-} 
+}

@@ -9,8 +9,6 @@ import (
 	"RouterStress/router"
 	"fmt"
 	"os"
-	"os/user"
-	"strconv"
 	"time"
 
 	"golang.org/x/sync/errgroup"
@@ -29,9 +27,9 @@ func NewStress(config *conf.Config) (Stress, error) {
 	var stress Stress
 
 	stress.Config = config
-	
-	stress.TestID = fmt.Sprintf("%v_%v", config.Router.Ssid, consts.TestUUID)
-	consts.TestID = stress.TestID
+
+	stress.TestID = fmt.Sprintf("%v_%v", config.Router.Ssid, consts.TEST_UUID)
+	consts.TEST_ID = stress.TestID
 
 	log.Logger.Info(fmt.Sprintf("TestID: %v", stress.TestID))
 
@@ -71,7 +69,7 @@ func (s *Stress) Start() error {
 					env := protocol.Containers[j].Params
 
 					eg.Go(func() error {
-						return s.RunStressContainer(name, protocol.Mode, duration, iterationIndex, index, env)
+						return s.runStressContainer(name, protocol.Mode, duration, iterationIndex, index, env)
 					})
 
 					index++
@@ -89,25 +87,25 @@ func (s *Stress) Start() error {
 	return err
 }
 
-func (s *Stress) RunStressContainer(name string, mode string, duration int, iterationIndex int, index int, env map[string]string) error {
+func (s *Stress) runStressContainer(name string, mode string, duration int, iterationIndex int, index int, env map[string]string) error {
 	ip, err := s.DHCPServer.Lease()
 
 	if err != nil {
 		return err
 	}
 
-	log.Logger.Debug(fmt.Sprintf("starting container %v", name))	
+	log.Logger.Debug(fmt.Sprintf("starting container %v", name))
 	container, err := s.Docker.RunContainer(docker.ContainerData{
-		Ssid: s.Config.Router.Ssid,
-		Platform: s.Config.Router.Name,
-		RunIndex: consts.Run_index,
-		TestID: s.TestID,
-		Mode: mode,
-		Name: name,
-		Ip: ip,
-		Index: index,
+		Ssid:           s.Config.Router.Ssid,
+		Platform:       s.Config.Router.Name,
+		RunIndex:       consts.RUN_INDEX,
+		TestID:         s.TestID,
+		Mode:           mode,
+		Name:           name,
+		Ip:             ip,
+		Index:          index,
 		IterationIndex: iterationIndex,
-		Params: env,
+		Params:         env,
 	})
 
 	if err != nil {
@@ -126,24 +124,16 @@ func setupSlave(stress *Stress) error {
 	stress.Slave = slave
 
 	if err != nil {
-		log.Logger.Error(err.Error())
 		return err
 	}
 
 	err = slave.TransferSamplerToRouter()
 
 	if err != nil {
-		log.Logger.Error(err.Error())
 		return err
 	}
 
-	err = slave.StartSampler()
-
-	if err != nil {
-		log.Logger.Error(err.Error())
-	}
-
-	return err
+	return slave.StartSampler()
 }
 
 func setupDocker(stress *Stress) error {
@@ -186,37 +176,11 @@ func (s *Stress) Cleanup() error {
 func createTestDir(testID string) error {
 	dirName := fmt.Sprintf("results/%v", testID)
 
-	err := os.Mkdir(dirName, 0666)
+	err := os.Mkdir(dirName, 0755)
 
 	if err != nil {
 		return err
 	}
 
 	return err
-
-	// uid, gid, err := GetCurrentUser()
-
-	// if err != nil {
-	// 	return err
-	// }
-
-	// return os.Chown(dirName, uid, gid)
-}
-
-func GetCurrentUser() (int, int, error) {
-	user, err := user.Current()
-
-	if err != nil {
-		return 0, 0, err
-	}
-
-	userID, err := strconv.Atoi(user.Uid)
-
-	if err != nil {
-		return 0, 0, err
-	}
-
-	userGID, err := strconv.Atoi(user.Gid)
-
-	return userID, userGID, err
 }
