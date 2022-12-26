@@ -5,7 +5,7 @@ import (
 	"RouterStress/consts"
 	"RouterStress/dhcp"
 	"RouterStress/docker"
-	"RouterStress/logger"
+	"RouterStress/log"
 	"RouterStress/router"
 	"fmt"
 	"os"
@@ -29,23 +29,26 @@ func NewStress(config *conf.Config) (Stress, error) {
 	var stress Stress
 
 	stress.Config = config
-	consts.TestID = fmt.Sprintf("%v_%v", config.Router.Ssid, consts.TestUUID)
-	logger.Logger.Info(fmt.Sprintf("TestID: %v", consts.TestID))
+	
+	stress.TestID = fmt.Sprintf("%v_%v", config.Router.Ssid, consts.TestUUID)
+	consts.TestID = stress.TestID
 
-	createTestDir(consts.TestID)
+	log.Logger.Info(fmt.Sprintf("TestID: %v", stress.TestID))
+
+	createTestDir(stress.TestID)
 
 	eg.Go(func() error {
-		logger.Logger.Debug("Setting up Router Slave")
+		log.Logger.Debug("Setting up Router Slave")
 		return setupSlave(&stress)
 	})
 
 	eg.Go(func() error {
-		logger.Logger.Debug("Setting up Docker Client and Network")
+		log.Logger.Debug("Setting up Docker Client and Network")
 		return setupDocker(&stress)
 	})
 
 	eg.Go(func() error {
-		logger.Logger.Debug("setting up DHCP Server")
+		log.Logger.Debug("setting up DHCP Server")
 		return setupDHCP(&stress)
 	})
 
@@ -87,32 +90,25 @@ func (s *Stress) Start() error {
 }
 
 func (s *Stress) RunStressContainer(name string, mode string, duration int, iterationIndex int, index int, env map[string]string) error {
-	env_vars := []string{
-		fmt.Sprintf("threads=%v", consts.THREADS),
-		fmt.Sprintf("concurrent=%v", consts.CONCURRENT),
-		fmt.Sprintf("TZ=%v", consts.TZ),
-		fmt.Sprintf("dt_format=%v", consts.DT_FORMAT),
-		fmt.Sprintf("delay=%v", consts.DELAY),
-		fmt.Sprintf("test_id=%v", consts.TestID),
-		fmt.Sprintf("ssid=%v", s.Config.Router.Ssid),
-		fmt.Sprintf("protocol=%v", s.Config.Router.Name),
-		fmt.Sprintf("iteration_index=%v", iterationIndex),
-		fmt.Sprintf("index=%v", index),
-		fmt.Sprintf("name=%v", name),
-	}
-
-	for key, value := range env {
-		env_vars = append(env_vars, fmt.Sprintf("%v=%v", key, value))
-	}
-
 	ip, err := s.DHCPServer.Lease()
 
 	if err != nil {
 		return err
 	}
 
-	logger.Logger.Debug(fmt.Sprintf("starting container %v", name))
-	container, err := s.Docker.CreateAndStartContainer(name, mode, env_vars, ip)
+	log.Logger.Debug(fmt.Sprintf("starting container %v", name))	
+	container, err := s.Docker.RunContainer(docker.ContainerData{
+		Ssid: s.Config.Router.Ssid,
+		Platform: s.Config.Router.Name,
+		RunIndex: consts.Run_index,
+		TestID: s.TestID,
+		Mode: mode,
+		Name: name,
+		Ip: ip,
+		Index: index,
+		IterationIndex: iterationIndex,
+		Params: env,
+	})
 
 	if err != nil {
 		return err
@@ -122,36 +118,36 @@ func (s *Stress) RunStressContainer(name string, mode string, duration int, iter
 
 	s.DHCPServer.Release(ip)
 
-	return s.Docker.StopContainer(container, consts.SIGINT)
+	return s.Docker.KillContainer(container)
 }
 
 func setupSlave(stress *Stress) error {
-	slave, err := router.NewSlave(stress.Config)
+	slave, err := router.NewSlave(stress.Config.Network.Ssid)
 	stress.Slave = slave
 
 	if err != nil {
-		logger.Logger.Error(err.Error())
+		log.Logger.Error(err.Error())
 		return err
 	}
 
 	err = slave.TransferSamplerToRouter()
 
 	if err != nil {
-		logger.Logger.Error(err.Error())
+		log.Logger.Error(err.Error())
 		return err
 	}
 
 	err = slave.StartSampler()
 
 	if err != nil {
-		logger.Logger.Error(err.Error())
+		log.Logger.Error(err.Error())
 	}
 
 	return err
 }
 
 func setupDocker(stress *Stress) error {
-	docker, err := docker.NewDocker(stress.Config)
+	docker, err := docker.InitDocker(stress.Config)
 
 	if err != nil {
 		return err
@@ -163,7 +159,7 @@ func setupDocker(stress *Stress) error {
 }
 
 func setupDHCP(stress *Stress) error {
-	dhcp := dhcp.NewDHCPServer(stress.Config)
+	dhcp := dhcp.NewDHCPServer(stress.Config.Router.GetSubnet())
 	dhcp.PopulatePool()
 
 	stress.DHCPServer = dhcp
@@ -174,7 +170,7 @@ func setupDHCP(stress *Stress) error {
 func (s *Stress) Cleanup() error {
 	var eg errgroup.Group
 
-	logger.Logger.Debug("Running cleanup")
+	log.Logger.Debug("Running cleanup")
 
 	eg.Go(func() error {
 		return s.Slave.Cleanup()

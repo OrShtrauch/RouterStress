@@ -1,4 +1,8 @@
 {
+    "settings": {
+        "s3": false,
+        "debug": false
+    },
     "network": {
         "ssid": "Alona_Puma7",
         "interface": "enp0s31f6"

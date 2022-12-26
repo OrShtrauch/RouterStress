@@ -1,8 +1,10 @@
 package router
 
 import (
-	"os"
 	"encoding/json"
+	"fmt"
+	"os"
+	"strings"
 )
 
 type RouterData struct {
@@ -32,6 +34,14 @@ func LoadRouters(path string) ([]RouterData, error) {
 	}
 
 	return routers, err
+}
+
+func (r *RouterData) GetSubnet() string {
+	octets := strings.Split(r.Ip, ".")
+
+	octets[len(octets) - 1] = "0"
+
+	return fmt.Sprintf("%v/24", strings.Join(octets, "."))
 }
 
 func (r *RouterData) IsEmpty() bool {

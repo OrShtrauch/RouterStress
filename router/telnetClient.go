@@ -5,7 +5,7 @@ import (
 	"net"
 	"strings"
 	"time"
-	
+
 	"RouterStress/consts"
 )
 
@@ -27,17 +27,39 @@ func NewTelnetClient(ip string, port string, login ...string) (*TelnetClient, er
 		session: session,
 	}
 
-	client.receiveUntilPrompt()
-
+	
 	if len(login) > 0 {
-		for _, l := range login {
-			client.Run(l)
-		}
+		client.login(login)
+	} else {			
+		client.receiveUntilPrompt()
 	}
 
 	client.setPrompt(consts.PROMPT)
 
 	return client, err
+}
+
+func (client *TelnetClient) login(creds []string) error {
+	var err error
+	duration := 3
+
+	for cred := range creds {
+		_, err = client.session.Write([]byte(fmt.Sprintf("%v\n", cred)))
+
+		if err != nil {
+			return err
+		}
+
+		_, err = client.receiveForDuration(duration)
+		
+		if err != nil {
+			return err
+		}
+	}
+
+	_, err  = client.receiveForDuration(duration)
+
+	return err
 }
 
 func (client *TelnetClient) Run(cmd string) (string, error) {
@@ -57,6 +79,31 @@ func (client *TelnetClient) trimOutput(data string, cmd string) string {
 	return data
 }
 
+func (client *TelnetClient) receiveForDuration(duration int) (string, error) {
+	var stringBuilder strings.Builder
+
+	err := client.session.SetReadDeadline(time.Now().Add(time.Second * time.Duration(duration)))
+
+	if err != nil {
+		return stringBuilder.String(), err
+	}
+
+	start_time := time.Now()
+
+	for int(time.Since(start_time).Seconds()) < duration {
+		buffer := make([]byte, consts.BUFFER_SIZE)
+		mLen, err := client.session.Read(buffer)
+
+		if err != nil {
+			return stringBuilder.String(), err
+		}
+
+		stringBuilder.Write(buffer[:mLen])
+	}
+
+	return stringBuilder.String(), err
+}
+
 func (client *TelnetClient) receiveUntilPrompt(opts ...int) string {
 	var stringBuilder strings.Builder
 	var timeout int
@@ -69,6 +116,12 @@ func (client *TelnetClient) receiveUntilPrompt(opts ...int) string {
 		}
 	} else {
 		timeout = 10
+	}
+
+	err := client.session.SetReadDeadline(time.Now().Add(time.Second * time.Duration(timeout)))
+
+	if err != nil {
+		return err.Error()
 	}
 
 	start_time := time.Now()

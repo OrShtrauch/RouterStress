@@ -7,23 +7,24 @@ And it's scenarios are defined by a scenarios.json file
 
 ## Folder Structure
 In order for the program to run successfully, you must keep the same structure (a tar.gz archive with the current structure can be found in the github repository)
-```
-StressLI/
--stress
--stress.log
--containers/
---scripts/
----*python_script.py*
---*Dockerfiles*
--data/
---conf.json
---router_sampler.sh
---routers.json
---scenarios.json
--results/
---*TEST_ID*/
-```
 
+```
+.
+├── containers/
+├──── scripts/
+├────── *python_script.py*
+├──── *Dockerfiles*
+├── data/
+├──── conf.json
+├──── router_sampler.sh
+├──── routers.json
+├──── scenarios.json
+├── results/
+├──── *TestID*/
+├── stress
+├── stress.log
+└── README.md
+```
 To run the binary just execute
 ```
 ./stress&

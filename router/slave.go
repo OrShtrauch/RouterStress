@@ -89,6 +89,22 @@ func NewSlave(ssid string) (*Slave, error) {
 	return slave, err
 }
 
+func (s *Slave) StartSampler() error {
+	cmd := fmt.Sprintf("%v &", consts.SAMPLER_PATH)
+
+	_, err := s.Run(cmd)
+
+	return err
+}
+
+func (s *Slave) StopSampler() error {
+	cmd := fmt.Sprintf("killall %v", consts.SAMPLER_NAME)
+
+	_, err := s.Run(cmd)
+
+	return err
+}
+
 func (s *Slave) Run(cmd string) (string, error) {
 	data, err := s.Client.Run(cmd)
 
@@ -207,3 +223,13 @@ func (s *Slave) contains(cmd string, slice []string) bool {
 	}
 	return false
 }
+
+func (s *Slave) Cleanup() error {
+	
+}
+
+func writeSamplerData(data string) error {
+	path := fmt.Sprintf("results/%v/router_data.csv", consts.TestID)
+
+	return os.WriteFile(path, []byte(data), 0644)
+} 
