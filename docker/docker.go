@@ -3,9 +3,12 @@ package docker
 import (
 	"RouterStress/conf"
 	"RouterStress/consts"
+	"RouterStress/traffic"
+	"encoding/json"
 	"fmt"
 	"io"
 	"os"
+	"time"
 
 	dockerlib "github.com/fsouza/go-dockerclient"
 	"golang.org/x/sync/errgroup"
@@ -126,7 +129,7 @@ func (d *Docker) RunContainer(data ContainerData) (*dockerlib.Container, error) 
 }
 
 func (d *Docker) createContainer(name string, mode string, env []string) (*dockerlib.Container, error) {
-	imageName := fmt.Sprintf("stress-%v:%v", mode, consts.CONTAINER_VERSION)
+	imageName := fmt.Sprintf("%v-%v:%v", consts.STRESS_CONTAINER_PREFIX, mode, consts.CONTAINER_VERSION)
 
 	workingDir, err := os.Getwd()
 
@@ -172,6 +175,10 @@ func (d *Docker) KillContainer(c *dockerlib.Container) error {
 func (d *Docker) BuildImages(config *conf.Config) error {
 	var eg errgroup.Group
 
+	eg.Go(func () error {
+		return d.buildTrafficCaptureImage()
+	})
+
 	for _, s := range config.Scenarios.Scenarios {
 		scenario := s
 
@@ -188,11 +195,114 @@ func (d *Docker) buildImage(mode string) error {
 	dockerFile := fmt.Sprintf("Dockerfile.%v", mode)
 
 	return d.Client.BuildImage(dockerlib.BuildImageOptions{
-		Name:       imageName,
-		Dockerfile: dockerFile,		
-		ContextDir: "containers/",
+		Name:         imageName,
+		Dockerfile:   dockerFile,
+		ContextDir:   "containers/",
 		OutputStream: io.Discard,
 	})
+}
+
+func (d *Docker) buildTrafficCaptureImage() error {
+	imageName := fmt.Sprintf("%v:%v", consts.TRAFFIC_CAPTURE_IMAGE_NAME, consts.CONTAINER_VERSION)
+
+	return d.Client.BuildImage(dockerlib.BuildImageOptions{
+		Name: imageName,
+		ContextDir: consts.TRAFFIC_CAPTURE_PATH,
+		OutputStream: io.Discard,
+	})
+}
+
+func (d *Docker) RunInitalTrafficCapture(duration int) (*traffic.TrafficData, error) {
+	c, err := d.startTrafficCaptureContainer(duration, true)
+
+	if err != nil {
+		return nil, err
+	}
+
+	time.Sleep(time.Duration(duration) * time.Second)
+
+	return d.KillTrafficCaptureContainer(c, false)
+
+}
+
+func (d *Docker) startTrafficCaptureContainer(duration int, initial bool) (*dockerlib.Container, error) {
+	c, err := d.createTrafficCaptureContainer(duration, initial)
+
+	if err != nil {
+		return c, err
+	}
+
+	return c, d.startContainer(c)
+}
+
+func (d *Docker) createTrafficCaptureContainer(duration int, useDuration bool) (*dockerlib.Container, error) {
+	name := fmt.Sprintf("traffic-capture-%v", consts.TEST_UUID[:5])
+	imageName := fmt.Sprintf("%v:%v", consts.TRAFFIC_CONTAINER_PREFIX, consts.CONTAINER_VERSION)
+
+	if !useDuration {
+		duration = -1
+	}
+
+	env := []string{
+		fmt.Sprintf("URL=%v", consts.TRAFFIC_CAPTURE_URL),
+		fmt.Sprintf("FILENAME=%v", consts.TRAFFIC_DATA_NAME),
+		fmt.Sprintf("DURATION=%v", duration),
+		fmt.Sprintf("SLEEP=%v", consts.DELAY),
+	}
+
+	workingDir, err := os.Getwd()
+
+	if err != nil {
+		return nil, err
+	}
+
+	localPath := fmt.Sprintf("%v/%v", workingDir, consts.LOCAL_VOLUME_PATH)
+	binds := []string{fmt.Sprintf("%v:%v", localPath, consts.REMOTE_VOLUME_PATH)}
+
+	return d.Client.CreateContainer(dockerlib.CreateContainerOptions{
+		Name: name,
+		Config: &dockerlib.Config{
+			Image: imageName,
+			Env:   env,
+		},
+		HostConfig: &dockerlib.HostConfig{
+			Binds: binds,
+		},
+	})
+}
+
+func (d *Docker) KillTrafficCaptureContainer(container *dockerlib.Container, sendSignal bool) (*traffic.TrafficData, error) {
+	var data *traffic.TrafficData
+
+	for !trafficDataFileExists() {
+	}
+
+	if sendSignal {
+		err := d.KillContainer(container)
+	
+		if err != nil {
+			return data, err
+		}
+	}
+
+	file := fmt.Sprintf("%v/%v", consts.LOCAL_VOLUME_PATH, consts.TRAFFIC_DATA_NAME)
+	jsonData, err := os.ReadFile(file)
+
+	fmt.Printf("json: %v\n", jsonData)
+	if err != nil {
+		return data, err
+	}
+
+	err = json.Unmarshal(jsonData, &data)
+
+	return data, err
+}
+
+func trafficDataFileExists() bool {
+	file := fmt.Sprintf("%v/%v", consts.LOCAL_VOLUME_PATH, consts.TRAFFIC_DATA_NAME)
+	_, err := os.Stat(file)
+
+	return err == nil
 }
 
 func (d *Docker) Cleanup() error {

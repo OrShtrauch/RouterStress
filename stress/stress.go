@@ -7,6 +7,7 @@ import (
 	"RouterStress/docker"
 	"RouterStress/log"
 	"RouterStress/router"
+	"RouterStress/traffic"
 	"fmt"
 	"os"
 	"time"
@@ -15,11 +16,12 @@ import (
 )
 
 type Stress struct {
-	TestID     string
-	Config     *conf.Config
-	Docker     *docker.Docker
-	DHCPServer *dhcp.DHCPServer
-	Slave      *router.Slave
+	TestID             string
+	Config             *conf.Config
+	Docker             *docker.Docker
+	DHCPServer         *dhcp.DHCPServer
+	Slave              *router.Slave
+	InitialCaptureData *traffic.TrafficData
 }
 
 func NewStress(config *conf.Config) (Stress, error) {
@@ -50,9 +52,26 @@ func NewStress(config *conf.Config) (Stress, error) {
 		return setupDHCP(&stress)
 	})
 
+	if err := eg.Wait(); err != nil {
+		return stress, err
+	}
 
+	var trafficErrorGroup errgroup.Group
 
-	return stress, eg.Wait()
+	trafficErrorGroup.Go(func() error {
+		log.Logger.Debug("running inital traffic capture")
+		data, err := stress.Docker.RunInitalTrafficCapture(consts.INITIAL_CAPTURE_DURATION)
+		
+		if err != nil {
+			panic(err)
+		}
+		
+		stress.InitialCaptureData = data
+
+		return err
+	})
+
+	return stress, trafficErrorGroup.Wait()
 }
 
 func (s *Stress) Start() error {

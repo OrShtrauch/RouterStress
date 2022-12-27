@@ -1,26 +1,20 @@
 package traffic
 
-import (	
-	"RouterStress/consts"
-	"os"
-	"encoding/json"
-)
-
 type TrafficData struct {
-	Total string
+	Total           string
 	Retransmissions string
 }
 
-func Get() (TrafficData, error) {
-	var trafficData TrafficData
+// func Get() (TrafficData, error) {
+// 	var trafficData TrafficData
 
-	data, err := os.ReadFile(consts.TRAFFIC_DATA_PATH)
+// 	data, err := os.ReadFile(consts.TRAFFIC_DATA_PATH)
 
-	if err != nil {
-		return trafficData, err
-	}
+// 	if err != nil {
+// 		return trafficData, err
+// 	}
 
-	err = json.Unmarshal(data, &trafficData)
+// 	err = json.Unmarshal(data, &trafficData)
 
-	return trafficData, err
-}
+// 	return trafficData, err
+// }

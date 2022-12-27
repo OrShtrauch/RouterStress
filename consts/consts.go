@@ -10,6 +10,8 @@ var (
 	RUN_INDEX = 0
 
 	LOCAL_VOLUME_PATH = "results/" + TEST_ID
+	TRAFFIC_CAPTURE_URL = "http://testmymalwarefiles.com/CH7465LG-NCIP-6.15.32p4-SH.p7"
+	
 )
 
 const (
@@ -25,6 +27,8 @@ const (
 	MACVLAN     = "macvlan"
 	SIGTERM     = 15
 
+	INITIAL_CAPTURE_DURATION = 60
+
 	THREADS    = 25
 	CONCURRENT = 25
 	DT_FORMAT  = "%Y-%m-%d-%H:%M:%S"
@@ -35,17 +39,23 @@ const (
 	SAMPLER_PATH       = "/var/tmp/" + SAMPLER_NAME
 	SAMPLER_DATA_PATH  = "/var/tmp/hardware_data.csv"
 	SAMPLER_LOCAL_NAME = "router_data.csv"
+	TRAFFIC_DATA_NAME  = "packet_loss.json"	
 
-	DOCKERFILES_PATH  = "containers"
-	CONTAINER_SCRIPTS = DOCKERFILES_PATH + "/scripts"
 
-	ROUTERS_PATH       = "data/routers.json"
-	CONF_PATH          = "data/conf.json"
-	SCENARIOS_PATH     = "data/scenarios.json"
-	LOCAL_SAMPLER_PATH = "data/router_sampler.sh"
-	TRAFFIC_DATA_PATH  = "data/traffic_data.json"
+	DOCKERFILES_PATH  = "containers/"
+	CONTAINER_SCRIPTS = DOCKERFILES_PATH + "scripts"
+	TRAFFIC_CAPTURE_PATH = DOCKERFILES_PATH + "traffic_capture/"
+	TRAFFIC_CAPTURE_IMAGE_NAME = "traffic_capture"
 
-	CONTAINER_VERSION = "latest"
+	DATA_PATH          = "data/"
+	ROUTERS_PATH       = DATA_PATH + "routers.json"
+	CONF_PATH          = DATA_PATH + "conf.json"
+	SCENARIOS_PATH     = DATA_PATH + "scenarios.json"
+	LOCAL_SAMPLER_PATH = DATA_PATH + "router_sampler.sh"
+
+	STRESS_CONTAINER_PREFIX  = "stress"
+	TRAFFIC_CONTAINER_PREFIX = "traffic_capture"
+	CONTAINER_VERSION        = "latest"
 
 	REMOTE_VOLUME_PATH = "/var/tmp/stress/data"
 )
