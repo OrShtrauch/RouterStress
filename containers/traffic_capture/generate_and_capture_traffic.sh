@@ -1,23 +1,25 @@
 #!/bin/bash
 
 function teardown(){
-    TOTAL=$(tshark -r data/$FILENAME | wc -l)
-    RETRANSMISSIONS=$(tshark -r data/$FILENAME -Y "tcp.analysis.retransmission" | wc -l)
+    TOTAL=$(tshark -r data/data.pcap | wc -l)
+    RETRANSMISSIONS=$(tshark -r data/data.pcap -Y "tcp.analysis.retransmission" | wc -l)
 
-    rm -f data/$FILENAME
+    rm data/data.pcap
 
-    jq --null-input --arg total "$TOTAL" \
-    --arg retrnasmissions "$RETRANSMISSIONS" \
-    '{"total": $total, "retransmissions": $retrnasmissions }' > data/packet_loss.json
+    echo "TOTAL: " $TOTAL >> data/test
+    echo "RETRANSMISSIONS: " $RETRANSMISSIONS >> data/test
+    
+    jq -n --arg total "$TOTAL" --arg ret "$RETRANSMISSIONS" \
+        '{"total": $total, "retransmissions": $ret }' > data/$FILENAME
 
     exit
 }
 
 if [ $DURATION == "-1" ]; then
     trap "teardown" SIGTERM
-    tcpdump -i eth0 -w data/$FILENAME &
+    tcpdump -i eth0 -w data/data.pcap &
 else 
-    timeout $(echo $DURATION)s tcpdump -i eth0 -w data/$FILENAME &
+    timeout $(echo $DURATION)s tcpdump -i eth0 -w data/data.pcap &
 fi
 
 START=$SECONDS

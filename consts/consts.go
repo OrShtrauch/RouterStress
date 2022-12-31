@@ -9,9 +9,7 @@ var (
 	TEST_ID   = ""
 	RUN_INDEX = 0
 
-	LOCAL_VOLUME_PATH = "results/" + TEST_ID
 	TRAFFIC_CAPTURE_URL = "http://testmymalwarefiles.com/CH7465LG-NCIP-6.15.32p4-SH.p7"
-	
 )
 
 const (
@@ -26,25 +24,25 @@ const (
 	PING        = "ping"
 	MACVLAN     = "macvlan"
 	SIGTERM     = 15
-
+	
 	INITIAL_CAPTURE_DURATION = 60
-
+	
 	THREADS    = 25
 	CONCURRENT = 25
 	DT_FORMAT  = "%Y-%m-%d-%H:%M:%S"
 	TZ         = "Asia/Jerusalem"
 	DELAY      = 1
-
+	
+	RESULTS_DIR         = "results/"
 	SAMPLER_NAME       = "router_sampler.sh"
 	SAMPLER_PATH       = "/var/tmp/" + SAMPLER_NAME
 	SAMPLER_DATA_PATH  = "/var/tmp/hardware_data.csv"
 	SAMPLER_LOCAL_NAME = "router_data.csv"
-	TRAFFIC_DATA_NAME  = "packet_loss.json"	
+	TRAFFIC_DATA_NAME  = "packet_loss.json"
 
-
-	DOCKERFILES_PATH  = "containers/"
-	CONTAINER_SCRIPTS = DOCKERFILES_PATH + "scripts"
-	TRAFFIC_CAPTURE_PATH = DOCKERFILES_PATH + "traffic_capture/"
+	DOCKERFILES_PATH           = "containers/"
+	CONTAINER_SCRIPTS          = DOCKERFILES_PATH + "scripts"
+	TRAFFIC_CAPTURE_PATH       = DOCKERFILES_PATH + "traffic_capture/"
 	TRAFFIC_CAPTURE_IMAGE_NAME = "traffic_capture"
 
 	DATA_PATH          = "data/"

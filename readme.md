@@ -14,6 +14,7 @@ In order for the program to run successfully, you must keep the same structure (
 ├──── scripts/
 ├────── *python_script.py*
 ├──── *Dockerfiles*
+├──── Dockerfile.template
 ├── data/
 ├──── conf.json
 ├──── router_sampler.sh

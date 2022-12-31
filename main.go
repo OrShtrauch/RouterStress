@@ -2,8 +2,10 @@ package main
 
 import (
 	"RouterStress/conf"
+	"RouterStress/consts"
 	"RouterStress/log"
 	"RouterStress/stress"
+	"fmt"
 	"os"
 
 	"go.uber.org/zap"
@@ -19,13 +21,14 @@ func main() {
 
 	InitLogger(&config)
 
-
 	stress, err := stress.NewStress(&config)
 
 	if err != nil {
 		log.Logger.Error(err.Error())
 		panic(err)
 	}
+
+	log.Logger.Debug("finished setup")
 
 	err = stress.Start()
 
@@ -36,6 +39,9 @@ func main() {
 	}
 
 	stress.Cleanup()
+
+	log.Logger.Debug("Done.")
+	log.Logger.Debug(fmt.Sprintf("TestID: %v", consts.TEST_ID))
 }
 
 func InitLogger(config *conf.Config) {

@@ -23,7 +23,8 @@ test_id: str = os.environ[TEST_ID]
 name: str = os.environ["name"]
 log_name: str = f"{name}.log"
 file_name: str = f"{name}.csv"
-path: str = f"data/{test_id}"
+#path: str = f"data/{test_id}"
+path: str = "data/"
 
 logging.basicConfig(
     filename=f"{path}/{log_name}",

@@ -4,8 +4,8 @@
         "debug": true
     },
     "network": {
-        "ssid": "Alona_Puma7",
-        "interface": "enp0s31f6"
+        "ssid": "Josh_HT138",
+        "interface": "v10"
     },
     "iterations": [
         {
@@ -19,7 +19,7 @@
                             "params": {
                                 "domain": "ynet.co.il",
                                 "record_type": "A",
-                                "resolver": "10.0.1.138"
+                                "resolver": "1.1.1.1"
                             }
                         }
                     ],

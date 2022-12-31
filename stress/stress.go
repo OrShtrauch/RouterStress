@@ -61,11 +61,11 @@ func NewStress(config *conf.Config) (Stress, error) {
 	trafficErrorGroup.Go(func() error {
 		log.Logger.Debug("running inital traffic capture")
 		data, err := stress.Docker.RunInitalTrafficCapture(consts.INITIAL_CAPTURE_DURATION)
-		
+
 		if err != nil {
 			panic(err)
 		}
-		
+
 		stress.InitialCaptureData = data
 
 		return err

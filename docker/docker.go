@@ -137,7 +137,7 @@ func (d *Docker) createContainer(name string, mode string, env []string) (*docke
 		return nil, err
 	}
 
-	localPath := fmt.Sprintf("%v/%v", workingDir, consts.LOCAL_VOLUME_PATH)
+	localPath := fmt.Sprintf("%v/%v/%v", workingDir, consts.RESULTS_DIR, consts.TEST_ID)
 
 	binds := []string{fmt.Sprintf("%v:%v", localPath, consts.REMOTE_VOLUME_PATH)}
 
@@ -175,7 +175,7 @@ func (d *Docker) KillContainer(c *dockerlib.Container) error {
 func (d *Docker) BuildImages(config *conf.Config) error {
 	var eg errgroup.Group
 
-	eg.Go(func () error {
+	eg.Go(func() error {
 		return d.buildTrafficCaptureImage()
 	})
 
@@ -206,8 +206,8 @@ func (d *Docker) buildTrafficCaptureImage() error {
 	imageName := fmt.Sprintf("%v:%v", consts.TRAFFIC_CAPTURE_IMAGE_NAME, consts.CONTAINER_VERSION)
 
 	return d.Client.BuildImage(dockerlib.BuildImageOptions{
-		Name: imageName,
-		ContextDir: consts.TRAFFIC_CAPTURE_PATH,
+		Name:         imageName,
+		ContextDir:   consts.TRAFFIC_CAPTURE_PATH,
 		OutputStream: io.Discard,
 	})
 }
@@ -221,7 +221,9 @@ func (d *Docker) RunInitalTrafficCapture(duration int) (*traffic.TrafficData, er
 
 	time.Sleep(time.Duration(duration) * time.Second)
 
-	return d.KillTrafficCaptureContainer(c, false)
+	data, err := d.KillTrafficCaptureContainer(c, false)
+
+	return &data, err
 
 }
 
@@ -256,7 +258,7 @@ func (d *Docker) createTrafficCaptureContainer(duration int, useDuration bool) (
 		return nil, err
 	}
 
-	localPath := fmt.Sprintf("%v/%v", workingDir, consts.LOCAL_VOLUME_PATH)
+	localPath := fmt.Sprintf("%v/%v", workingDir, consts.RESULTS_DIR)
 	binds := []string{fmt.Sprintf("%v:%v", localPath, consts.REMOTE_VOLUME_PATH)}
 
 	return d.Client.CreateContainer(dockerlib.CreateContainerOptions{
@@ -271,35 +273,40 @@ func (d *Docker) createTrafficCaptureContainer(duration int, useDuration bool) (
 	})
 }
 
-func (d *Docker) KillTrafficCaptureContainer(container *dockerlib.Container, sendSignal bool) (*traffic.TrafficData, error) {
-	var data *traffic.TrafficData
+func (d *Docker) KillTrafficCaptureContainer(container *dockerlib.Container, sendSignal bool) (traffic.TrafficData, error) {
+	var data traffic.TrafficData
 
 	for !trafficDataFileExists() {
 	}
 
 	if sendSignal {
 		err := d.KillContainer(container)
-	
+
 		if err != nil {
 			return data, err
 		}
 	}
 
-	file := fmt.Sprintf("%v/%v", consts.LOCAL_VOLUME_PATH, consts.TRAFFIC_DATA_NAME)
+	file := fmt.Sprintf("%v%v", consts.RESULTS_DIR, consts.TRAFFIC_DATA_NAME)
+	fmt.Println(file)
 	jsonData, err := os.ReadFile(file)
 
-	fmt.Printf("json: %v\n", jsonData)
 	if err != nil {
 		return data, err
 	}
 
 	err = json.Unmarshal(jsonData, &data)
+	fmt.Printf("data: %v\n", jsonData)
 
-	return data, err
+	if err != nil {
+		return data, err
+	}
+	
+	return data, os.Remove(file)
 }
 
 func trafficDataFileExists() bool {
-	file := fmt.Sprintf("%v/%v", consts.LOCAL_VOLUME_PATH, consts.TRAFFIC_DATA_NAME)
+	file := fmt.Sprintf("%v/%v", consts.RESULTS_DIR, consts.TRAFFIC_DATA_NAME)
 	_, err := os.Stat(file)
 
 	return err == nil
