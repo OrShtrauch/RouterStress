@@ -18,7 +18,7 @@ const (
 	PROMPT      = "#sam_prompt#"
 	SSH         = "ssh"
 	TELNET      = "telnet"
-	SOCKET_PORT = "8654"
+	SOCKET_PORT = "9865"
 	NETCAT      = "nc"
 	AWK         = "awk"
 	PING        = "ping"
@@ -39,6 +39,8 @@ const (
 	SAMPLER_DATA_PATH  = "/var/tmp/hardware_data.csv"
 	SAMPLER_LOCAL_NAME = "router_data.csv"
 	TRAFFIC_DATA_NAME  = "packet_loss.json"
+
+	TRAFFIC_UNIX_SOCKET = "/tmp/traffic.sock"
 
 	DOCKERFILES_PATH           = "containers/"
 	CONTAINER_SCRIPTS          = DOCKERFILES_PATH + "scripts"

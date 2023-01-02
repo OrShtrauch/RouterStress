@@ -26,8 +26,8 @@ type Settings struct {
 }
 
 type Network struct {
-	Ssid      string
-	Interface string
+	Ssid   string
+	Parent string
 }
 
 type Iteration struct {

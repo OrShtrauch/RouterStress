@@ -56,22 +56,18 @@ func NewStress(config *conf.Config) (Stress, error) {
 		return stress, err
 	}
 
-	var trafficErrorGroup errgroup.Group
+	channel := make(chan traffic.TrafficMessage)
+	go traffic.RunInitialTrafficCapture(stress.Docker, consts.INITIAL_CAPTURE_DURATION, channel)
 
-	trafficErrorGroup.Go(func() error {
-		log.Logger.Debug("running inital traffic capture")
-		data, err := stress.Docker.RunInitalTrafficCapture(consts.INITIAL_CAPTURE_DURATION)
+	trafficMessage := <- channel
 
-		if err != nil {
-			panic(err)
-		}
+	if trafficMessage.Error != nil {
+		return stress, trafficMessage.Error
+	}
 
-		stress.InitialCaptureData = data
-
-		return err
-	})
-
-	return stress, trafficErrorGroup.Wait()
+	stress.InitialCaptureData = &trafficMessage.Data
+	
+	return stress, nil
 }
 
 func (s *Stress) Start() error {

@@ -3,12 +3,9 @@ package docker
 import (
 	"RouterStress/conf"
 	"RouterStress/consts"
-	"RouterStress/traffic"
-	"encoding/json"
 	"fmt"
 	"io"
 	"os"
-	"time"
 
 	dockerlib "github.com/fsouza/go-dockerclient"
 	"golang.org/x/sync/errgroup"
@@ -72,7 +69,7 @@ func (d *Docker) createMacvlan(config *conf.Config) (*dockerlib.Network, error) 
 		Name:   consts.MACVLAN,
 		Driver: consts.MACVLAN,
 		Options: map[string]interface{}{
-			"parent": config.Network.Interface,
+			"parent": config.Network.Parent,
 		},
 		IPAM: &dockerlib.IPAMOptions{
 			Config: []dockerlib.IPAMConfig{
@@ -212,22 +209,7 @@ func (d *Docker) buildTrafficCaptureImage() error {
 	})
 }
 
-func (d *Docker) RunInitalTrafficCapture(duration int) (*traffic.TrafficData, error) {
-	c, err := d.startTrafficCaptureContainer(duration, true)
-
-	if err != nil {
-		return nil, err
-	}
-
-	time.Sleep(time.Duration(duration) * time.Second)
-
-	data, err := d.KillTrafficCaptureContainer(c, false)
-
-	return &data, err
-
-}
-
-func (d *Docker) startTrafficCaptureContainer(duration int, initial bool) (*dockerlib.Container, error) {
+func (d *Docker) StartTrafficCaptureContainer(duration int, initial bool) (*dockerlib.Container, error) {
 	c, err := d.createTrafficCaptureContainer(duration, initial)
 
 	if err != nil {
@@ -247,7 +229,7 @@ func (d *Docker) createTrafficCaptureContainer(duration int, useDuration bool) (
 
 	env := []string{
 		fmt.Sprintf("URL=%v", consts.TRAFFIC_CAPTURE_URL),
-		fmt.Sprintf("FILENAME=%v", consts.TRAFFIC_DATA_NAME),
+		fmt.Sprintf("SOCKET=%v", consts.TRAFFIC_UNIX_SOCKET),
 		fmt.Sprintf("DURATION=%v", duration),
 		fmt.Sprintf("SLEEP=%v", consts.DELAY),
 	}
@@ -271,45 +253,6 @@ func (d *Docker) createTrafficCaptureContainer(duration int, useDuration bool) (
 			Binds: binds,
 		},
 	})
-}
-
-func (d *Docker) KillTrafficCaptureContainer(container *dockerlib.Container, sendSignal bool) (traffic.TrafficData, error) {
-	var data traffic.TrafficData
-
-	for !trafficDataFileExists() {
-	}
-
-	if sendSignal {
-		err := d.KillContainer(container)
-
-		if err != nil {
-			return data, err
-		}
-	}
-
-	file := fmt.Sprintf("%v%v", consts.RESULTS_DIR, consts.TRAFFIC_DATA_NAME)
-	fmt.Println(file)
-	jsonData, err := os.ReadFile(file)
-
-	if err != nil {
-		return data, err
-	}
-
-	err = json.Unmarshal(jsonData, &data)
-	fmt.Printf("data: %v\n", jsonData)
-
-	if err != nil {
-		return data, err
-	}
-	
-	return data, os.Remove(file)
-}
-
-func trafficDataFileExists() bool {
-	file := fmt.Sprintf("%v/%v", consts.RESULTS_DIR, consts.TRAFFIC_DATA_NAME)
-	_, err := os.Stat(file)
-
-	return err == nil
 }
 
 func (d *Docker) Cleanup() error {

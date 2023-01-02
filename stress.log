@@ -281,3 +281,137 @@
 2022-12-29T13:58:54.590+0200	debug	stress/stress.go:184	Running cleanup
 2022-12-29T13:58:55.652+0200	debug	RouterStress/main.go:43	Done.
 2022-12-29T13:58:55.652+0200	debug	RouterStress/main.go:44	TestID: Josh_HT138_96b35556-e9d5-419e-b03e-1578ec18c97b
+2022-12-31T15:11:34.183+0200	info	stress/stress.go:36	TestID: Josh_HT138_77c1741e-07b3-426c-8249-e1f0f7cbafbc
+2022-12-31T15:11:34.183+0200	debug	stress/stress.go:51	setting up DHCP Server
+2022-12-31T15:11:34.183+0200	debug	stress/stress.go:41	Setting up Router Slave
+2022-12-31T15:11:34.183+0200	debug	stress/stress.go:46	Setting up Docker Client and Network
+2022-12-31T15:11:55.303+0200	error	RouterStress/main.go:27	API error (500): invalid subinterface vlan name v10, example formatting is eth0.10
+2022-12-31T15:12:39.192+0200	info	stress/stress.go:36	TestID: Josh_HT138_ccf4e779-56fa-4765-b966-3e80b0964de1
+2022-12-31T15:12:39.192+0200	debug	stress/stress.go:51	setting up DHCP Server
+2022-12-31T15:12:39.192+0200	debug	stress/stress.go:41	Setting up Router Slave
+2022-12-31T15:12:39.193+0200	debug	stress/stress.go:46	Setting up Docker Client and Network
+2022-12-31T15:13:00.430+0200	debug	stress/stress.go:62	running inital traffic capture
+2022-12-31T15:19:07.809+0200	info	stress/stress.go:36	TestID: Josh_HT138_f697529b-6c36-4ab9-a39b-8ba3cc443795
+2022-12-31T15:19:07.809+0200	debug	stress/stress.go:51	setting up DHCP Server
+2022-12-31T15:19:07.810+0200	debug	stress/stress.go:41	Setting up Router Slave
+2022-12-31T15:19:07.810+0200	debug	stress/stress.go:46	Setting up Docker Client and Network
+2022-12-31T15:19:29.086+0200	debug	stress/stress.go:62	running inital traffic capture
+2022-12-31T15:20:29.410+0200	debug	RouterStress/main.go:31	finished setup
+2022-12-31T15:20:29.410+0200	debug	stress/stress.go:118	starting container stress_dns_0_1
+2022-12-31T15:20:29.410+0200	debug	stress/stress.go:118	starting container stress_dns_0_0
+2022-12-31T15:21:17.058+0200	info	stress/stress.go:36	TestID: Josh_HT138_0a4f3f9a-b895-4944-8422-8ed27073fdd0
+2022-12-31T15:21:17.058+0200	debug	stress/stress.go:51	setting up DHCP Server
+2022-12-31T15:21:17.058+0200	debug	stress/stress.go:41	Setting up Router Slave
+2022-12-31T15:21:17.058+0200	debug	stress/stress.go:46	Setting up Docker Client and Network
+2022-12-31T15:21:38.298+0200	error	RouterStress/main.go:27	API error (403): Pool overlaps with other one on this address space
+2022-12-31T15:22:14.108+0200	info	stress/stress.go:36	TestID: Josh_HT138_eaae6627-f1f4-4400-b23a-9d02ea92bb65
+2022-12-31T15:22:14.109+0200	debug	stress/stress.go:51	setting up DHCP Server
+2022-12-31T15:22:14.109+0200	debug	stress/stress.go:41	Setting up Router Slave
+2022-12-31T15:22:14.109+0200	debug	stress/stress.go:46	Setting up Docker Client and Network
+2022-12-31T15:22:35.306+0200	debug	stress/stress.go:62	running inital traffic capture
+2022-12-31T15:23:35.633+0200	debug	RouterStress/main.go:31	finished setup
+2022-12-31T15:23:35.633+0200	debug	stress/stress.go:118	starting container stress_dns_0_1
+2022-12-31T15:23:35.633+0200	debug	stress/stress.go:118	starting container stress_dns_0_0
+2022-12-31T15:25:12.351+0200	info	stress/stress.go:36	TestID: Josh_HT138_93fec577-fb00-4722-b38b-7ff6cf4ae783
+2022-12-31T15:25:12.351+0200	debug	stress/stress.go:51	setting up DHCP Server
+2022-12-31T15:25:12.351+0200	debug	stress/stress.go:41	Setting up Router Slave
+2022-12-31T15:25:12.352+0200	debug	stress/stress.go:46	Setting up Docker Client and Network
+2022-12-31T15:25:33.591+0200	debug	stress/stress.go:62	running inital traffic capture
+2022-12-31T15:35:42.201+0200	info	stress/stress.go:36	TestID: Josh_HT138_1d6ccefa-74bd-4df8-975c-8a5b13276d37
+2022-12-31T15:35:42.201+0200	debug	stress/stress.go:51	setting up DHCP Server
+2022-12-31T15:35:42.201+0200	debug	stress/stress.go:41	Setting up Router Slave
+2022-12-31T15:35:42.201+0200	debug	stress/stress.go:46	Setting up Docker Client and Network
+2022-12-31T15:36:03.382+0200	debug	stress/stress.go:62	running inital traffic capture
+2022-12-31T15:37:03.728+0200	debug	RouterStress/main.go:31	finished setup
+2022-12-31T15:37:03.728+0200	debug	stress/stress.go:118	starting container stress_dns_0_1
+2022-12-31T15:37:03.729+0200	debug	stress/stress.go:118	starting container stress_dns_0_0
+2022-12-31T15:38:14.417+0200	debug	stress/stress.go:184	Running cleanup
+2022-12-31T15:38:15.492+0200	debug	RouterStress/main.go:43	Done.
+2022-12-31T15:38:15.492+0200	debug	RouterStress/main.go:44	TestID: Josh_HT138_1d6ccefa-74bd-4df8-975c-8a5b13276d37
+2022-12-31T15:38:38.795+0200	info	stress/stress.go:36	TestID: Josh_HT138_8e696210-2d33-42f5-b27b-bf2168e89716
+2022-12-31T15:38:38.795+0200	debug	stress/stress.go:51	setting up DHCP Server
+2022-12-31T15:38:38.796+0200	debug	stress/stress.go:41	Setting up Router Slave
+2022-12-31T15:38:38.796+0200	debug	stress/stress.go:46	Setting up Docker Client and Network
+2022-12-31T15:38:59.961+0200	debug	stress/stress.go:62	running inital traffic capture
+2023-01-01T10:10:53.963+0200	info	stress/stress.go:36	TestID: Josh_HT138_04ef6629-a754-4d45-bfd0-43a04399bbbe
+2023-01-01T10:10:53.963+0200	debug	stress/stress.go:51	setting up DHCP Server
+2023-01-01T10:10:53.964+0200	debug	stress/stress.go:41	Setting up Router Slave
+2023-01-01T10:10:53.965+0200	debug	stress/stress.go:46	Setting up Docker Client and Network
+2023-01-01T10:11:15.155+0200	debug	stress/stress.go:62	running inital traffic capture
+2023-01-01T10:13:12.108+0200	info	stress/stress.go:36	TestID: Josh_HT138_2e71bf5b-f87b-4ebb-a970-275f9d20ff66
+2023-01-01T10:13:12.109+0200	debug	stress/stress.go:51	setting up DHCP Server
+2023-01-01T10:13:12.109+0200	debug	stress/stress.go:41	Setting up Router Slave
+2023-01-01T10:13:12.109+0200	debug	stress/stress.go:46	Setting up Docker Client and Network
+2023-01-01T10:13:33.196+0200	debug	stress/stress.go:62	running inital traffic capture
+2023-01-01T10:15:48.634+0200	info	stress/stress.go:36	TestID: Josh_HT138_d2da2df5-1b28-41b4-af91-7bf2a0532f5d
+2023-01-01T10:15:48.634+0200	debug	stress/stress.go:51	setting up DHCP Server
+2023-01-01T10:15:48.634+0200	debug	stress/stress.go:41	Setting up Router Slave
+2023-01-01T10:15:48.634+0200	debug	stress/stress.go:46	Setting up Docker Client and Network
+2023-01-01T10:16:09.816+0200	debug	stress/stress.go:62	running inital traffic capture
+2023-01-01T10:19:11.299+0200	info	stress/stress.go:36	TestID: Josh_HT138_5322966a-ee17-48df-b81e-866f643ff848
+2023-01-01T10:19:11.299+0200	debug	stress/stress.go:51	setting up DHCP Server
+2023-01-01T10:19:11.300+0200	debug	stress/stress.go:41	Setting up Router Slave
+2023-01-01T10:19:11.301+0200	debug	stress/stress.go:46	Setting up Docker Client and Network
+2023-01-01T10:19:32.526+0200	debug	stress/stress.go:62	running inital traffic capture
+2023-01-01T10:26:39.981+0200	info	stress/stress.go:36	TestID: Josh_HT138_73b52012-9aa5-4427-8053-ea3522802bb8
+2023-01-01T10:26:39.981+0200	debug	stress/stress.go:51	setting up DHCP Server
+2023-01-01T10:26:39.981+0200	debug	stress/stress.go:41	Setting up Router Slave
+2023-01-01T10:26:39.982+0200	debug	stress/stress.go:46	Setting up Docker Client and Network
+2023-01-01T10:27:01.130+0200	debug	stress/stress.go:62	running inital traffic capture
+2023-01-01T10:49:11.635+0200	info	stress/stress.go:36	TestID: Josh_HT138_22307d93-1519-44fb-84f7-2859bbee26b8
+2023-01-01T10:49:11.635+0200	debug	stress/stress.go:51	setting up DHCP Server
+2023-01-01T10:49:11.636+0200	debug	stress/stress.go:41	Setting up Router Slave
+2023-01-01T10:49:11.636+0200	debug	stress/stress.go:46	Setting up Docker Client and Network
+2023-01-01T10:49:32.894+0200	debug	stress/stress.go:62	running inital traffic capture
+2023-01-01T10:59:11.751+0200	info	stress/stress.go:36	TestID: Josh_HT138_61bc0b80-97db-4528-a0be-d72063ffd107
+2023-01-01T10:59:11.751+0200	debug	stress/stress.go:51	setting up DHCP Server
+2023-01-01T10:59:11.751+0200	debug	stress/stress.go:41	Setting up Router Slave
+2023-01-01T10:59:11.752+0200	debug	stress/stress.go:46	Setting up Docker Client and Network
+2023-01-01T10:59:32.818+0200	debug	stress/stress.go:62	running inital traffic capture
+2023-01-01T11:00:33.122+0200	debug	RouterStress/main.go:31	finished setup
+2023-01-01T11:00:33.122+0200	debug	stress/stress.go:118	starting container stress_dns_0_1
+2023-01-01T11:00:33.122+0200	debug	stress/stress.go:118	starting container stress_dns_0_0
+2023-01-01T11:01:43.802+0200	debug	stress/stress.go:184	Running cleanup
+2023-01-01T11:01:44.883+0200	debug	RouterStress/main.go:43	Done.
+2023-01-01T11:01:44.883+0200	debug	RouterStress/main.go:44	TestID: Josh_HT138_61bc0b80-97db-4528-a0be-d72063ffd107
+2023-01-01T11:02:39.470+0200	info	stress/stress.go:36	TestID: Josh_HT138_813bf203-3ea9-450c-80b2-22ae72cf3366
+2023-01-01T11:02:39.470+0200	debug	stress/stress.go:51	setting up DHCP Server
+2023-01-01T11:02:39.470+0200	debug	stress/stress.go:41	Setting up Router Slave
+2023-01-01T11:02:39.470+0200	debug	stress/stress.go:46	Setting up Docker Client and Network
+2023-01-01T11:03:00.672+0200	debug	stress/stress.go:62	running inital traffic capture
+2023-01-01T11:04:55.657+0200	info	stress/stress.go:36	TestID: Josh_HT138_f319c97d-516b-4e72-9783-8611d9e4dfb0
+2023-01-01T11:04:55.658+0200	debug	stress/stress.go:51	setting up DHCP Server
+2023-01-01T11:04:55.658+0200	debug	stress/stress.go:41	Setting up Router Slave
+2023-01-01T11:04:55.658+0200	debug	stress/stress.go:46	Setting up Docker Client and Network
+2023-01-01T11:05:16.989+0200	debug	stress/stress.go:62	running inital traffic capture
+2023-01-02T15:15:50.471+0200	info	stress/stress.go:36	TestID: Pumba_HT138_233c6297-77f0-4516-b422-1916a65d79bd
+2023-01-02T15:15:50.472+0200	debug	stress/stress.go:51	setting up DHCP Server
+2023-01-02T15:15:50.474+0200	debug	stress/stress.go:46	Setting up Docker Client and Network
+2023-01-02T15:15:50.474+0200	debug	stress/stress.go:41	Setting up Router Slave
+2023-01-02T15:16:06.676+0200	error	RouterStress/main.go:27	dial tcp 10.0.0.138:8654: connect: connection refused
+2023-01-02T15:16:37.858+0200	info	stress/stress.go:36	TestID: Pumba_HT138_8102e59d-441c-4467-a1fc-80244597cc55
+2023-01-02T15:16:37.865+0200	debug	stress/stress.go:51	setting up DHCP Server
+2023-01-02T15:16:37.865+0200	debug	stress/stress.go:41	Setting up Router Slave
+2023-01-02T15:16:37.866+0200	debug	stress/stress.go:46	Setting up Docker Client and Network
+2023-01-02T15:16:53.977+0200	error	RouterStress/main.go:27	dial tcp 10.0.0.138:8654: connect: connection refused
+2023-01-02T15:19:17.825+0200	info	stress/stress.go:36	TestID: Pumba_HT138_70a7c02b-fc51-4833-a855-c379a180bb43
+2023-01-02T15:19:17.825+0200	debug	stress/stress.go:51	setting up DHCP Server
+2023-01-02T15:19:17.825+0200	debug	stress/stress.go:41	Setting up Router Slave
+2023-01-02T15:19:17.826+0200	debug	stress/stress.go:46	Setting up Docker Client and Network
+2023-01-02T15:19:34.128+0200	error	RouterStress/main.go:27	dial tcp 10.0.0.138:9865: connect: connection refused
+2023-01-02T15:20:41.237+0200	info	stress/stress.go:36	TestID: Pumba_HT138_8ef42b24-190a-4281-9d02-5d6b8a85e2c1
+2023-01-02T15:20:41.237+0200	debug	stress/stress.go:41	Setting up Router Slave
+2023-01-02T15:20:41.237+0200	debug	stress/stress.go:51	setting up DHCP Server
+2023-01-02T15:20:41.237+0200	debug	stress/stress.go:46	Setting up Docker Client and Network
+2023-01-02T15:20:58.388+0200	error	RouterStress/main.go:27	dial tcp 10.0.0.138:9865: connect: connection refused
+2023-01-02T16:00:18.565+0200	info	stress/stress.go:36	TestID: Pumba_HT138_d99adc31-5804-455a-b082-24626d18d8ff
+2023-01-02T16:00:18.565+0200	debug	stress/stress.go:51	setting up DHCP Server
+2023-01-02T16:00:18.565+0200	debug	stress/stress.go:41	Setting up Router Slave
+2023-01-02T16:00:18.566+0200	debug	stress/stress.go:46	Setting up Docker Client and Network
+2023-01-02T16:00:40.762+0200	debug	stress/stress.go:62	running inital traffic capture
+2023-01-02T16:01:41.080+0200	debug	RouterStress/main.go:31	finished setup
+2023-01-02T16:01:41.081+0200	debug	stress/stress.go:118	starting container stress_dns_0_1
+2023-01-02T16:01:41.081+0200	debug	stress/stress.go:118	starting container stress_dns_0_0
+2023-01-02T16:02:51.806+0200	debug	stress/stress.go:184	Running cleanup
+2023-01-02T16:02:53.887+0200	debug	RouterStress/main.go:43	Done.
+2023-01-02T16:02:53.887+0200	debug	RouterStress/main.go:44	TestID: Pumba_HT138_d99adc31-5804-455a-b082-24626d18d8ff

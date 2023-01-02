@@ -4,8 +4,8 @@
         "debug": true
     },
     "network": {
-        "ssid": "Josh_HT138",
-        "interface": "v10"
+        "ssid": "Pumba_HT138",
+        "parent": "enx503eaa8b4bd0"
     },
     "iterations": [
         {
