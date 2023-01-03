@@ -56,7 +56,6 @@ func (client *TelnetClient) login(creds []string) error {
 		_, err = client.receiveForDuration(duration)		
 		
 		if err != nil && !os.IsTimeout(err) {
-			fmt.Println(err.Error())
 			return err
 		}
 	}

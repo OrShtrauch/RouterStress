@@ -10,6 +10,7 @@ import (
 	"RouterStress/traffic"
 	"fmt"
 	"os"
+	"math"
 	"strconv"
 	"time"
 
@@ -73,8 +74,9 @@ func NewStress(config *conf.Config) (Stress, error) {
 
 func (s *Stress) Start() error {
 	var data traffic.TrafficMessage
+	initial := true
 
-	for s.ShouldRunAgain(&data.Data) {
+	for s.ShouldRunAgain(&data.Data, initial) {				
 		data = traffic.RunTrafficCapture(s.Docker, func() error {
 			var eg errgroup.Group
 			var err error
@@ -85,8 +87,8 @@ func (s *Stress) Start() error {
 				index := 0
 				for _, protocol := range iteration.Protocols {
 					for j, container := range protocol.Containers {
-						for i := 0; i < container.Amount; i++ {
-							name := fmt.Sprintf("stress_%v_%v_%v", protocol.Mode, iterationIndex, index)
+						for i := 0; i < s.GetAdjustedAmount(container.Amount); i++ {
+							name := fmt.Sprintf("stress_%v_%v_%v_%v", protocol.Mode, consts.RUN_INDEX, iterationIndex, index)
 
 							env := protocol.Containers[j].Params
 
@@ -112,15 +114,19 @@ func (s *Stress) Start() error {
 		if data.Error != nil {
 			return data.Error
 		}
+
+		initial = false
+		consts.RUN_INDEX += 1
 	}
 
+	
 	return nil 
 }
 
 
-func (s *Stress) ShouldRunAgain(data *traffic.TrafficData) bool {
-	if data == nil {
-		return true
+func (s *Stress) ShouldRunAgain(data *traffic.TrafficData, initial bool) bool {
+	if initial {
+		return initial
 	}
 
 	initialTotal, _ := strconv.ParseFloat(s.InitialCaptureData.Total, 32)
@@ -133,8 +139,21 @@ func (s *Stress) ShouldRunAgain(data *traffic.TrafficData) bool {
 	initialRtRate := initialRetransmissions / initialTotal
 	rtRate := retransmissions / total
 	
-	fmt.Printf("current: %v, inital: %v, rate: %v", rtRate, initialRtRate, rtRate / initialRtRate)
-	return rtRate / initialRtRate < consts.RT_MAX_RATE
+	should_run_again := rtRate / initialRtRate < consts.RT_MAX_RATE
+
+	log.Logger.Debug(fmt.Sprintf("packet loss ratio: %v < %v is %v", rtRate / initialRtRate, consts.RT_MAX_RATE, should_run_again))
+
+	if should_run_again {
+		log.Logger.Info("running again with increased amount")
+	}	
+	
+	return should_run_again
+}
+
+func (s *Stress) GetAdjustedAmount(amount int) int {	
+	value := float64(amount) * ((0.5 * float64(consts.RUN_INDEX)) + 1)
+
+	return int(math.Ceil(value))
 }
 
 func (s *Stress) runStressContainer(name string, mode string, duration int, iterationIndex int, index int, env map[string]string) error {
@@ -166,7 +185,7 @@ func (s *Stress) runStressContainer(name string, mode string, duration int, iter
 
 	s.DHCPServer.Release(ip)
 
-	return s.Docker.KillContainer(container)
+	return s.Docker.KillContainer(container.ID)
 }
 
 func setupSlave(stress *Stress) error {

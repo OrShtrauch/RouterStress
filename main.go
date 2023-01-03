@@ -7,6 +7,7 @@ import (
 	"RouterStress/stress"
 	"fmt"
 	"os"
+	"os/signal"
 
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
@@ -27,6 +28,22 @@ func main() {
 		log.Logger.Error(err.Error())
 		panic(err)
 	}
+
+	channel := make(chan os.Signal)
+
+	signal.Notify(channel, os.Interrupt)
+
+	go func() {
+		sig := <-channel 
+		log.Logger.Info(fmt.Sprintf("Received %s", sig))
+
+		stress.Cleanup()
+
+		log.Logger.Debug(fmt.Sprintf("TestID: %v", consts.TEST_ID))
+		
+		close(channel)
+		os.Exit(0)		
+	}()
 
 	log.Logger.Debug("finished setup")
 

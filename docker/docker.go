@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"strings"
 
 	dockerlib "github.com/fsouza/go-dockerclient"
 	"golang.org/x/sync/errgroup"
@@ -161,10 +162,34 @@ func (d *Docker) startContainer(c *dockerlib.Container) error {
 	return d.Client.StartContainer(c.ID, nil)
 }
 
-func (d *Docker) KillContainer(c *dockerlib.Container) error {
-	fmt.Print("killing container\n")
+func (d *Docker) KillAllStressContainers() error {
+	var err error
+
+	containers, err := d.Client.ListContainers(dockerlib.ListContainersOptions{
+        All: false,		
+    })
+
+	if err != nil {
+        return err
+    }
+
+	for _, c := range containers {
+		if strings.Contains(c.Image, "stress") || strings.Contains(c.Image, "traffic") {
+			err = d.KillContainer(c.ID)
+
+			if err != nil {
+				return err
+			}
+		}
+	}
+
+	return err
+}
+
+
+func (d *Docker) KillContainer(id string) error {
 	return d.Client.KillContainer(dockerlib.KillContainerOptions{
-		ID:     c.ID,
+		ID:     id,
 		Signal: consts.SIGTERM,
 	})
 }
@@ -220,7 +245,6 @@ func (d *Docker) StartTrafficCaptureContainer() (*dockerlib.Container, error) {
 }
 
 func (d *Docker) createTrafficCaptureContainer() (*dockerlib.Container, error) {
-	name := fmt.Sprintf("traffic-capture-%v", consts.TEST_UUID[:5])
 	imageName := fmt.Sprintf("%v:%v", consts.TRAFFIC_CONTAINER_PREFIX, consts.CONTAINER_VERSION)
 
 	env := []string{
@@ -229,20 +253,11 @@ func (d *Docker) createTrafficCaptureContainer() (*dockerlib.Container, error) {
 		fmt.Sprintf("SLEEP=%v", consts.DELAY),
 	}
 
-	//workingDir, err := os.Getwd()
-
-	// if err != nil {
-	// 	return nil, err
-	// }
-
-	//localPath := fmt.Sprintf("%v/%v", workingDir, consts.RESULTS_DIR)
 	binds := []string{
-		//fmt.Sprintf("%v:%v", localPath, consts.REMOTE_VOLUME_PATH),
 		"/tmp:/tmp",
 	}
 
 	return d.Client.CreateContainer(dockerlib.CreateContainerOptions{
-		Name: name,
 		Config: &dockerlib.Config{
 			Image: imageName,
 			Env:   env,
@@ -255,6 +270,12 @@ func (d *Docker) createTrafficCaptureContainer() (*dockerlib.Container, error) {
 
 func (d *Docker) Cleanup() error {
 	var err error
+
+	err = d.KillAllStressContainers()
+
+	if err!= nil {
+        return err
+    }
 
 	_, err = d.Client.PruneContainers(dockerlib.PruneContainersOptions{})
 

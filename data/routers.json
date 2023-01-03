@@ -1,1 +1,1172 @@
-[{"name": "ht138", "ip": "10.0.0.138", "ssid": "Ami_HT138", "password": "AmiAmiAmi", "busybox": "/local/busybox", "sam_dir": "/local/sam/sam", "login_info": ["root", "ahy9mee2", "openfsshell"], "protocol": "telnet", "communication_port": "23"}, {"name": "ht138", "ip": "10.0.0.138", "ssid": "Tami_HT138", "password": "TamiTami", "busybox": "/local/busybox", "sam_dir": "/local/sam/sam", "login_info": ["root", "ahy9mee2", "openfsshell"], "protocol": "telnet", "communication_port": "23"}, {"name": "ht138", "ip": "10.0.0.138", "ssid": "Drake_HT138", "password": "DrakeDrake", "busybox": "/local/busybox", "sam_dir": "/local/sam/sam", "login_info": ["root", "ahy9mee2", "openfsshell"], "protocol": "telnet", "communication_port": "23"}, {"name": "ht138", "ip": "10.0.0.138", "ssid": "Josh_HT138", "password": "JoshJosh", "busybox": "/local/busybox", "sam_dir": "/local/sam/sam", "login_info": ["root", "ahy9mee2", "openfsshell"], "protocol": "telnet", "communication_port": "23"}, {"name": "ht138", "ip": "10.0.0.138", "ssid": "Static_HT138", "password": "StaticStatic", "busybox": "/local/busybox", "sam_dir": "/local/sam/sam", "login_info": ["root", "ahy9mee2", "openfsshell"], "protocol": "telnet", "communication_port": "23"}, {"name": "ht138", "ip": "10.0.5.138", "ssid": "Ci_Heights_138", "password": "CiAutomation", "busybox": "/local/busybox", "sam_dir": "/local/sam/sam", "login_info": ["root", "ahy9mee2", "openfsshell"], "protocol": "telnet", "communication_port": "23"}, {"name": "ht138", "ip": "10.0.0.138", "ssid": "Timon_HT138", "password": "TimonTimon", "busybox": "/local/busybox", "sam_dir": "/local/sam/sam", "login_info": ["root", "ahy9mee2", "openfsshell"], "protocol": "telnet", "communication_port": "23"}, {"name": "ht138", "ip": "10.0.0.138", "ssid": "Pumba_HT138", "password": "PumbaPumba", "busybox": "/local/busybox", "sam_dir": "/local/sam/sam", "login_info": ["root", "ahy9mee2", "openfsshell"], "protocol": "telnet", "communication_port": "23"}, {"name": "ht360", "ip": "10.0.0.138", "ssid": "Chandler_HT360", "password": "ChandlerChandler", "busybox": "/tmp/busybox", "sam_dir": "/tmp/sam/sam", "login_info": ["root", "ahy9mee2", "sh"], "protocol": "telnet", "communication_port": "23"}, {"name": "ht360", "ip": "10.0.0.138", "ssid": "Ci_Heights_360", "password": "CiAutomation", "busybox": "/tmp/busybox", "sam_dir": "/tmp/sam/sam", "login_info": ["root", "ahy9mee2", "sh"], "protocol": "telnet", "communication_port": "23"}, {"name": "ht360", "ip": "10.0.0.138", "ssid": "Ross_HT360", "password": "RossRoss", "busybox": "/tmp/busybox", "sam_dir": "/tmp/sam/sam", "login_info": ["root", "ahy9mee2", "sh"], "protocol": "telnet", "communication_port": "23"}, {"name": "ht360", "ip": "10.0.0.138", "ssid": "Monica_HT360", "password": "MonicaMonica", "busybox": "/tmp/busybox", "sam_dir": "/tmp/sam/sam", "login_info": ["root", "ahy9mee2", "sh"], "protocol": "telnet", "communication_port": "23"}, {"name": "ht360", "ip": "10.0.0.138", "ssid": "Phoebe_HT360", "password": "PhoebePhoebe", "busybox": "/tmp/busybox", "sam_dir": "/tmp/sam/sam", "login_info": ["root", "ahy9mee2", "sh"], "protocol": "telnet", "communication_port": "23"}, {"name": "ht360", "ip": "10.0.0.138", "ssid": "Rachel_HT360", "password": "RachelRachel", "busybox": "/tmp/busybox", "sam_dir": "/tmp/sam/sam", "login_info": ["root", "ahy9mee2", "sh"], "protocol": "telnet", "communication_port": "23"}, {"name": "sagem5670", "ip": "10.0.0.138", "ssid": "Ci_Sagem_5670", "password": "CiAutomation", "busybox": "/tmp/busybox", "sam_dir": "/tmp/sam/sam", "login_info": ["admin", "admin", "su", "$eval@sam_config.router_sn"], "protocol": "telnet", "communication_port": "23"}, {"name": "sagem5670", "ip": "10.0.0.138", "ssid": "Guri_Sagem", "password": "GuriGuri", "busybox": "/tmp/busybox", "sam_dir": "/tmp/sam/sam", "login_info": ["admin", "admin", "su", "$eval@sam_config.router_sn"], "protocol": "telnet", "communication_port": "23"}, {"name": "sagem5670", "ip": "10.0.0.138", "ssid": "Kramer_Sagem", "password": "KramerKramer", "busybox": "/tmp/busybox", "sam_dir": "/tmp/sam/sam", "login_info": ["admin", "admin", "su", "$eval@sam_config.router_sn"], "protocol": "telnet", "communication_port": "23"}, {"name": "sagem5670", "ip": "10.0.0.138", "ssid": "Jerry_Sagem", "password": "JerryJerry", "busybox": "/tmp/busybox", "sam_dir": "/tmp/sam/sam", "login_info": ["admin", "admin", "su", "$eval@sam_config.router_sn"], "protocol": "telnet", "communication_port": "23"}, {"name": "sagem5670", "ip": "10.0.0.138", "ssid": "Elaine_Sagem", "password": "ElaineElaine", "busybox": "/tmp/busybox", "sam_dir": "/tmp/sam/sam", "login_info": ["admin", "admin", "su", "$eval@sam_config.router_sn"], "protocol": "telnet", "communication_port": "23"}, {"name": "sagem5670", "ip": "10.0.0.138", "ssid": "George_Sagem", "password": "GeorgeGeorge", "busybox": "/tmp/busybox", "sam_dir": "/tmp/sam/sam", "login_info": ["admin", "admin", "su", "$eval@sam_config.router_sn"], "protocol": "telnet", "communication_port": "23"}, {"name": "ht178", "ip": "10.0.0.138", "ssid": "Ci_Heights_178", "password": "CiAutomation", "busybox": "/tmp/busybox", "sam_dir": "/data/sam/sam", "login_info": ["root", "ahy9mee2", "sh"], "protocol": "telnet", "communication_port": "23"}, {"name": "ht178", "ip": "10.10.0.138", "ssid": "Moran_Heights_178", "password": "MoranMoran", "busybox": "/tmp/busybox", "sam_dir": "/data/sam/sam", "login_info": ["root", "ahy9mee2", "sh"], "protocol": "telnet", "communication_port": "23"}, {"name": "puma5", "ip": "10.0.7.138", "ssid": "Ci_Puma5", "password": "CiAutomation", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma5", "ip": "192.168.0.1", "ssid": "Automation_Puma5", "password": "CiAutomation", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma5", "ip": "192.168.0.1", "ssid": "Starsky_Puma5", "password": "StarskyStarsky", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma5", "ip": "192.168.0.1", "ssid": "Hutch_Puma5", "password": "HutchHutch", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma5", "ip": "192.168.0.1", "ssid": "Simon_Puma5", "password": "SimonSimon", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma5", "ip": "192.168.0.1", "ssid": "Garfunkel_Puma5", "password": "GarfunkelGarfunkel", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma5", "ip": "192.168.0.1", "ssid": "Tesla_Puma5", "password": "TeslaTesla", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma5", "ip": "192.168.0.1", "ssid": "Edison_Puma5", "password": "EdisonEdison", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma6", "ip": "192.168.0.1", "ssid": "Shaike_Puma6", "password": "ShaikeShaike", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma6", "ip": "192.168.0.1", "ssid": "Poli_Puma6", "password": "PoliPoli", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma6", "ip": "192.168.0.1", "ssid": "Gavri_Puma6", "password": "GavriGavri", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma6", "ip": "192.168.0.1", "ssid": "Mario_Puma6", "password": "MarioMario", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma6", "ip": "192.168.0.1", "ssid": "Luigi_Puma6", "password": "LuigiLuigi", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma6", "ip": "10.0.8.138", "ssid": "Ci_Puma6", "password": "CiAutomation", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma6", "ip": "192.168.0.1", "ssid": "Automation_Puma6", "password": "CiAutomation", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma6", "ip": "192.168.0.1", "ssid": "Mobile_Puma6", "password": "MobileMobile", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma6", "ip": "192.168.0.1", "ssid": "Ringo_Puma6", "password": "RingoRingo", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma6", "ip": "192.168.0.1", "ssid": "George_Puma6", "password": "GeorgeGeorge", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma6", "ip": "192.168.0.1", "ssid": "John_Puma6", "password": "JohnJohn", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma6", "ip": "192.168.0.1", "ssid": "Paul_Puma6", "password": "PaulPaul", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma6", "ip": "192.168.0.1", "ssid": "Tom_Puma6", "password": "TomTomTom", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma6", "ip": "192.168.0.1", "ssid": "Jerry_Puma6", "password": "JerryJerry", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma6", "ip": "192.168.0.1", "ssid": "Zeus_Puma6", "password": "ZeusZeus", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma6", "ip": "192.168.0.1", "ssid": "Reputation_Puma6", "password": "Reputation", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "cbnlgpuma6", "ip": "192.168.0.1", "ssid": "Ci_LG_CBN_Puma6", "password": "CiAutomation", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "cbnlgpuma6", "ip": "192.168.0.1", "ssid": "Ci_Telenet_CBN_Puma6", "password": "CiAutomation", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "cbnlgpuma6", "ip": "192.168.0.1", "ssid": "Jessie_LG_CBN_Puma6", "password": "JessieJessie", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "cbnlgpuma6", "ip": "192.168.0.1", "ssid": "James_LG_CBN_Puma6", "password": "JamesJames", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "cbnlgpuma6", "ip": "192.168.0.1", "ssid": "Bibi_LG_CBN_Puma6", "password": "BibiBibi", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "cbnlgpuma6", "ip": "192.168.0.1", "ssid": "Sara_LG_CBN_Puma6", "password": "SaraSara", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "commscopelgpuma6", "ip": "192.168.178.1", "ssid": "LG_Commscope_Puma6", "password": "Puma6Puma6", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "commscopelgpuma6", "ip": "192.168.178.1", "ssid": "Ci_LG_Commscope_Puma6", "password": "CiAutomation1", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "commscopelgpuma6", "ip": "192.168.178.1", "ssid": "Lilo_LG_Commscope_Puma6", "password": "LiloLiloLilo1", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "commscopelgpuma6", "ip": "192.168.178.1", "ssid": "Stitch_LG_Commscope_Puma6", "password": "StitchStitch1", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma7", "ip": "192.168.0.1", "ssid": "Ilan_Puma7", "password": "IlanIlan", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma7", "ip": "192.168.0.1", "ssid": "Oded_Puma7", "password": "OdedOded", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma7", "ip": "192.168.0.1", "ssid": "Kobi_Puma7", "password": "KobiKobi", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma7", "ip": "192.168.0.1", "ssid": "Alona_Puma7", "password": "AlonaAlona", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma7", "ip": "192.168.0.1", "ssid": "Yamit_Puma7", "password": "YamitYamit", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma7", "ip": "192.168.0.1", "ssid": "Assi_Puma7", "password": "AssiAssi", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma7", "ip": "192.168.0.1", "ssid": "Tzion_Puma7", "password": "TzionTzion", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma7", "ip": "192.168.0.1", "ssid": "Shalom_Puma7", "password": "ShalomShalom", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma7", "ip": "192.168.0.1", "ssid": "Ci_Puma7", "password": "CiAutomation", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma7", "ip": "192.168.0.1", "ssid": "Automation_Puma7", "password": "CiAutomation", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "commscopelgpuma7", "ip": "192.168.178.1", "ssid": "Ci_LG_Commscope_Puma7", "password": "CiAutomation", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "23"}, {"name": "commscopelgpuma7", "ip": "192.168.0.1", "ssid": "Automation_LG_Commscope_Puma7", "password": "CiAutomation1", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "23"}, {"name": "commscopelgpuma7", "ip": "192.168.0.1", "ssid": "Phineas_LG_Commscope_Puma7", "password": "PhineasPhineas1", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "23"}, {"name": "commscopelgpuma7", "ip": "192.168.0.1", "ssid": "Ferb_LG_Commscope_Puma7", "password": "FerbFerbFerb1", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "23"}, {"name": "puma7", "ip": "192.168.0.1", "ssid": "telenet-ap-1612673", "password": "ISLYYFIEMRGA", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma7", "ip": "192.168.0.1", "ssid": "telenet-ap-1369906", "password": "RYzkzhc5frzk", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "puma7", "ip": "192.168.0.1", "ssid": "telenet-ap-6147387", "password": "UYJIKPPFRJTQ", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "archerc6", "ip": "192.168.30.1", "ssid": "Ci_Archer_C6", "password": "CiAutomation", "busybox": "/dev/busybox", "sam_dir": "/tmp/sam/sam", "login_info": ["root", "ahy9mee2"], "protocol": "ssh", "communication_port": "22"}, {"name": "archerc7", "ip": "192.168.30.1", "ssid": "Rick_C7", "password": "RickRick", "busybox": "/bin/busybox", "sam_dir": "/tmp/sam/sam", "login_info": null, "protocol": "ssh", "communication_port": "2323"}, {"name": "archerc7", "ip": "192.168.30.1", "ssid": "Ci_Archer_C7", "password": "CiAutomation", "busybox": "/bin/busybox", "sam_dir": "/tmp/sam/sam", "login_info": null, "protocol": "ssh", "communication_port": "2323"}, {"name": "archerc7", "ip": "192.168.30.1", "ssid": "Carlito_C7", "password": "CarlitoCarlito", "busybox": "/bin/busybox", "sam_dir": "/tmp/sam/sam", "login_info": null, "protocol": "ssh", "communication_port": "2323"}, {"name": "archerc6", "ip": "192.168.30.1", "ssid": "Automation_ArcherC6", "password": "ArcherArcher", "busybox": "/dev/busybox", "sam_dir": "/tmp/sam/sam", "login_info": ["root", "ahy9mee2"], "protocol": "ssh", "communication_port": "22"}, {"name": "vzbhrx", "ip": "192.168.1.1", "ssid": "Moshe_Fios", "password": "MosheMoshe", "busybox": "/dev/busybox", "sam_dir": "/var/sam/sam", "login_info": ["bhrx1", "bhrx1234bj03wu3j31j4"], "protocol": "ssh", "communication_port": "22"}, {"name": "vzbhrx", "ip": "192.168.1.1", "ssid": "Orna_Fios", "password": "OrnaOrna", "busybox": "/dev/busybox", "sam_dir": "/var/sam/sam", "login_info": ["bhrx1", "bhrx1234bj03wu3j31j4"], "protocol": "ssh", "communication_port": "22"}, {"name": "vzbhrx", "ip": "192.168.1.1", "ssid": "Kevin_Fios", "password": "KevinKevin", "busybox": "/dev/busybox", "sam_dir": "/var/sam/sam", "login_info": ["bhrx1", "bhrx1234bj03wu3j31j4"], "protocol": "ssh", "communication_port": "22"}, {"name": "vzbhrx", "ip": "192.168.1.1", "ssid": "Eddy_Fios", "password": "EddyEddy", "busybox": "/dev/busybox", "sam_dir": "/var/sam/sam", "login_info": ["bhrx1", "bhrx1234bj03wu3j31j4"], "protocol": "ssh", "communication_port": "22"}, {"name": "vzbhrx", "ip": "192.168.1.1", "ssid": "Dave_Fios", "password": "DaveDave", "busybox": "/dev/busybox", "sam_dir": "/var/sam/sam", "login_info": ["bhrx1", "bhrx1234bj03wu3j31j4"], "protocol": "ssh", "communication_port": "22"}, {"name": "vzchr2fa", "ip": "192.168.1.1", "ssid": "Ci_Fios", "password": "CiAutomation", "busybox": "/dev/busybox", "sam_dir": "/var/sam/sam", "login_info": ["chr2f", "chr2f5xdn98r5koew3hsp"], "protocol": "ssh", "communication_port": "22"}, {"name": "vzchr2fa", "ip": "192.168.1.1", "ssid": "Tabib_Fios", "password": "TabibTabib", "busybox": "/dev/busybox", "sam_dir": "/var/sam/sam", "login_info": ["chr2f", "chr2f5xdn98r5koew3hsp"], "protocol": "ssh", "communication_port": "22"}, {"name": "vzchr2fa", "ip": "192.168.1.1", "ssid": "Yair_Fios", "password": "YairYair", "busybox": "/dev/busybox", "sam_dir": "/var/sam/sam", "login_info": ["chr2f", "chr2f5xdn98r5koew3hsp"], "protocol": "ssh", "communication_port": "22"}, {"name": "vzchr2fa", "ip": "192.168.1.1", "ssid": "Jake_Fios", "password": "JakeJake", "busybox": "/dev/busybox", "sam_dir": "/var/sam/sam", "login_info": ["chr2f", "chr2f5xdn98r5koew3hsp"], "protocol": "ssh", "communication_port": "22"}, {"name": "vzchr2fa", "ip": "192.168.1.1", "ssid": "Elwood_Fios", "password": "ElwoodElwood", "busybox": "/dev/busybox", "sam_dir": "/var/sam/sam", "login_info": ["chr2f", "chr2f5xdn98r5koew3hsp"], "protocol": "ssh", "communication_port": "22"}, {"name": "ziplyfiber", "ip": "192.168.254.254", "ssid": "Ziply-7840", "password": "7mfrywxxk55x", "busybox": "/tmp/busybox", "sam_dir": "/tmp/sam/sam", "login_info": ["sshUser", "1475028693", "!"], "protocol": "ssh", "communication_port": "22"}, {"name": "sagem3896", "ip": "192.168.0.1", "ssid": "Sagem_3896_TLN", "password": "Mv2Mv2Mv2Mv2", "busybox": "busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "sagem3896", "ip": "192.168.0.1", "ssid": "Sagem_3896_LG", "password": "Mv2Mv2Mv2Mv2", "busybox": "busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "sagem5685", "ip": "192.168.0.1", "ssid": "Sagem_Mv3", "password": "Mv3Mv3Mv3Mv3", "busybox": "/dev/busybox", "sam_dir": "/var/sam/sam", "login_info": ["root"], "protocol": "ssh", "communication_port": "22"}, {"name": "coda5810q", "ip": "192.168.0.1", "ssid": "Ci_Coda5810q", "password": "CiAutomation", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}, {"name": "coda5810q", "ip": "192.168.0.1", "ssid": "Jordan_Coda5810q", "password": "JordanJordan", "busybox": "/var/tmp/busybox", "sam_dir": "/var/sam/sam", "login_info": null, "protocol": "telnet", "communication_port": "2323"}]
+[
+    {
+        "name": "ht138",
+        "ip": "10.0.0.138",
+        "ssid": "Ami_HT138",
+        "password": "AmiAmiAmi",
+        "busybox": "/local/busybox",
+        "sam_dir": "/local/sam/sam",
+        "login_info": [
+            "root",
+            "ahy9mee2",
+            "openfsshell"
+        ],
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "ht138",
+        "ip": "10.0.0.138",
+        "ssid": "Tami_HT138",
+        "password": "TamiTami",
+        "busybox": "/local/busybox",
+        "sam_dir": "/local/sam/sam",
+        "login_info": [
+            "root",
+            "ahy9mee2",
+            "openfsshell"
+        ],
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "ht138",
+        "ip": "10.0.0.138",
+        "ssid": "Drake_HT138",
+        "password": "DrakeDrake",
+        "busybox": "/local/busybox",
+        "sam_dir": "/local/sam/sam",
+        "login_info": [
+            "root",
+            "ahy9mee2",
+            "openfsshell"
+        ],
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "ht138",
+        "ip": "10.0.0.138",
+        "ssid": "Josh_HT138",
+        "password": "JoshJosh",
+        "busybox": "/local/busybox",
+        "sam_dir": "/local/sam/sam",
+        "login_info": [
+            "root",
+            "ahy9mee2",
+            "openfsshell"
+        ],
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "ht138",
+        "ip": "10.0.0.138",
+        "ssid": "Static_HT138",
+        "password": "StaticStatic",
+        "busybox": "/local/busybox",
+        "sam_dir": "/local/sam/sam",
+        "login_info": [
+            "root",
+            "ahy9mee2",
+            "openfsshell"
+        ],
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "ht138",
+        "ip": "10.0.5.138",
+        "ssid": "Ci_Heights_138",
+        "password": "CiAutomation",
+        "busybox": "/local/busybox",
+        "sam_dir": "/local/sam/sam",
+        "login_info": [
+            "root",
+            "ahy9mee2",
+            "openfsshell"
+        ],
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "ht138",
+        "ip": "10.0.0.138",
+        "ssid": "Timon_HT138",
+        "password": "TimonTimon",
+        "busybox": "/local/busybox",
+        "sam_dir": "/local/sam/sam",
+        "login_info": [
+            "root",
+            "ahy9mee2",
+            "openfsshell"
+        ],
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "ht138",
+        "ip": "10.0.0.138",
+        "ssid": "Pumba_HT138",
+        "password": "PumbaPumba",
+        "busybox": "/local/busybox",
+        "sam_dir": "/local/sam/sam",
+        "login_info": [
+            "root",
+            "ahy9mee2",
+            "openfsshell"
+        ],
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "ht360",
+        "ip": "10.0.0.138",
+        "ssid": "Chandler_HT360",
+        "password": "ChandlerChandler",
+        "busybox": "/tmp/busybox",
+        "sam_dir": "/tmp/sam/sam",
+        "login_info": [
+            "root",
+            "ahy9mee2",
+            "sh"
+        ],
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "ht360",
+        "ip": "10.0.0.138",
+        "ssid": "Ci_Heights_360",
+        "password": "CiAutomation",
+        "busybox": "/tmp/busybox",
+        "sam_dir": "/tmp/sam/sam",
+        "login_info": [
+            "root",
+            "ahy9mee2",
+            "sh"
+        ],
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "ht360",
+        "ip": "10.0.0.138",
+        "ssid": "Ross_HT360",
+        "password": "RossRoss",
+        "busybox": "/tmp/busybox",
+        "sam_dir": "/tmp/sam/sam",
+        "login_info": [
+            "root",
+            "ahy9mee2",
+            "sh"
+        ],
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "ht360",
+        "ip": "10.0.0.138",
+        "ssid": "Monica_HT360",
+        "password": "MonicaMonica",
+        "busybox": "/tmp/busybox",
+        "sam_dir": "/tmp/sam/sam",
+        "login_info": [
+            "root",
+            "ahy9mee2",
+            "sh"
+        ],
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "ht360",
+        "ip": "10.0.0.138",
+        "ssid": "Phoebe_HT360",
+        "password": "PhoebePhoebe",
+        "busybox": "/tmp/busybox",
+        "sam_dir": "/tmp/sam/sam",
+        "login_info": [
+            "root",
+            "ahy9mee2",
+            "sh"
+        ],
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "ht360",
+        "ip": "10.0.0.138",
+        "ssid": "Rachel_HT360",
+        "password": "RachelRachel",
+        "busybox": "/tmp/busybox",
+        "sam_dir": "/tmp/sam/sam",
+        "login_info": [
+            "root",
+            "ahy9mee2",
+            "sh"
+        ],
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "sagem5670",
+        "ip": "10.0.0.138",
+        "ssid": "Ci_Sagem_5670",
+        "password": "CiAutomation",
+        "busybox": "/tmp/busybox",
+        "sam_dir": "/tmp/sam/sam",
+        "login_info": [
+            "admin",
+            "admin",
+            "su",
+            "$eval@sam_config.router_sn"
+        ],
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "sagem5670",
+        "ip": "10.0.0.138",
+        "ssid": "Guri_Sagem",
+        "password": "GuriGuri",
+        "busybox": "/tmp/busybox",
+        "sam_dir": "/tmp/sam/sam",
+        "login_info": [
+            "admin",
+            "admin",
+            "su",
+            "$eval@sam_config.router_sn"
+        ],
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "sagem5670",
+        "ip": "10.0.0.138",
+        "ssid": "Kramer_Sagem",
+        "password": "KramerKramer",
+        "busybox": "/tmp/busybox",
+        "sam_dir": "/tmp/sam/sam",
+        "login_info": [
+            "admin",
+            "admin",
+            "su",
+            "$eval@sam_config.router_sn"
+        ],
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "sagem5670",
+        "ip": "10.0.0.138",
+        "ssid": "Jerry_Sagem",
+        "password": "JerryJerry",
+        "busybox": "/tmp/busybox",
+        "sam_dir": "/tmp/sam/sam",
+        "login_info": [
+            "admin",
+            "admin",
+            "su",
+            "$eval@sam_config.router_sn"
+        ],
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "sagem5670",
+        "ip": "10.0.0.138",
+        "ssid": "Elaine_Sagem",
+        "password": "ElaineElaine",
+        "busybox": "/tmp/busybox",
+        "sam_dir": "/tmp/sam/sam",
+        "login_info": [
+            "admin",
+            "admin",
+            "su",
+            "$eval@sam_config.router_sn"
+        ],
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "sagem5670",
+        "ip": "10.0.0.138",
+        "ssid": "George_Sagem",
+        "password": "GeorgeGeorge",
+        "busybox": "/tmp/busybox",
+        "sam_dir": "/tmp/sam/sam",
+        "login_info": [
+            "admin",
+            "admin",
+            "su",
+            "$eval@sam_config.router_sn"
+        ],
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "ht178",
+        "ip": "10.0.0.138",
+        "ssid": "Ci_Heights_178",
+        "password": "CiAutomation",
+        "busybox": "/tmp/busybox",
+        "sam_dir": "/data/sam/sam",
+        "login_info": [
+            "root",
+            "ahy9mee2",
+            "sh"
+        ],
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "ht178",
+        "ip": "10.10.0.138",
+        "ssid": "Moran_Heights_178",
+        "password": "MoranMoran",
+        "busybox": "/tmp/busybox",
+        "sam_dir": "/data/sam/sam",
+        "login_info": [
+            "root",
+            "ahy9mee2",
+            "sh"
+        ],
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "puma5",
+        "ip": "10.0.7.138",
+        "ssid": "Ci_Puma5",
+        "password": "CiAutomation",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma5",
+        "ip": "192.168.0.1",
+        "ssid": "Automation_Puma5",
+        "password": "CiAutomation",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma5",
+        "ip": "192.168.0.1",
+        "ssid": "Starsky_Puma5",
+        "password": "StarskyStarsky",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma5",
+        "ip": "192.168.0.1",
+        "ssid": "Hutch_Puma5",
+        "password": "HutchHutch",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma5",
+        "ip": "192.168.0.1",
+        "ssid": "Simon_Puma5",
+        "password": "SimonSimon",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma5",
+        "ip": "192.168.0.1",
+        "ssid": "Garfunkel_Puma5",
+        "password": "GarfunkelGarfunkel",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma5",
+        "ip": "192.168.0.1",
+        "ssid": "Tesla_Puma5",
+        "password": "TeslaTesla",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma5",
+        "ip": "192.168.0.1",
+        "ssid": "Edison_Puma5",
+        "password": "EdisonEdison",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma6",
+        "ip": "192.168.0.1",
+        "ssid": "Shaike_Puma6",
+        "password": "ShaikeShaike",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma6",
+        "ip": "192.168.0.1",
+        "ssid": "Poli_Puma6",
+        "password": "PoliPoli",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma6",
+        "ip": "192.168.0.1",
+        "ssid": "Gavri_Puma6",
+        "password": "GavriGavri",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma6",
+        "ip": "192.168.0.1",
+        "ssid": "Mario_Puma6",
+        "password": "MarioMario",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma6",
+        "ip": "192.168.0.1",
+        "ssid": "Luigi_Puma6",
+        "password": "LuigiLuigi",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma6",
+        "ip": "10.0.8.138",
+        "ssid": "Ci_Puma6",
+        "password": "CiAutomation",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma6",
+        "ip": "192.168.0.1",
+        "ssid": "Automation_Puma6",
+        "password": "CiAutomation",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma6",
+        "ip": "192.168.0.1",
+        "ssid": "Mobile_Puma6",
+        "password": "MobileMobile",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma6",
+        "ip": "192.168.0.1",
+        "ssid": "Ringo_Puma6",
+        "password": "RingoRingo",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma6",
+        "ip": "192.168.0.1",
+        "ssid": "George_Puma6",
+        "password": "GeorgeGeorge",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma6",
+        "ip": "192.168.0.1",
+        "ssid": "John_Puma6",
+        "password": "JohnJohn",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma6",
+        "ip": "192.168.0.1",
+        "ssid": "Paul_Puma6",
+        "password": "PaulPaul",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma6",
+        "ip": "192.168.0.1",
+        "ssid": "Tom_Puma6",
+        "password": "TomTomTom",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma6",
+        "ip": "192.168.0.1",
+        "ssid": "Jerry_Puma6",
+        "password": "JerryJerry",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma6",
+        "ip": "192.168.0.1",
+        "ssid": "Zeus_Puma6",
+        "password": "ZeusZeus",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma6",
+        "ip": "192.168.0.1",
+        "ssid": "Reputation_Puma6",
+        "password": "Reputation",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "cbnlgpuma6",
+        "ip": "192.168.0.1",
+        "ssid": "Ci_LG_CBN_Puma6",
+        "password": "CiAutomation",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "cbnlgpuma6",
+        "ip": "192.168.0.1",
+        "ssid": "Ci_Telenet_CBN_Puma6",
+        "password": "CiAutomation",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "cbnlgpuma6",
+        "ip": "192.168.0.1",
+        "ssid": "Jessie_LG_CBN_Puma6",
+        "password": "JessieJessie",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "cbnlgpuma6",
+        "ip": "192.168.0.1",
+        "ssid": "James_LG_CBN_Puma6",
+        "password": "JamesJames",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "cbnlgpuma6",
+        "ip": "192.168.0.1",
+        "ssid": "Bibi_LG_CBN_Puma6",
+        "password": "BibiBibi",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "cbnlgpuma6",
+        "ip": "192.168.0.1",
+        "ssid": "Sara_LG_CBN_Puma6",
+        "password": "SaraSara",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "commscopelgpuma6",
+        "ip": "192.168.178.1",
+        "ssid": "LG_Commscope_Puma6",
+        "password": "Puma6Puma6",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "commscopelgpuma6",
+        "ip": "192.168.178.1",
+        "ssid": "Ci_LG_Commscope_Puma6",
+        "password": "CiAutomation1",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "commscopelgpuma6",
+        "ip": "192.168.178.1",
+        "ssid": "Lilo_LG_Commscope_Puma6",
+        "password": "LiloLiloLilo1",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "commscopelgpuma6",
+        "ip": "192.168.178.1",
+        "ssid": "Stitch_LG_Commscope_Puma6",
+        "password": "StitchStitch1",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma7",
+        "ip": "192.168.0.1",
+        "ssid": "Ilan_Puma7",
+        "password": "IlanIlan",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma7",
+        "ip": "192.168.0.1",
+        "ssid": "Oded_Puma7",
+        "password": "OdedOded",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma7",
+        "ip": "192.168.0.1",
+        "ssid": "Kobi_Puma7",
+        "password": "KobiKobi",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma7",
+        "ip": "192.168.0.1",
+        "ssid": "Alona_Puma7",
+        "password": "AlonaAlona",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma7",
+        "ip": "192.168.0.1",
+        "ssid": "Yamit_Puma7",
+        "password": "YamitYamit",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma7",
+        "ip": "192.168.0.1",
+        "ssid": "Assi_Puma7",
+        "password": "AssiAssi",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma7",
+        "ip": "192.168.0.1",
+        "ssid": "Tzion_Puma7",
+        "password": "TzionTzion",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma7",
+        "ip": "192.168.0.1",
+        "ssid": "Shalom_Puma7",
+        "password": "ShalomShalom",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma7",
+        "ip": "192.168.0.1",
+        "ssid": "Ci_Puma7",
+        "password": "CiAutomation",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma7",
+        "ip": "192.168.0.1",
+        "ssid": "Automation_Puma7",
+        "password": "CiAutomation",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "commscopelgpuma7",
+        "ip": "192.168.178.1",
+        "ssid": "Ci_LG_Commscope_Puma7",
+        "password": "CiAutomation",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "commscopelgpuma7",
+        "ip": "192.168.0.1",
+        "ssid": "Automation_LG_Commscope_Puma7",
+        "password": "CiAutomation1",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "commscopelgpuma7",
+        "ip": "192.168.0.1",
+        "ssid": "Phineas_LG_Commscope_Puma7",
+        "password": "PhineasPhineas1",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "commscopelgpuma7",
+        "ip": "192.168.0.1",
+        "ssid": "Ferb_LG_Commscope_Puma7",
+        "password": "FerbFerbFerb1",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "23"
+    },
+    {
+        "name": "puma7",
+        "ip": "192.168.0.1",
+        "ssid": "telenet-ap-1612673",
+        "password": "ISLYYFIEMRGA",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma7",
+        "ip": "192.168.0.1",
+        "ssid": "telenet-ap-1369906",
+        "password": "RYzkzhc5frzk",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "puma7",
+        "ip": "192.168.0.1",
+        "ssid": "telenet-ap-6147387",
+        "password": "UYJIKPPFRJTQ",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "archerc6",
+        "ip": "192.168.30.1",
+        "ssid": "Ci_Archer_C6",
+        "password": "CiAutomation",
+        "busybox": "/dev/busybox",
+        "sam_dir": "/tmp/sam/sam",
+        "login_info": [
+            "root",
+            "ahy9mee2"
+        ],
+        "protocol": "ssh",
+        "communication_port": "22"
+    },
+    {
+        "name": "archerc7",
+        "ip": "192.168.30.1",
+        "ssid": "Rick_C7",
+        "password": "RickRick",
+        "busybox": "/bin/busybox",
+        "sam_dir": "/tmp/sam/sam",
+        "login_info": null,
+        "protocol": "ssh",
+        "communication_port": "2323"
+    },
+    {
+        "name": "archerc7",
+        "ip": "192.168.30.1",
+        "ssid": "Ci_Archer_C7",
+        "password": "CiAutomation",
+        "busybox": "/bin/busybox",
+        "sam_dir": "/tmp/sam/sam",
+        "login_info": null,
+        "protocol": "ssh",
+        "communication_port": "2323"
+    },
+    {
+        "name": "archerc7",
+        "ip": "192.168.30.1",
+        "ssid": "Carlito_C7",
+        "password": "CarlitoCarlito",
+        "busybox": "/bin/busybox",
+        "sam_dir": "/tmp/sam/sam",
+        "login_info": null,
+        "protocol": "ssh",
+        "communication_port": "2323"
+    },
+    {
+        "name": "archerc6",
+        "ip": "192.168.30.1",
+        "ssid": "Automation_ArcherC6",
+        "password": "ArcherArcher",
+        "busybox": "/dev/busybox",
+        "sam_dir": "/tmp/sam/sam",
+        "login_info": [
+            "root",
+            "ahy9mee2"
+        ],
+        "protocol": "ssh",
+        "communication_port": "22"
+    },
+    {
+        "name": "vzbhrx",
+        "ip": "192.168.1.1",
+        "ssid": "Moshe_Fios",
+        "password": "MosheMoshe",
+        "busybox": "/dev/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": [
+            "bhrx1",
+            "bhrx1234bj03wu3j31j4"
+        ],
+        "protocol": "ssh",
+        "communication_port": "22"
+    },
+    {
+        "name": "vzbhrx",
+        "ip": "192.168.1.1",
+        "ssid": "Orna_Fios",
+        "password": "OrnaOrna",
+        "busybox": "/dev/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": [
+            "bhrx1",
+            "bhrx1234bj03wu3j31j4"
+        ],
+        "protocol": "ssh",
+        "communication_port": "22"
+    },
+    {
+        "name": "vzbhrx",
+        "ip": "192.168.1.1",
+        "ssid": "Kevin_Fios",
+        "password": "KevinKevin",
+        "busybox": "/dev/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": [
+            "bhrx1",
+            "bhrx1234bj03wu3j31j4"
+        ],
+        "protocol": "ssh",
+        "communication_port": "22"
+    },
+    {
+        "name": "vzbhrx",
+        "ip": "192.168.1.1",
+        "ssid": "Eddy_Fios",
+        "password": "EddyEddy",
+        "busybox": "/dev/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": [
+            "bhrx1",
+            "bhrx1234bj03wu3j31j4"
+        ],
+        "protocol": "ssh",
+        "communication_port": "22"
+    },
+    {
+        "name": "vzbhrx",
+        "ip": "192.168.1.1",
+        "ssid": "Dave_Fios",
+        "password": "DaveDave",
+        "busybox": "/dev/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": [
+            "bhrx1",
+            "bhrx1234bj03wu3j31j4"
+        ],
+        "protocol": "ssh",
+        "communication_port": "22"
+    },
+    {
+        "name": "vzchr2fa",
+        "ip": "192.168.1.1",
+        "ssid": "Ci_Fios",
+        "password": "CiAutomation",
+        "busybox": "/dev/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": [
+            "chr2f",
+            "chr2f5xdn98r5koew3hsp"
+        ],
+        "protocol": "ssh",
+        "communication_port": "22"
+    },
+    {
+        "name": "vzchr2fa",
+        "ip": "192.168.1.1",
+        "ssid": "Tabib_Fios",
+        "password": "TabibTabib",
+        "busybox": "/dev/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": [
+            "chr2f",
+            "chr2f5xdn98r5koew3hsp"
+        ],
+        "protocol": "ssh",
+        "communication_port": "22"
+    },
+    {
+        "name": "vzchr2fa",
+        "ip": "192.168.1.1",
+        "ssid": "Yair_Fios",
+        "password": "YairYair",
+        "busybox": "/dev/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": [
+            "chr2f",
+            "chr2f5xdn98r5koew3hsp"
+        ],
+        "protocol": "ssh",
+        "communication_port": "22"
+    },
+    {
+        "name": "vzchr2fa",
+        "ip": "192.168.1.1",
+        "ssid": "Jake_Fios",
+        "password": "JakeJake",
+        "busybox": "/dev/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": [
+            "chr2f",
+            "chr2f5xdn98r5koew3hsp"
+        ],
+        "protocol": "ssh",
+        "communication_port": "22"
+    },
+    {
+        "name": "vzchr2fa",
+        "ip": "192.168.1.1",
+        "ssid": "Elwood_Fios",
+        "password": "ElwoodElwood",
+        "busybox": "/dev/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": [
+            "chr2f",
+            "chr2f5xdn98r5koew3hsp"
+        ],
+        "protocol": "ssh",
+        "communication_port": "22"
+    },
+    {
+        "name": "ziplyfiber",
+        "ip": "192.168.254.254",
+        "ssid": "Ziply-7840",
+        "password": "7mfrywxxk55x",
+        "busybox": "/tmp/busybox",
+        "sam_dir": "/tmp/sam/sam",
+        "login_info": [
+            "sshUser",
+            "1475028693",
+            "!"
+        ],
+        "protocol": "ssh",
+        "communication_port": "22"
+    },
+    {
+        "name": "sagem3896",
+        "ip": "192.168.0.1",
+        "ssid": "Sagem_3896_TLN",
+        "password": "Mv2Mv2Mv2Mv2",
+        "busybox": "busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "sagem3896",
+        "ip": "192.168.0.1",
+        "ssid": "Sagem_3896_LG",
+        "password": "Mv2Mv2Mv2Mv2",
+        "busybox": "busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "sagem5685",
+        "ip": "192.168.0.1",
+        "ssid": "Sagem_Mv3",
+        "password": "Mv3Mv3Mv3Mv3",
+        "busybox": "/dev/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": [
+            "root"
+        ],
+        "protocol": "ssh",
+        "communication_port": "22"
+    },
+    {
+        "name": "coda5810q",
+        "ip": "192.168.0.1",
+        "ssid": "Ci_Coda5810q",
+        "password": "CiAutomation",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    },
+    {
+        "name": "coda5810q",
+        "ip": "192.168.0.1",
+        "ssid": "Jordan_Coda5810q",
+        "password": "JordanJordan",
+        "busybox": "/var/tmp/busybox",
+        "sam_dir": "/var/sam/sam",
+        "login_info": null,
+        "protocol": "telnet",
+        "communication_port": "2323"
+    }
+]

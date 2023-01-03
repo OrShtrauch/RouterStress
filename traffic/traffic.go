@@ -4,7 +4,6 @@ import (
 	"RouterStress/consts"
 	"RouterStress/docker"
 	"encoding/json"
-	"fmt"
 	"net"
 	"os"
 )
@@ -62,7 +61,7 @@ func RunTrafficCapture(d *docker.Docker, cb func() error) TrafficMessage {
 		}
 	}(channel)
 
-	if err = d.KillContainer(c); err != nil {
+	if err = d.KillContainer(c.ID); err != nil {
 		return TrafficMessage{
 			Data:  TrafficData{},
 			Error: err,
@@ -71,8 +70,6 @@ func RunTrafficCapture(d *docker.Docker, cb func() error) TrafficMessage {
 
 	msg := <-channel
 	close(channel)
-
-	fmt.Printf("msg: %v\n", msg.Data)
 
 	return msg
 }
@@ -100,7 +97,6 @@ func ListenForTrafficData() (string, error) {
 		if mLen, err := conn.Read(buffer); err != nil {
 			return data, err
 		} else {
-			fmt.Printf("data: %v\n", string(buffer[:mLen]))
 			return string(buffer[:mLen]), err
 		}
 	}
@@ -113,33 +109,3 @@ func parseJsonData(jsonData string) (TrafficData, error) {
 
 	return data, err
 }
-
-/*
-file := fmt.Sprintf("%v%v", consts.RESULTS_DIR, consts.TRAFFIC_DATA_NAME)
-	fmt.Println(file)
-	jsonData, err := os.ReadFile(file)
-
-	if err != nil {
-		return data, err
-	}
-
-	fmt.Printf("len: %v\n", len(jsonData))
-	fmt.Printf("file %v\n",string(jsonData))
-
-	err = os.Remove(file)
-
-	if err != nil {
-		return data, err
-	}
-
-	err = json.Unmarshal([]byte(string(jsonData)), &data)
-	fmt.Printf("data: %v\n", data)
-
-	if err != nil {
-		fmt.Println("error")
-		fmt.Println(err.Error())
-		return data, err
-	}
-
-	return data, err
-*/

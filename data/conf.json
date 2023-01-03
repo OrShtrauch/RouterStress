@@ -9,7 +9,7 @@
     },
     "iterations": [
         {
-            "duration": 1,
+            "duration": 2,
             "cooldown": 10,
             "protocols": [
                 {
