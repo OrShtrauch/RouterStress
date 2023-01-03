@@ -209,8 +209,8 @@ func (d *Docker) buildTrafficCaptureImage() error {
 	})
 }
 
-func (d *Docker) StartTrafficCaptureContainer(duration int, initial bool) (*dockerlib.Container, error) {
-	c, err := d.createTrafficCaptureContainer(duration, initial)
+func (d *Docker) StartTrafficCaptureContainer() (*dockerlib.Container, error) {
+	c, err := d.createTrafficCaptureContainer()
 
 	if err != nil {
 		return c, err
@@ -219,29 +219,27 @@ func (d *Docker) StartTrafficCaptureContainer(duration int, initial bool) (*dock
 	return c, d.startContainer(c)
 }
 
-func (d *Docker) createTrafficCaptureContainer(duration int, useDuration bool) (*dockerlib.Container, error) {
+func (d *Docker) createTrafficCaptureContainer() (*dockerlib.Container, error) {
 	name := fmt.Sprintf("traffic-capture-%v", consts.TEST_UUID[:5])
 	imageName := fmt.Sprintf("%v:%v", consts.TRAFFIC_CONTAINER_PREFIX, consts.CONTAINER_VERSION)
-
-	if !useDuration {
-		duration = -1
-	}
 
 	env := []string{
 		fmt.Sprintf("URL=%v", consts.TRAFFIC_CAPTURE_URL),
 		fmt.Sprintf("SOCKET=%v", consts.TRAFFIC_UNIX_SOCKET),
-		fmt.Sprintf("DURATION=%v", duration),
 		fmt.Sprintf("SLEEP=%v", consts.DELAY),
 	}
 
-	workingDir, err := os.Getwd()
+	//workingDir, err := os.Getwd()
 
-	if err != nil {
-		return nil, err
+	// if err != nil {
+	// 	return nil, err
+	// }
+
+	//localPath := fmt.Sprintf("%v/%v", workingDir, consts.RESULTS_DIR)
+	binds := []string{
+		//fmt.Sprintf("%v:%v", localPath, consts.REMOTE_VOLUME_PATH),
+		"/tmp:/tmp",
 	}
-
-	localPath := fmt.Sprintf("%v/%v", workingDir, consts.RESULTS_DIR)
-	binds := []string{fmt.Sprintf("%v:%v", localPath, consts.REMOTE_VOLUME_PATH)}
 
 	return d.Client.CreateContainer(dockerlib.CreateContainerOptions{
 		Name: name,

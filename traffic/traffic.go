@@ -4,6 +4,7 @@ import (
 	"RouterStress/consts"
 	"RouterStress/docker"
 	"encoding/json"
+	"fmt"
 	"net"
 	"os"
 )
@@ -18,68 +19,62 @@ type TrafficMessage struct {
 	Error error
 }
 
-func RunTrafficCapture(d *docker.Docker, cb func() error) {
+func RunTrafficCapture(d *docker.Docker, cb func() error) TrafficMessage {
 	var traffic TrafficData
 	var err error
 
-	c, err := d.StartTrafficCaptureContainer(duration, true)
+	c, err := d.StartTrafficCaptureContainer()
 
 	if err != nil {
-		channel <- TrafficMessage{
+		return TrafficMessage{
 			Data:  TrafficData{},
 			Error: err,
 		}
-		return
 	}
-}
 
-func RunInitialTrafficCapture(d *docker.Docker, duration int, channel chan TrafficMessage) {
-	var traffic TrafficData
-	var err error
-
-	c, err := d.StartTrafficCaptureContainer(duration, true)
+	err = cb()
 
 	if err != nil {
-		channel <- TrafficMessage{
+		return TrafficMessage{
 			Data:  TrafficData{},
 			Error: err,
 		}
-		return
 	}
 
-	jsonData, err := ListenForTrafficData()
+	channel := make(chan TrafficMessage)
 
-	if err != nil {
-		channel <- TrafficMessage{
-			Data:  TrafficData{},
-			Error: err,
+	go func(channel chan TrafficMessage) {		
+		jsonData, err := ListenForTrafficData()
+
+		if err != nil {
+			channel <- TrafficMessage{
+				Data:  TrafficData{},
+				Error: err,
+			}
+			return
 		}
-		return
-	}
 
-	traffic, err = parseJsonData(jsonData)
+		traffic, err = parseJsonData(jsonData)
 
-	if err != nil {
-		channel <- TrafficMessage{
-			Data:  TrafficData{},
-			Error: err,
-		}
-		return
-	}
-
-	if err = d.KillContainer(c); err != nil {
-		channel <- TrafficMessage{
-			Data:  TrafficData{},
-			Error: err,
-		}
-		return
-	} else {
 		channel <- TrafficMessage{
 			Data:  traffic,
 			Error: err,
 		}
-		return
+	}(channel)
+
+	if err = d.KillContainer(c); err != nil {
+		return TrafficMessage{
+			Data:  TrafficData{},
+			Error: err,
+		}
 	}
+
+	msg := <-channel
+	close(channel)
+
+	fmt.Printf("msg: %v\n", msg.Data)
+
+	return msg
 }
 
 func ListenForTrafficData() (string, error) {
@@ -97,7 +92,6 @@ func ListenForTrafficData() (string, error) {
 
 	for {
 		conn, err := listener.Accept()
-
 		if err != nil {
 			return data, err
 		}
@@ -106,6 +100,7 @@ func ListenForTrafficData() (string, error) {
 		if mLen, err := conn.Read(buffer); err != nil {
 			return data, err
 		} else {
+			fmt.Printf("data: %v\n", string(buffer[:mLen]))
 			return string(buffer[:mLen]), err
 		}
 	}

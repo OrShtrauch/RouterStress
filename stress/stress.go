@@ -10,6 +10,7 @@ import (
 	"RouterStress/traffic"
 	"fmt"
 	"os"
+	"strconv"
 	"time"
 
 	"golang.org/x/sync/errgroup"
@@ -56,10 +57,10 @@ func NewStress(config *conf.Config) (Stress, error) {
 		return stress, err
 	}
 
-	channel := make(chan traffic.TrafficMessage)
-	go traffic.RunInitialTrafficCapture(stress.Docker, consts.INITIAL_CAPTURE_DURATION, channel)
-
-	trafficMessage := <- channel
+	trafficMessage := traffic.RunTrafficCapture(stress.Docker, func() error {
+		time.Sleep(time.Second * 60)
+		return nil
+	})		
 
 	if trafficMessage.Error != nil {
 		return stress, trafficMessage.Error
@@ -71,37 +72,69 @@ func NewStress(config *conf.Config) (Stress, error) {
 }
 
 func (s *Stress) Start() error {
-	var eg errgroup.Group
-	var err error
+	var data traffic.TrafficMessage
 
-	for iterationIndex, iteration := range s.Config.Iterations {
-		duration := iteration.Duration
+	for s.ShouldRunAgain(&data.Data) {
+		data = traffic.RunTrafficCapture(s.Docker, func() error {
+			var eg errgroup.Group
+			var err error
 
-		index := 0
-		for _, protocol := range iteration.Protocols {
-			for j, container := range protocol.Containers {
-				for i := 0; i < container.Amount; i++ {
-					name := fmt.Sprintf("stress_%v_%v_%v", protocol.Mode, iterationIndex, index)
+			for iterationIndex, iteration := range s.Config.Iterations {
+				duration := iteration.Duration
 
-					env := protocol.Containers[j].Params
+				index := 0
+				for _, protocol := range iteration.Protocols {
+					for j, container := range protocol.Containers {
+						for i := 0; i < container.Amount; i++ {
+							name := fmt.Sprintf("stress_%v_%v_%v", protocol.Mode, iterationIndex, index)
 
-					eg.Go(func() error {
-						return s.runStressContainer(name, protocol.Mode, duration, iterationIndex, index, env)
-					})
+							env := protocol.Containers[j].Params
 
-					index++
+							eg.Go(func() error {
+								return s.runStressContainer(name, protocol.Mode, duration, iterationIndex, index, env)
+							})
+
+							index++
+						}
+					}
 				}
+
+				if err = eg.Wait(); err != nil {
+					return err
+				}
+
+				time.Sleep(time.Duration(iteration.Cooldown) * time.Second)
 			}
-		}
 
-		if err = eg.Wait(); err != nil {
 			return err
-		}
+		})
 
-		time.Sleep(time.Duration(iteration.Cooldown) * time.Second)
+		if data.Error != nil {
+			return data.Error
+		}
 	}
 
-	return err
+	return nil 
+}
+
+
+func (s *Stress) ShouldRunAgain(data *traffic.TrafficData) bool {
+	if data == nil {
+		return true
+	}
+
+	initialTotal, _ := strconv.ParseFloat(s.InitialCaptureData.Total, 32)
+	initialRetransmissions, _ := strconv.ParseFloat(s.InitialCaptureData.Retransmissions, 32)
+
+
+	total, _ := strconv.ParseFloat(data.Total, 32)
+	retransmissions, _ := strconv.ParseFloat(data.Retransmissions, 32)
+
+	initialRtRate := initialRetransmissions / initialTotal
+	rtRate := retransmissions / total
+	
+	fmt.Printf("current: %v, inital: %v, rate: %v", rtRate, initialRtRate, rtRate / initialRtRate)
+	return rtRate / initialRtRate < consts.RT_MAX_RATE
 }
 
 func (s *Stress) runStressContainer(name string, mode string, duration int, iterationIndex int, index int, env map[string]string) error {
