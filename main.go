@@ -5,9 +5,9 @@ import (
 	"RouterStress/consts"
 	"RouterStress/log"
 	"RouterStress/stress"
-	"fmt"
-	"os"
 	"os/signal"
+	"os"
+	"fmt"
 
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
@@ -38,6 +38,11 @@ func main() {
 		log.Logger.Info(fmt.Sprintf("Received %s", sig))
 
 		stress.Cleanup()
+
+		if err!= nil {
+			fmt.Println(err.Error())
+		}
+
 
 		log.Logger.Debug(fmt.Sprintf("TestID: %v", consts.TEST_ID))
 		

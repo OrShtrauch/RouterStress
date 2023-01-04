@@ -186,6 +186,30 @@ func (d *Docker) KillAllStressContainers() error {
 	return err
 }
 
+func (d *Docker) WaitForStressContainersToDie() error {
+	for {
+		var stressContainers []dockerlib.APIContainers		
+
+		containers, err := d.Client.ListContainers(dockerlib.ListContainersOptions{
+			All: false,		
+		})
+		
+		if err != nil {
+			return err
+		}
+
+		for _, c := range containers {
+			if strings.Contains(c.Image, "stress") || strings.Contains(c.Image, "traffic") {
+                stressContainers = append(stressContainers, c)
+            }
+		}
+
+		if len(stressContainers) == 0 {
+			return nil
+		}
+	}
+}
+
 
 func (d *Docker) KillContainer(id string) error {
 	return d.Client.KillContainer(dockerlib.KillContainerOptions{
@@ -277,6 +301,12 @@ func (d *Docker) Cleanup() error {
         return err
     }
 
+	err = d.WaitForStressContainersToDie()
+
+	if err!= nil {
+        return err
+    }
+    
 	_, err = d.Client.PruneContainers(dockerlib.PruneContainersOptions{})
 
 	if err != nil {

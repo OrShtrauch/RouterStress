@@ -128,3 +128,62 @@
 2023-01-03T22:17:19.342+0200	info	RouterStress/main.go:40	Received interrupt
 2023-01-03T22:17:19.342+0200	debug	stress/stress.go:234	Running cleanup
 2023-01-03T22:17:20.405+0200	debug	RouterStress/main.go:42	TestID: Pumba_HT138_0d36bc44-5d64-4b8a-b723-af2a300dd007
+2023-01-04T07:16:29.458+0200	info	stress/stress.go:38	TestID: Pumba_HT138_e2d1234a-e9af-4b6e-9b59-93ecbc8a31e6
+2023-01-04T07:16:29.458+0200	debug	stress/stress.go:53	setting up DHCP Server
+2023-01-04T07:16:29.458+0200	debug	stress/stress.go:43	Setting up Router Slave
+2023-01-04T07:16:29.458+0200	debug	stress/stress.go:48	Setting up Docker Client and Network
+2023-01-04T07:18:14.011+0200	debug	RouterStress/main.go:48	finished setup
+2023-01-04T07:18:14.279+0200	debug	stress/stress.go:166	starting container stress_dns_0_0_1
+2023-01-04T07:18:14.279+0200	debug	stress/stress.go:166	starting container stress_dns_0_0_0
+2023-01-04T07:18:47.603+0200	info	RouterStress/main.go:38	Received interrupt
+2023-01-04T07:18:47.603+0200	debug	stress/stress.go:232	Running cleanup
+2023-01-04T07:18:48.662+0200	debug	RouterStress/main.go:42	TestID: Pumba_HT138_e2d1234a-e9af-4b6e-9b59-93ecbc8a31e6
+2023-01-04T07:19:57.449+0200	info	stress/stress.go:38	TestID: Pumba_HT138_b7c1ec69-e3b9-408d-b1ac-3cb64e3f0bee
+2023-01-04T07:19:57.449+0200	debug	stress/stress.go:53	setting up DHCP Server
+2023-01-04T07:19:57.449+0200	debug	stress/stress.go:43	Setting up Router Slave
+2023-01-04T07:19:57.449+0200	debug	stress/stress.go:48	Setting up Docker Client and Network
+2023-01-04T07:21:42.250+0200	debug	RouterStress/main.go:49	finished setup
+2023-01-04T07:21:42.591+0200	debug	stress/stress.go:166	starting container stress_dns_0_0_0
+2023-01-04T07:21:42.591+0200	debug	stress/stress.go:166	starting container stress_dns_0_0_1
+2023-01-04T07:22:05.301+0200	info	RouterStress/main.go:38	Received interrupt
+2023-01-04T07:22:05.301+0200	debug	stress/stress.go:232	Running cleanup
+2023-01-04T07:23:49.853+0200	info	stress/stress.go:38	TestID: Pumba_HT138_256b2a08-2567-4e31-9cb2-72b693e9cf7a
+2023-01-04T07:23:49.853+0200	debug	stress/stress.go:53	setting up DHCP Server
+2023-01-04T07:23:49.853+0200	debug	stress/stress.go:43	Setting up Router Slave
+2023-01-04T07:23:49.854+0200	debug	stress/stress.go:48	Setting up Docker Client and Network
+2023-01-04T07:25:30.514+0200	debug	RouterStress/main.go:55	finished setup
+2023-01-04T07:25:30.815+0200	debug	stress/stress.go:166	starting container stress_dns_0_0_0
+2023-01-04T07:25:30.815+0200	debug	stress/stress.go:166	starting container stress_dns_0_0_1
+2023-01-04T07:25:45.293+0200	info	RouterStress/main.go:40	Received interrupt
+2023-01-04T07:25:45.293+0200	debug	stress/stress.go:232	Running cleanup
+2023-01-04T07:25:46.902+0200	debug	RouterStress/main.go:49	TestID: Pumba_HT138_256b2a08-2567-4e31-9cb2-72b693e9cf7a
+2023-01-04T07:26:29.278+0200	info	stress/stress.go:38	TestID: Pumba_HT138_dce62f97-2f97-4c8c-8362-365f8777368b
+2023-01-04T07:26:29.278+0200	debug	stress/stress.go:53	setting up DHCP Server
+2023-01-04T07:26:29.279+0200	debug	stress/stress.go:43	Setting up Router Slave
+2023-01-04T07:26:29.279+0200	debug	stress/stress.go:48	Setting up Docker Client and Network
+2023-01-04T07:28:11.100+0200	debug	RouterStress/main.go:55	finished setup
+2023-01-04T07:28:11.384+0200	debug	stress/stress.go:166	starting container stress_dns_0_0_1
+2023-01-04T07:28:11.384+0200	debug	stress/stress.go:166	starting container stress_dns_0_0_0
+2023-01-04T07:28:27.751+0200	info	RouterStress/main.go:40	Received interrupt
+2023-01-04T07:28:27.751+0200	debug	stress/stress.go:232	Running cleanup
+2023-01-04T07:28:28.931+0200	debug	RouterStress/main.go:49	TestID: Pumba_HT138_dce62f97-2f97-4c8c-8362-365f8777368b
+2023-01-04T07:29:47.197+0200	info	stress/stress.go:38	TestID: Pumba_HT138_785b6c43-95c7-4e2a-afbf-7c626cc0d1cb
+2023-01-04T07:29:47.197+0200	debug	stress/stress.go:53	setting up DHCP Server
+2023-01-04T07:29:47.197+0200	debug	stress/stress.go:43	Setting up Router Slave
+2023-01-04T07:29:47.198+0200	debug	stress/stress.go:48	Setting up Docker Client and Network
+2023-01-04T07:30:33.107+0200	debug	RouterStress/main.go:53	finished setup
+2023-01-04T07:30:33.423+0200	debug	stress/stress.go:166	starting container stress_dns_0_0_1
+2023-01-04T07:30:33.424+0200	debug	stress/stress.go:166	starting container stress_dns_0_0_0
+2023-01-04T07:30:47.500+0200	info	RouterStress/main.go:38	Received interrupt
+2023-01-04T07:30:47.500+0200	debug	stress/stress.go:232	Running cleanup
+2023-01-04T07:30:48.545+0200	debug	RouterStress/main.go:47	TestID: Pumba_HT138_785b6c43-95c7-4e2a-afbf-7c626cc0d1cb
+2023-01-04T07:38:09.628+0200	info	stress/stress.go:38	TestID: Pumba_HT138_42fde2d4-a1e7-48fc-9b8e-c493310cca8f
+2023-01-04T07:38:09.628+0200	debug	stress/stress.go:53	setting up DHCP Server
+2023-01-04T07:38:09.628+0200	debug	stress/stress.go:43	Setting up Router Slave
+2023-01-04T07:38:09.629+0200	debug	stress/stress.go:48	Setting up Docker Client and Network
+2023-01-04T07:38:56.532+0200	debug	RouterStress/main.go:53	finished setup
+2023-01-04T07:38:56.887+0200	debug	stress/stress.go:166	starting container stress_dns_0_0_1
+2023-01-04T07:38:56.887+0200	debug	stress/stress.go:166	starting container stress_dns_0_0_0
+2023-01-04T07:39:21.738+0200	info	RouterStress/main.go:38	Received interrupt
+2023-01-04T07:39:21.738+0200	debug	stress/stress.go:232	Running cleanup
+2023-01-04T07:39:33.911+0200	debug	RouterStress/main.go:47	TestID: Pumba_HT138_42fde2d4-a1e7-48fc-9b8e-c493310cca8f

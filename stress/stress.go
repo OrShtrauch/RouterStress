@@ -59,7 +59,7 @@ func NewStress(config *conf.Config) (Stress, error) {
 	}
 
 	trafficMessage := traffic.RunTrafficCapture(stress.Docker, func() error {
-		time.Sleep(time.Second * 60)
+		time.Sleep(time.Second * 20)
 		return nil
 	})		
 
