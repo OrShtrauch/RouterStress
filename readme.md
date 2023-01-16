@@ -66,6 +66,22 @@ the results will consist of the following:
  - TODO: cpu over time graph
  - TODO: aggregated json file
 
+ ## Adding More Routers
+ you can add new routers in 2 ways:
+  1. use 'router_extractor.py' in the data directory, this will use the automation team 'routers.yaml' and 'firmwares.py' to generate json file with all the releavent fields.
+  2. Add one manually
+
+ ## Adding Custom Modes
+
+ To add a custom mode you have to add it in the scenarios.json file, located in the 'data' directory
+ there you will specify:
+ - Name
+ - Display Name
+ - pip Dependencies
+ - Script Path
+ - Parameters To Pass
+
+after adding it, a docker image will be created on runtime, so you can use the mode in the conf.json
 
 ## Config file
 The config file is composed of 2 main parts, 
@@ -108,7 +124,6 @@ and the cooldown time before the next iteration.
             [                    
                 {
                     "amount": "5",
-                    "intensity": "Warning",
                     "params":
                     {
                         "scheme": "HTTP",
@@ -146,14 +161,12 @@ containers fields:
 ```json
  {
     "amount": "5",
-    "intensity": "Warning",
     "params": {...}
 }
 ```
 | field | value |
 | ----- | ----- | 
 | `amount` | amount of containers to run | 
-| `intensity` | `Low/Warning/Block`, defined per protocol, see table below|
 | `params` | special params to the containers, per protocol. see params table below |
 
 params example:
@@ -187,12 +200,6 @@ params example:
 | `resolver`| dns server ip |
 
 
-| field | value |
-| ----- | ----- | 
-| `Low`   | TBD |
-| `Warning` | TBD |
-| `Block` | TBD |
-
 #### Example config file:
 ```json
 {
@@ -216,7 +223,6 @@ params example:
                     [                    
                         {
                             "amount": "5",
-                            "intensity": "Warning",
                             "params":
                             {
                                 "scheme": "HTTP",
@@ -231,7 +237,6 @@ params example:
                     [
                         {
                             "amount": "3",
-                            "intensity": "Block",
                             "params":
                             {...}
                         }
@@ -250,7 +255,6 @@ params example:
                     [
                         {
                             "amount": "3",
-                            "intensity": "Block",
                             "params":
                             {...}
                         }
