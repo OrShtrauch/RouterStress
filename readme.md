@@ -185,13 +185,6 @@ params example:
 | `url` | target url |
 | `scheme`| HTTP/HTTPS |
 
-
-| field | value |
-| ----- | ----- | 
-| `Low`   | TBD |
-| `Warning` | TBD |
-| `Block` | TBD |
-
 #### DNS:
 | field | value |
 | ----- | ----- | 
