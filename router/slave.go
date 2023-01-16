@@ -61,15 +61,16 @@ func NewSlave(ssid string) (*Slave, error) {
 
 			return slave, err
 		} else {
-			var username string
-			var password string
-			var shell string
+			username := ""
+			password := ""
+			shell := ""
 
 			if len(selectedRouter.Login_info) > 0 {
 				username = selectedRouter.Login_info[0]
 				password = selectedRouter.Login_info[1]
 				shell = selectedRouter.Login_info[2]
 			}
+
 
 			c, err = NewTelnetClient(selectedRouter.Ip, selectedRouter.Communication_port, username, password, shell)
 

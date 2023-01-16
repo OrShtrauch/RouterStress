@@ -24,17 +24,20 @@ const (
 	PING        = "ping"
 	MACVLAN     = "macvlan"
 	SIGTERM     = 15
-	
+	UNIX        = "unix"
+
 	INITIAL_CAPTURE_DURATION = 60
-	RT_MAX_RATE = 0.95
-	
+	RT_MAX_RATE              = 0.95
+
+	BUCKET = "agent-stress-test-results-dev"
+
 	THREADS    = 25
 	CONCURRENT = 25
 	DT_FORMAT  = "%Y-%m-%d-%H:%M:%S"
 	TZ         = "Asia/Jerusalem"
 	DELAY      = 1
-	
-	RESULTS_DIR         = "results/"
+
+	RESULTS_DIR        = "results/"
 	SAMPLER_NAME       = "router_sampler.sh"
 	SAMPLER_PATH       = "/var/tmp/" + SAMPLER_NAME
 	SAMPLER_DATA_PATH  = "/var/tmp/hardware_data.csv"

@@ -1,6 +1,6 @@
 FROM ubuntu
 
-RUN apt update && apt install tcpdump curl tshark jq socat -y
+RUN apt update && apt install iperf3 jq socat -y
 
 WORKDIR /var/tmp/stress
 RUN mkdir data/

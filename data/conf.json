@@ -9,13 +9,13 @@
     },
     "iterations": [
         {
-            "duration": 2,
+            "duration": 1,
             "cooldown": 10,
             "protocols": [
                 {
                     "containers": [
                         {
-                            "amount": 2,
+                            "amount": 5,
                             "params": {
                                 "domain": "ynet.co.il",
                                 "record_type": "A",

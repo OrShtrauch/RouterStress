@@ -9,8 +9,8 @@ import (
 	"RouterStress/router"
 	"RouterStress/traffic"
 	"fmt"
-	"os"
 	"math"
+	"os"
 	"strconv"
 	"time"
 
@@ -58,17 +58,19 @@ func NewStress(config *conf.Config) (Stress, error) {
 		return stress, err
 	}
 
+	log.Logger.Info("Running inital traffic capture")
+	fmt.Printf("Running inital traffic capture")
 	trafficMessage := traffic.RunTrafficCapture(stress.Docker, func() error {
-		time.Sleep(time.Second * 20)
+		time.Sleep(time.Second * 60)
 		return nil
-	})		
+	})
 
 	if trafficMessage.Error != nil {
 		return stress, trafficMessage.Error
 	}
 
 	stress.InitialCaptureData = &trafficMessage.Data
-	
+
 	return stress, nil
 }
 
@@ -76,7 +78,7 @@ func (s *Stress) Start() error {
 	var data traffic.TrafficMessage
 	initial := true
 
-	for s.ShouldRunAgain(&data.Data, initial) {				
+	for s.ShouldRunAgain(&data.Data, initial) {
 		data = traffic.RunTrafficCapture(s.Docker, func() error {
 			var eg errgroup.Group
 			var err error
@@ -119,38 +121,30 @@ func (s *Stress) Start() error {
 		consts.RUN_INDEX += 1
 	}
 
-	
-	return nil 
+	return nil
 }
-
 
 func (s *Stress) ShouldRunAgain(data *traffic.TrafficData, initial bool) bool {
 	if initial {
 		return initial
 	}
 
-	initialTotal, _ := strconv.ParseFloat(s.InitialCaptureData.Total, 32)
-	initialRetransmissions, _ := strconv.ParseFloat(s.InitialCaptureData.Retransmissions, 32)
+	initialPercent, _ := strconv.ParseFloat(s.InitialCaptureData.Percent, 32)
 
+	percent, _ := strconv.ParseFloat(data.Percent, 32)
 
-	total, _ := strconv.ParseFloat(data.Total, 32)
-	retransmissions, _ := strconv.ParseFloat(data.Retransmissions, 32)
+	should_run_again := percent/initialPercent < consts.RT_MAX_RATE
 
-	initialRtRate := initialRetransmissions / initialTotal
-	rtRate := retransmissions / total
-	
-	should_run_again := rtRate / initialRtRate < consts.RT_MAX_RATE
-
-	log.Logger.Debug(fmt.Sprintf("packet loss ratio: %v < %v is %v", rtRate / initialRtRate, consts.RT_MAX_RATE, should_run_again))
+	log.Logger.Debug(fmt.Sprintf("packet loss ratio: %v < %v is %v", percent/initialPercent, consts.RT_MAX_RATE, should_run_again))
 
 	if should_run_again {
 		log.Logger.Info("running again with increased amount")
-	}	
-	
+	}
+
 	return should_run_again
 }
 
-func (s *Stress) GetAdjustedAmount(amount int) int {	
+func (s *Stress) GetAdjustedAmount(amount int) int {
 	value := float64(amount) * ((0.5 * float64(consts.RUN_INDEX)) + 1)
 
 	return int(math.Ceil(value))
@@ -196,11 +190,15 @@ func setupSlave(stress *Stress) error {
 		return err
 	}
 
+	log.Logger.Debug("created slave object")
+
 	err = slave.TransferSamplerToRouter()
 
 	if err != nil {
 		return err
 	}
+
+	log.Logger.Debug("transferred samplern, now starting sampler")
 
 	return slave.StartSampler()
 }
@@ -211,16 +209,17 @@ func setupDocker(stress *Stress) error {
 	if err != nil {
 		return err
 	}
-
+	log.Logger.Debug("docker init done, now building images")
 	stress.Docker = docker
 
-	return docker.BuildImages(stress.Config)
+	return docker.BuildModeImages(stress.Config)
 }
 
 func setupDHCP(stress *Stress) error {
 	dhcp := dhcp.NewDHCPServer(stress.Config.Router.GetSubnet())
 	dhcp.PopulatePool()
 
+	log.Logger.Debug("dhcp init done")
 	stress.DHCPServer = dhcp
 
 	return nil

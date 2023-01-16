@@ -1,2 +1,4 @@
 results/*
 *.log
+stress.log
+build/

@@ -11,6 +11,7 @@ import (
 
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
+	//"github.com/go-gota/gota/dataframe"
 )
 
 func main() {
@@ -35,7 +36,7 @@ func main() {
 
 	go func() {
 		sig := <-channel 
-		log.Logger.Info(fmt.Sprintf("Received %s", sig))
+		log.Logger.Info(fmt.Sprintf("Received %s\n", sig))
 
 		stress.Cleanup()
 
@@ -44,7 +45,7 @@ func main() {
 		}
 
 
-		log.Logger.Debug(fmt.Sprintf("TestID: %v", consts.TEST_ID))
+		log.Logger.Debug(fmt.Sprintf("TestID: %v\n", consts.TEST_ID))
 		
 		close(channel)
 		os.Exit(0)		
@@ -63,7 +64,7 @@ func main() {
 	stress.Cleanup()
 
 	log.Logger.Debug("Done.")
-	log.Logger.Debug(fmt.Sprintf("TestID: %v", consts.TEST_ID))
+	log.Logger.Debug(fmt.Sprintf("TestID: %v\n", consts.TEST_ID))
 }
 
 func InitLogger(config *conf.Config) {

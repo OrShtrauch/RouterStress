@@ -1,48 +1,76 @@
 #!/bin/bash
+
 function teardown() {
     echo "Teardown"
 
-    TOTAL=$(tshark -r /tmp/data.pcap | wc -l)
-    RETRANSMISSIONS=$(tshark -r /tmp/data.pcap -Y "tcp.analysis.retransmission" | wc -l)
+    count=0
+    sum=0
+    
+    # while read line; do
+    #     loss=$(echo $line | cut -d ',' -f1)
+    #     total=$(echo $line | cut -d ',' -f2)
 
-    rm /tmp/data.pcap
+    #     echo "Total : $total, loss: $loss"
 
-    jq -n --arg total "$TOTAL" --arg ret "$RETRANSMISSIONS" \
-        '{"total": $total, "retransmissions": $ret }' > /tmp/data.json
+    #     if ! [[ -z "$loss" ]] && ! [[ -z "$total" ]]; then
+    #         percent=$((loss / total))
 
-    echo `cat /tmp/data.json`
-    cat /tmp/data.json | socat - unix-connect:$SOCKET
+    #         sum=$((sum + percent))
+    #         count=$((count + 1))
+    #     fi
+    # done < <(tr ' ' '\n' < data.txt)
+    
+    percent=10
+    jq -n --arg per "$percent" \
+        '{"percent": $per }' > data.json
+    # echo "sending data:"
+    # echo "download: $avg_download, upload: $avg_upload"
+
+    # echo `cat data.json`
+    cat data.json | socat - unix-connect:$SOCKET
 
     exit
 }
 
 function run_sampler() {
-    tcpdump -i eth0 -w /tmp/data.pcap &
+    #tcpdump -i eth0 -w /tmp/data.pcap &
 
     while true
     do
-        curl -ko /dev/null $URL
-        sleep $SLEEP
+        # iperf3 -u -c $HOST -i 1 -p $PORT -J  > temp.txt
+        # loss=$(jq '.end.sum.lost_packets' temp.txt)
+        # total=$(jq '.end.sum.packets' temp.txt)
+        # jq '.end.sum' temp.txt
+        # echo "$loss,$total" >> data.txt
+        # echo `cat data.txt`
+
+        sleep 2
     done    
 }
 
 function kill_all() {
-    killall -s 9 curl
+    #killall -s 9 speedtest
+    echo "killall called"
     kill -9 `ps aux | grep run_sampler | awk '{print $2}'`
-    kill -9 `ps aux | grep tcpdump | awk '{print $2}'`
+    kill -9 `ps aux | grep iperf | awk '{print $2}'`
 }
 
 TOTAL=1
 RETRANSMISSION=1
 
-rm /tmp/data.pcap /tmp/data.json $SOCKET
+#rm /tmp/data.pcap /tmp/data.json $SOCKET
 
 trap kill_all SIGTERM
 
+echo "" > data.txt
 export -f run_sampler
 bash -c run_sampler &
 PID=$!
-echo "Running $PID"
+echo "Running run sampler pid: $PID"
+echo "waiting for sampler to die"
 wait $PID
+echo "sampler died"
+ps aux
+
 
 teardown

@@ -48,7 +48,13 @@ func InitDocker(config *conf.Config) (*Docker, error) {
 		return &docker, err
 	}
 
-	err = docker.BuildImages(config)
+	err = docker.BuildBaseImage()
+	
+	if err != nil {
+		return &docker, err
+	}
+	
+	err = docker.BuildModeImages(config)
 
 	if err != nil {
 		return &docker, err
@@ -166,12 +172,12 @@ func (d *Docker) KillAllStressContainers() error {
 	var err error
 
 	containers, err := d.Client.ListContainers(dockerlib.ListContainersOptions{
-        All: false,		
-    })
+		All: false,
+	})
 
 	if err != nil {
-        return err
-    }
+		return err
+	}
 
 	for _, c := range containers {
 		if strings.Contains(c.Image, "stress") || strings.Contains(c.Image, "traffic") {
@@ -188,20 +194,20 @@ func (d *Docker) KillAllStressContainers() error {
 
 func (d *Docker) WaitForStressContainersToDie() error {
 	for {
-		var stressContainers []dockerlib.APIContainers		
+		var stressContainers []dockerlib.APIContainers
 
 		containers, err := d.Client.ListContainers(dockerlib.ListContainersOptions{
-			All: false,		
+			All: false,
 		})
-		
+
 		if err != nil {
 			return err
 		}
 
 		for _, c := range containers {
 			if strings.Contains(c.Image, "stress") || strings.Contains(c.Image, "traffic") {
-                stressContainers = append(stressContainers, c)
-            }
+				stressContainers = append(stressContainers, c)
+			}
 		}
 
 		if len(stressContainers) == 0 {
@@ -210,7 +216,6 @@ func (d *Docker) WaitForStressContainersToDie() error {
 	}
 }
 
-
 func (d *Docker) KillContainer(id string) error {
 	return d.Client.KillContainer(dockerlib.KillContainerOptions{
 		ID:     id,
@@ -218,8 +223,9 @@ func (d *Docker) KillContainer(id string) error {
 	})
 }
 
-func (d *Docker) BuildImages(config *conf.Config) error {
+func (d *Docker) BuildModeImages(config *conf.Config) error {
 	var eg errgroup.Group
+	isBaseImage := false
 
 	eg.Go(func() error {
 		return d.buildTrafficCaptureImage()
@@ -229,20 +235,31 @@ func (d *Docker) BuildImages(config *conf.Config) error {
 		scenario := s
 
 		eg.Go(func() error {
-			return d.buildImage(scenario.Name)
+			return d.buildImage(scenario.Name, isBaseImage)
 		})
 	}
 
 	return eg.Wait()
 }
 
-func (d *Docker) buildImage(mode string) error {
-	imageName := fmt.Sprintf("stress-%v:%v", mode, consts.CONTAINER_VERSION)
-	dockerFile := fmt.Sprintf("Dockerfile.%v", mode)
+func (d *Docker) BuildBaseImage() error {
+	return d.buildImage("", true)
+}
+
+func (d *Docker) buildImage(mode string, baseImage bool) error {
+	imageName := "stress"
+	dockerfile := "Dockerfile"
+
+	if !baseImage {
+		imageName = fmt.Sprintf("%v-%v:%v", imageName, mode, consts.CONTAINER_VERSION)
+		dockerfile = fmt.Sprintf("%v.%v", dockerfile, mode)
+	} else {
+		imageName = fmt.Sprintf("%v:%v", imageName, consts.CONTAINER_VERSION)
+	}
 
 	return d.Client.BuildImage(dockerlib.BuildImageOptions{
 		Name:         imageName,
-		Dockerfile:   dockerFile,
+		Dockerfile:   dockerfile,
 		ContextDir:   "containers/",
 		OutputStream: io.Discard,
 	})
@@ -272,9 +289,9 @@ func (d *Docker) createTrafficCaptureContainer() (*dockerlib.Container, error) {
 	imageName := fmt.Sprintf("%v:%v", consts.TRAFFIC_CONTAINER_PREFIX, consts.CONTAINER_VERSION)
 
 	env := []string{
-		fmt.Sprintf("URL=%v", consts.TRAFFIC_CAPTURE_URL),
+		fmt.Sprintf("HOST=%v", "testmymalwarefiles.com"),
+		fmt.Sprintf("PORT=%v", "5201"),
 		fmt.Sprintf("SOCKET=%v", consts.TRAFFIC_UNIX_SOCKET),
-		fmt.Sprintf("SLEEP=%v", consts.DELAY),
 	}
 
 	binds := []string{
@@ -297,16 +314,16 @@ func (d *Docker) Cleanup() error {
 
 	err = d.KillAllStressContainers()
 
-	if err!= nil {
-        return err
-    }
+	if err != nil {
+		return err
+	}
 
 	err = d.WaitForStressContainersToDie()
 
-	if err!= nil {
-        return err
-    }
-    
+	if err != nil {
+		return err
+	}
+
 	_, err = d.Client.PruneContainers(dockerlib.PruneContainersOptions{})
 
 	if err != nil {
