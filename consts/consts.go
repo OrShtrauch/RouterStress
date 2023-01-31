@@ -34,6 +34,7 @@ const (
 	THREADS    = 25
 	CONCURRENT = 25
 	DT_FORMAT  = "%Y-%m-%d-%H:%M:%S"
+	DT_LAYOUT  = "2006-01-02-15:04:05"
 	TZ         = "Asia/Jerusalem"
 	DELAY      = 1
 

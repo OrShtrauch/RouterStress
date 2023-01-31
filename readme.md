@@ -79,7 +79,7 @@ the results will consist of the following:
  - Display Name
  - pip Dependencies
  - Script Path
- - Parameters To Pass
+ - Parameters Names to pass
 
 after adding it, a docker image will be created on runtime, so you can use the mode in the conf.json
 

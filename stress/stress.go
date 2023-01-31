@@ -59,7 +59,6 @@ func NewStress(config *conf.Config) (Stress, error) {
 	}
 
 	log.Logger.Info("Running inital traffic capture")
-	fmt.Printf("Running inital traffic capture")
 	trafficMessage := traffic.RunTrafficCapture(stress.Docker, func() error {
 		time.Sleep(time.Second * 60)
 		return nil
@@ -198,7 +197,7 @@ func setupSlave(stress *Stress) error {
 		return err
 	}
 
-	log.Logger.Debug("transferred samplern, now starting sampler")
+	log.Logger.Debug("transferred sampler, now starting sampler")
 
 	return slave.StartSampler()
 }

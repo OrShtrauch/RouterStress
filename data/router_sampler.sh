@@ -14,8 +14,8 @@ do
 
 	MEM_DATA=$(grep Mem  /proc/meminfo | awk '{print $2}')
 	
-	#MEM=$(echo $MEM_DATA | awk '{print (($1-$2)/$1)*100}') MEM%
-	MEM=$(echo $MEM_DATA | awk '{print ($1-$2)}')
+	MEM=$(echo $MEM_DATA | awk '{print (($1-$2)/$1)*100}') #MEM%
+	#MEM=$(echo $MEM_DATA | awk '{print ($1-$2)}')
 
 	#CPU=$(sed -n 's/^cpu\s//p' /proc/stat)
 	CPU=$(grep "cpu " /proc/stat | awk '{print substr($0,index($0, $2))}')

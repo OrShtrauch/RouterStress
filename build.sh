@@ -1,4 +1,4 @@
-VER=1.0.0
+VER=1.0.1
 
 dists=("arm" "arm64" "386" "amd64")
 os="linux"

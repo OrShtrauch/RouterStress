@@ -4,7 +4,6 @@ import (
 	"RouterStress/consts"
 	"RouterStress/docker"
 	"encoding/json"
-	"fmt"
 	"net"
 	"os"
 )
@@ -40,7 +39,6 @@ func RunTrafficCapture(d *docker.Docker, cb func() error) TrafficMessage {
 
 	go func(channel chan TrafficMessage) {
 		jsonData, err := ListenForTrafficData()
-		fmt.Printf("got data: %v\n", jsonData)
 
 		if err != nil {
 			channel <- TrafficMessage{
@@ -67,7 +65,6 @@ func RunTrafficCapture(d *docker.Docker, cb func() error) TrafficMessage {
 		}
 	}
 
-	fmt.Println("calling killContainer")
 	if err = d.KillContainer(c.ID); err != nil {		
 		return TrafficMessage{
 			Data:  TrafficData{},
@@ -78,7 +75,6 @@ func RunTrafficCapture(d *docker.Docker, cb func() error) TrafficMessage {
 	msg := <-channel
 	close(channel)
 
-	fmt.Printf("download: %v", msg.Data.Percent)
 	return msg
 }
 
@@ -97,7 +93,6 @@ func ListenForTrafficData() (string, error) {
 
 	for {
 		conn, err := listener.Accept()
-		fmt.Println("got connection: ")
 		if err != nil {
 			return data, err
 		}
