@@ -3,12 +3,14 @@ module RouterStress
 go 1.19
 
 require (
+	github.com/aws/aws-sdk-go v1.44.191
 	github.com/fsouza/go-dockerclient v1.9.0
 	github.com/gocarina/gocsv v0.0.0-20230123225133-763e25b40669
 	github.com/google/uuid v1.3.0
 	go.uber.org/zap v1.24.0
 	golang.org/x/crypto v0.4.0
 	golang.org/x/sync v0.1.0
+	gonum.org/v1/plot v0.12.0
 )
 
 require (
@@ -28,6 +30,7 @@ require (
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
+	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/moby/sys/mount v0.3.3 // indirect
 	github.com/moby/sys/mountinfo v0.6.2 // indirect
 	github.com/moby/term v0.0.0-20210619224110-3f7ff695adc6 // indirect
@@ -45,5 +48,4 @@ require (
 	golang.org/x/sys v0.3.0 // indirect
 	golang.org/x/text v0.5.0 // indirect
 	golang.org/x/tools v0.1.12 // indirect
-	gonum.org/v1/plot v0.12.0 // indirect
 )

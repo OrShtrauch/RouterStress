@@ -18,7 +18,7 @@ const (
 	PROMPT      = "#sam_prompt#"
 	SSH         = "ssh"
 	TELNET      = "telnet"
-	SOCKET_PORT = "9865"
+	SOCKET_PORT = "8192"
 	NETCAT      = "nc"
 	AWK         = "awk"
 	PING        = "ping"
@@ -31,12 +31,13 @@ const (
 
 	BUCKET = "agent-stress-test-results-dev"
 
-	THREADS    = 25
-	CONCURRENT = 25
-	DT_FORMAT  = "%Y-%m-%d-%H:%M:%S"
-	DT_LAYOUT  = "2006-01-02-15:04:05"
-	TZ         = "Asia/Jerusalem"
-	DELAY      = 1
+	THREADS        = 25
+	CONCURRENT     = 25
+	DT_FORMAT      = "%Y-%m-%d-%H:%M:%S"
+	DT_LAYOUT      = "2006-01-02-15:04:05"
+	PLOT_DT_LAYOUT = "15:04"
+	TZ             = "Asia/Jerusalem"
+	DELAY          = 1
 
 	RESULTS_DIR        = "results/"
 	SAMPLER_NAME       = "router_sampler.sh"

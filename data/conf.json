@@ -4,18 +4,18 @@
         "debug": true
     },
     "network": {
-        "ssid": "Pumba_HT138",
-        "parent": "enx503eaa8b4bd0"
+        "ssid": "Ferb_LG_Commscope_Puma7",
+        "parent": "enx00e04c360abc"
     },
     "iterations": [
         {
-            "duration": 1,
+            "duration": 3,
             "cooldown": 10,
             "protocols": [
                 {
                     "containers": [
                         {
-                            "amount": 5,
+                            "amount": 50,
                             "params": {
                                 "domain": "ynet.co.il",
                                 "record_type": "A",

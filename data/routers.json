@@ -249,10 +249,10 @@
         "busybox": "/tmp/busybox",
         "sam_dir": "/tmp/sam/sam",
         "login_info": [
-            "admin",
-            "admin",
+            "Admin",
+            "ahy9mee2",
             "su",
-            "$eval@sam_config.router_sn"
+            "SMBS002C19DD"
         ],
         "protocol": "telnet",
         "communication_port": "23"
@@ -857,7 +857,7 @@
         "ip": "192.168.0.1",
         "ssid": "Ferb_LG_Commscope_Puma7",
         "password": "FerbFerbFerb1",
-        "busybox": "/var/tmp/busybox",
+        "busybox": "/var/sam/busybox",
         "sam_dir": "/var/sam/sam",
         "login_info": null,
         "protocol": "telnet",

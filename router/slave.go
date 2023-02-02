@@ -15,6 +15,7 @@ import (
 type Slave struct {
 	Data   RouterData
 	Client Client
+	SamplerPID string
 }
 
 var cmds_to_replace = []string{"awk", "nc"}
@@ -71,7 +72,6 @@ func NewSlave(ssid string) (*Slave, error) {
 				shell = selectedRouter.Login_info[2]
 			}
 
-
 			c, err = NewTelnetClient(selectedRouter.Ip, selectedRouter.Communication_port, username, password, shell)
 
 			if err != nil {
@@ -91,15 +91,27 @@ func NewSlave(ssid string) (*Slave, error) {
 }
 
 func (s *Slave) StartSampler() error {
-	cmd := fmt.Sprintf("%v &", consts.SAMPLER_PATH)
+	cmd := fmt.Sprintf("$SHELL %v &", consts.SAMPLER_PATH)
 
 	_, err := s.Run(cmd)
+
+	if err != nil {
+		return err
+	}
+
+	output, err := s.Run("echo $!")
+
+	if err != nil {
+		return err
+	}
+
+	s.SamplerPID = output
 
 	return err
 }
 
 func (s *Slave) StopSampler() error {
-	cmd := fmt.Sprintf("killall %v", consts.SAMPLER_NAME)
+	cmd := fmt.Sprintf("kill -9 %v", s.SamplerPID)
 
 	_, err := s.Run(cmd)
 
@@ -145,7 +157,7 @@ func (s *Slave) TransferSamplerToRouter() error {
 	return err
 }
 
-func (s *Slave) GetSamplerDara() (string, error) {
+func (s *Slave) GetSamplerData() (string, error) {
 	var data string
 
 	toRouter := false
@@ -161,7 +173,6 @@ func (s *Slave) GetSamplerDara() (string, error) {
 		io.Copy(&buf, connection)
 
 		data = buf.String()
-
 		connection.Close()
 
 		return err
@@ -234,7 +245,7 @@ func (s *Slave) Cleanup() error {
 		return err
 	}
 
-	data, err := s.GetSamplerDara()
+	data, err := s.GetSamplerData()
 
 	if err != nil {
 		return err

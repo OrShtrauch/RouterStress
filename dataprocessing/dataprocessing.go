@@ -2,6 +2,8 @@ package dataprocessing
 
 import (
 	"RouterStress/consts"
+	"RouterStress/log"
+	"encoding/json"
 	"fmt"
 	"os"
 	"strconv"
@@ -9,31 +11,43 @@ import (
 	"time"
 
 	"github.com/gocarina/gocsv"
-	// "gonum.org/v1/plot"
-	// "gonum.org/v1/plot/plotter"
-	// "gonum.org/v1/plot/vg"
+	"gonum.org/v1/plot"
+	"gonum.org/v1/plot/font"
+	"gonum.org/v1/plot/plotter"
 )
 
-var (
+const (
 	SCENARIOS = "scenarios"
 )
 
-// func Run(runIndex int) error {
-// 	var err error
-// 	routerFile, sampleFiles, err := GetAllCsvFiles(runIndex)
+func Run(runIndex int) error {
+	var err error
+	routerFile, sampleFiles, err := GetAllCsvFiles(runIndex)
 
-// 	if err != nil {
-// 		return err
-// 	}
+	if err != nil {
+		return err
+	}
 
-// 	metrics, err := GetTestMetrics(sampleFiles, 0)
+	metrics, err := GetTestMetrics(sampleFiles, runIndex)
 
-// 	if err != nil {
-// 		return err
-// 	}
+	if err != nil {
+		return err
+	}
 
-// 	return err
-// }
+	err = saveJson(*metrics)
+
+	if err != nil {
+		return err
+	}
+
+	dataRow, err := fileToStruct[[]DataRow](sampleFiles[0])
+
+	if err != nil {
+		return err
+	}
+
+	return PlotRouterCPUData(routerFile, dataRow[0])
+}
 
 // func GetStressDataDataFrames(sampleFiles []string) ([]dataframe.DataFrame, error) {
 // 	var dfs []dataframe.DataFrame
@@ -66,51 +80,32 @@ var (
 // 	return df, err
 // }
 
-// func PlotRouterCPUData(routerFile string) error {
-// 	var err error
+func saveJson(metrics TestMetrics) error {
+	dir, err := getTestDir()
 
-// 	p := plot.New()
+	if err != nil {
+		return err
+	}
 
-// 	p.Title.Text = "CPU(%)"
-// 	p.X.Label.Text = "Time"
-// 	p.Y.Label.Text = "Usage"
+	path := fmt.Sprintf("%v/%v", dir, "results.json")
+	f, err := os.Create(path)
 
-// 	routerData, err := fileToStruct[[]RouterDataRow](routerFile)
+	if err != nil {
+		return err
+	}
 
-// 	if err != nil {
-// 		return err
-// 	}
+	defer f.Close()
 
-// 	pts := make(plotter.XYs, len(routerData))
+	bytes, err := json.Marshal(metrics)
 
-// 	for i, row := range routerData {
-// 		pts[i].X = float64(parseMinute(row.Timestamp).Unix())
-// 	}
+	if err != nil {
+		return err
+	}
 
-// 	err = p.Save(4*vg.Inch, 4*vg.Inch, "plot.png")
+	_, err = f.WriteString(string(bytes))
 
-// 	return err
-// }
-
-// func GetRouterXYs(routerFile string) ([]plotter.XY, error) {
-// 	xys := make([]plotter.XY, 0)
-
-// 	routerData, err := fileToStruct[[]RouterDataRow](routerFile)
-
-// 	if err !=  nil {
-// 		return xys, err
-// 	}
-
-// 	for _, row := range routerData {
-// 		xys = append(xys, plotter.XY{
-// 			X: row.Timestamp,
-// 			Y: row.Cpu,
-// 		})
-// 	}
-// }
-// 1 collect data to total test data
-// 2 collett data to total scenario data
-// 3 collect data to total minute data
+	return err
+}
 
 func GetTestMetrics(files []string, runIndex int) (*TestMetrics, error) {
 	var err error
@@ -152,6 +147,12 @@ func GetTestMetrics(files []string, runIndex int) (*TestMetrics, error) {
 		testTotalMetrics.Scenarios = append(testTotalMetrics.Scenarios, scenario)
 	}
 
+	CalcAvgAndErrorRate(testTotalMetrics)
+
+	return testTotalMetrics, err
+}
+
+func CalcAvgAndErrorRate(testTotalMetrics *TestMetrics) {
 	*testTotalMetrics.Total.AvgElapsed /= float32(*testTotalMetrics.Total.Requests)
 	*testTotalMetrics.Total.ErrorRate /= float32(*testTotalMetrics.Total.Requests)
 
@@ -164,21 +165,19 @@ func GetTestMetrics(files []string, runIndex int) (*TestMetrics, error) {
 			*minute.ErrorRate /= float32(*minute.Requests)
 		}
 	}
-
-	return testTotalMetrics, err
 }
 
 func appendDataToMinuteMetrics(scenario *Scenario, row DataRow) error {
 	var err error
 
 	// apending data to minute-per-scenaio metrics
-	minute, err := parseMinute(row.Timestamp)
+	minute, err := parseTimestamp(row.Timestamp, true)
 
 	if err != nil {
 		return err
 	}
 
-	minute_str := minute.String()
+	minute_str := minute.Format(consts.DT_LAYOUT)
 
 	if scenario.Minutes[minute_str] == nil {
 		scenario.Minutes[minute_str] = &Metrics{}
@@ -255,20 +254,22 @@ func getDataMap(files []string) (map[string]*Tuple, error) {
 
 }
 
-func parseMinute(datetime string) (time.Time, error) {
-	var t time.Time
+func parseTimestamp(datetime string, zeroSeconds bool) (time.Time, error) {
+	var date time.Time
 	var err error
 
-	date, err := time.Parse(consts.DT_LAYOUT, datetime)
+	date, err = time.Parse(consts.DT_LAYOUT, datetime)
 
 	if err != nil {
-		return t, err
+		return date, err
 	}
 
-	// changing the seconds to 0
-	t = time.Date(date.Year(), date.Month(), date.Day(), date.Hour(), date.Minute(), 0, 0, date.Location())
+	if zeroSeconds {
+		// changing the seconds to 0
+		date = time.Date(date.Year(), date.Month(), date.Day(), date.Hour(), date.Minute(), 0, 0, date.Location())
+	}
 
-	return t, err
+	return date, err
 }
 
 func fileToStruct[T any](filename string) (T, error) {
@@ -283,22 +284,33 @@ func fileToStruct[T any](filename string) (T, error) {
 	return t, err
 }
 
+func getTestDir() (string, error) {
+	var path string
+	var err error
+
+	workingDir, err := os.Getwd()
+
+	if err != nil {
+		return path, err
+	}
+
+	tesdID := consts.TEST_ID //"Edison_Puma5_e78a4eb7-1610-4aa3-ba06-59f5cabf16f2" //consts.TEST_ID
+	return fmt.Sprintf("%v/%v%v", workingDir, consts.RESULTS_DIR, tesdID), err
+}
+
 func GetAllCsvFiles(runIndex int) (string, []string, error) {
 	var routerFile string
 	var err error
 
 	csvFiles := make([]string, 0)
 
-	workingDir, err := os.Getwd()
+	path, err := getTestDir()
 
 	if err != nil {
 		return routerFile, csvFiles, err
 	}
 
-	tesdID := "Pumba_HT138_1e7157da-4cc9-4aca-b1c2-4198ad8db96e" //consts.TEST_ID
-	localPath := fmt.Sprintf("%v/%v%v", workingDir, consts.RESULTS_DIR, tesdID)
-
-	files, err := os.ReadDir(localPath)
+	files, err := os.ReadDir(path)
 
 	if err != nil {
 		return routerFile, csvFiles, err
@@ -306,7 +318,7 @@ func GetAllCsvFiles(runIndex int) (string, []string, error) {
 
 	for _, file := range files {
 		name := file.Name()
-		filePath := fmt.Sprintf("%v/%v", localPath, name)
+		filePath := fmt.Sprintf("%v/%v", path, name)
 
 		if strings.HasSuffix(name, ".csv") {
 			if strings.Contains(name, "router") {
@@ -358,6 +370,137 @@ func getFileMap(files []string) map[string][]string {
 
 	return modes
 }
+
+func PlotRouterCPUData(routerFile string, sampleDataRow DataRow) error {
+	var err error
+
+	p := plot.New()
+
+	p.Title.Text = "CPU Usage Over Time(%)"
+	p.X.Label.Text = "Time"
+	p.Y.Label.Text = "Usage"
+
+	routerXYS, err := getRouterXYs(routerFile, sampleDataRow)
+
+	if err != nil {
+		return err
+	}
+
+	line, err := plotter.NewLine(routerXYS)
+
+	if err != nil {
+		return err
+	}
+
+	p.X.Tick.Marker = plot.TimeTicks{Format: consts.PLOT_DT_LAYOUT}
+	p.Y.Label.Text = "CPU(%)"
+	p.X.Label.Padding = 10
+	p.X.Label.Text = "Time"
+
+	p.Add(line)
+
+	p.Title.Padding = 15
+	p.X.Padding = 10
+	p.Y.Padding = 10
+
+	width := (10*routerXYS.Len() + 150)
+
+	testDir, err := getTestDir()
+
+	if err != nil {
+		return err
+	}
+
+	localPath := fmt.Sprintf("%v/%v", testDir, "cpu_usage.png")
+
+	err = p.Save(font.Length(width), 500, localPath)
+
+	return err
+}
+
+func getRouterXYs(routerFile string, sampleDataRow DataRow) (plotter.XYs, error) {
+	var xys plotter.XYs
+	var err error
+	routerData, err := fileToStruct[[]RouterDataRow](routerFile)
+	if err != nil {
+		return xys, err
+	}
+
+	err = AdjustRouterData(&routerData, sampleDataRow)
+
+	if err != nil {
+		return xys, err
+	}
+
+	xys = make(plotter.XYs, len(routerData))
+
+	for i, row := range routerData {
+		timestamp, err := parseTimestamp(row.Timestamp, false)
+
+		if err != nil {
+			return xys, err
+		}
+
+		xys[i].X = float64(timestamp.Unix())
+		xys[i].Y = float64(row.Cpu)
+	}
+	log.Logger.Debug(fmt.Sprintf("xys: %v\n", xys))
+	return xys, err
+}
+
+func AdjustRouterData(routerData *[]RouterDataRow, sampleDataRow DataRow) error {
+	var err error
+
+	if len(*routerData) > 0 {
+		return err
+	}
+
+	sampleDT, err := parseTimestamp(sampleDataRow.Timestamp, false)
+
+	if err != nil {
+		return err
+	}
+
+	routerSampleDT, err := parseTimestamp((*routerData)[0].Timestamp, false)
+
+	if err != nil {
+		return err
+	}
+
+	diff := int(sampleDT.Sub(routerSampleDT).Seconds() / 3600)
+
+	for _, row := range *routerData {
+		dt, err := parseTimestamp(row.Timestamp, false)
+
+		if err != nil {
+			return err
+		}
+
+		row.Timestamp = dt.Add(time.Hour * time.Duration(diff)).Format(consts.DT_LAYOUT)
+	}
+
+	return err
+}
+
+// 	diff := int(sample_dt.Sub(router_dt).Seconds() / 3600)
+
+// 	records := routerDF.Records()
+
+// 	for i, row := range records {
+// 		if i == 0 {
+// 			continue
+// 		}
+
+// 		dt, err := time.Parse(consts.DT_LAYOUT, row[0])
+
+// 		if err != nil {
+// 			panic(err)
+// 		}
+
+// 		row[0] = dt.Add(time.Hour * time.Duration(diff)).Format(consts.DT_LAYOUT)
+// 	}
+
+// 	return dataframe.LoadRecords(records), err
 
 // func GetJsonDataFile(sampleFiles []string, testID string) error {
 // 	totalDataEntries := make([]DataRow, 0)

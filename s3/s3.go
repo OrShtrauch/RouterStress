@@ -1,44 +1,81 @@
 package s3
 
 import (
-	// "RouterStress/consts"
-	// "context"
-	// "fmt"
-	// "bytes"
-	// "os"
+	"RouterStress/consts"
+	"bytes"
+	"fmt"	
+	"net/http"
+	"os"
 
-	// "github.com/aws/aws-sdk-go/aws"
-	// "github.com/aws/aws-sdk-go/aws/session"
-	// "github.com/aws/aws-sdk-go/service/s3/s3manager"
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/credentials"
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/s3"
 )
 
-func Upload(filesName []string) error {
-	//_, err := session.NewSession()
-	var err error
+func Upload() error {
 
-    if err!= nil {
-        return err
-    }    
+	creds := credentials.NewEnvCredentials()
 
-    //uploader := s3manager.NewUploader(sess)
+	_, err := creds.Get()
+	if err != nil {
+		return err
+	}
 
-	//workingDir, err := os.Getwd()
+	cfg := aws.NewConfig().WithRegion("eu-central-1").WithCredentials(creds)
+	svc := s3.New(session.New(), cfg)
+
+	workingDir, err := os.Getwd()
 
 	if err != nil {
 		return err
 	}
 
-	//localPath := fmt.Sprintf("%v/%v/%v", workingDir, consts.RESULTS_DIR, consts.TEST_ID)
+	testID := "Ferb_LG_Commscope_Puma7_0ddb88a5-5b40-4993-8925-c58c5832a400"
+	localPath := fmt.Sprintf("%v/%v/%v", workingDir, consts.RESULTS_DIR, testID)
 
-	// for _, file := range filesName {
-	// 	key := fmt.Sprintf("%v/%v", consts.TEST_ID, file)
-	// 	filePath := fmt.Sprintf("%v/%v", localPath, file)
+	files, err := os.ReadDir(localPath)
 
-	// 	input, err := uploader.UploadWithContext(context.Background(), &s3manager.UploadInput{
-	// 		Bucket: aws.String(consts.BUCKET),
-	// 		Key:    aws.String(key),
-	// 		Body:   filePath,
-	// 	})	
-	// }
+	if err != nil {
+		return err
+	}
+
+	for _, file := range files {
+		fileName := fmt.Sprintf("%v/%v", localPath, file)
+
+		file, err := os.Open(fileName)
+
+		if err != nil {
+			return err
+		}
+		defer file.Close()
+
+		info, err := file.Stat()
+
+		if err != nil {
+			return err
+		}
+
+		buffer := make([]byte, info.Size())
+
+		file.Read(buffer)
+		fileBytes := bytes.NewReader(buffer)
+		fileType := http.DetectContentType(buffer)
+
+		params := &s3.PutObjectInput{
+			Bucket: aws.String(consts.BUCKET),
+			Key: aws.String(fileName),
+			Body: fileBytes,
+			ContentLength: aws.Int64(info.Size()),
+			ContentType: aws.String(fileType),
+		}
+
+		_, err = svc.PutObject(params)
+
+		if err != nil {
+			return err
+		}
+	}
+
 	return err
 }
