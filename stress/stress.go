@@ -10,10 +10,12 @@ import (
 	"RouterStress/traffic"
 	"fmt"
 	"math"
+	"math/rand"
 	"os"
 	"strconv"
 	"time"
 
+	"github.com/google/uuid"
 	"golang.org/x/sync/errgroup"
 )
 
@@ -29,6 +31,8 @@ type Stress struct {
 func NewStress(config *conf.Config) (Stress, error) {
 	var eg errgroup.Group
 	var stress Stress
+
+	rand.Seed(time.Now().UnixNano())
 
 	stress.Config = config
 
@@ -59,10 +63,12 @@ func NewStress(config *conf.Config) (Stress, error) {
 	}
 
 	log.Logger.Info("Running inital traffic capture")
-	trafficMessage := traffic.RunTrafficCapture(stress.Docker, func() error {
-		time.Sleep(time.Second * 20)
-		return nil
-	})
+	trafficMessage := traffic.RunTrafficCapture(stress.Docker,
+		consts.INITIAL_CAPTURE_DURATION, config.Settings.IperfPort,
+		func() error {
+			time.Sleep(time.Second * consts.INITIAL_CAPTURE_DURATION)
+			return nil
+		})
 
 	if trafficMessage.Error != nil {
 		return stress, trafficMessage.Error
@@ -77,8 +83,10 @@ func (s *Stress) Start() error {
 	var data traffic.TrafficMessage
 	initial := true
 
+	totalTime := CalcTotalTime(s.Config)
+
 	for s.ShouldRunAgain(&data.Data, initial) {
-		data = traffic.RunTrafficCapture(s.Docker, func() error {
+		data = traffic.RunTrafficCapture(s.Docker, totalTime, s.Config.Settings.IperfPort, func() error {
 			var eg errgroup.Group
 			var err error
 
@@ -89,12 +97,17 @@ func (s *Stress) Start() error {
 				for _, protocol := range iteration.Protocols {
 					for j, container := range protocol.Containers {
 						for i := 0; i < s.GetAdjustedAmount(container.Amount); i++ {
-							name := fmt.Sprintf("stress_%v_%v_%v_%v", protocol.Mode, consts.RUN_INDEX, iterationIndex, index)
-
+							uid := uuid.New().String()[:5]
+							name := fmt.Sprintf("stress_%v_%v_%v_%v_%v", protocol.Mode, uid, consts.RUN_INDEX, iterationIndex, index)
 							env := protocol.Containers[j].Params
+							mode := protocol.Mode
 
 							eg.Go(func() error {
-								return s.runStressContainer(name, protocol.Mode, duration, iterationIndex, index, env)
+								// sleep for a random time between 1 and 5 seconds
+								// to space out even more the containers
+								time.Sleep(time.Duration(GenerateRandomSleep()))
+
+								return s.runStressContainer(name, mode, duration, iterationIndex, index, env)
 							})
 
 							index++
@@ -121,6 +134,23 @@ func (s *Stress) Start() error {
 	}
 
 	return nil
+}
+
+func CalcTotalTime(config *conf.Config) int {
+	var total int
+
+	for _, iteration := range config.Iterations {
+		total += iteration.Duration + iteration.Cooldown
+	}
+
+	return total
+}
+
+func GenerateRandomSleep() int {
+	min := 1
+	max := 5
+
+	return rand.Intn(max-min) + min
 }
 
 func (s *Stress) ShouldRunAgain(data *traffic.TrafficData, initial bool) bool {
@@ -157,6 +187,7 @@ func (s *Stress) runStressContainer(name string, mode string, duration int, iter
 	}
 
 	log.Logger.Debug(fmt.Sprintf("starting container %v", name))
+
 	container, err := s.Docker.RunContainer(docker.ContainerData{
 		Ssid:           s.Config.Router.Ssid,
 		Platform:       s.Config.Router.Name,
@@ -177,6 +208,8 @@ func (s *Stress) runStressContainer(name string, mode string, duration int, iter
 	time.Sleep(time.Duration(duration) * time.Minute)
 
 	s.DHCPServer.Release(ip)
+
+	log.Logger.Debug(fmt.Sprintf("Killing Container %v", name))
 
 	return s.Docker.KillContainer(container.ID)
 }

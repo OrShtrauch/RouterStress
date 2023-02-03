@@ -13,8 +13,8 @@ import (
 )
 
 type Slave struct {
-	Data   RouterData
-	Client Client
+	Data       RouterData
+	Client     Client
 	SamplerPID string
 }
 
@@ -91,7 +91,7 @@ func NewSlave(ssid string) (*Slave, error) {
 }
 
 func (s *Slave) StartSampler() error {
-	cmd := fmt.Sprintf("$SHELL %v &", consts.SAMPLER_PATH)
+	cmd := fmt.Sprintf("$SHELL %v %v &", consts.SAMPLER_PATH, consts.SAMPLER_DELAY)
 
 	_, err := s.Run(cmd)
 
@@ -105,7 +105,7 @@ func (s *Slave) StartSampler() error {
 		return err
 	}
 
-	s.SamplerPID = output
+	s.SamplerPID = strings.TrimSpace(output)
 
 	return err
 }

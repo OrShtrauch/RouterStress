@@ -1,5 +1,11 @@
 #!/bin/sh
 
+SLEEP="$1"
+
+if [ -z "$SLEEP" ]; then
+	SLEEP=3
+fi
+
 if  [ "$2" != "resume" ]
 then
   echo "timestamp,cpu,mem" > /var/tmp/hardware_data.csv
@@ -29,7 +35,7 @@ do
 	DIFF_USAGE=$(((1000*(DIFF_TOTAL-DIFF_IDLE)/DIFF_TOTAL+5)/10))
 
 	echo "$TIMESTAMP,$DIFF_USAGE,$MEM" >> /var/tmp/hardware_data.csv
-	sleep 1
+	sleep $SLEEP
 
 	PREV_TOTAL=${TOTAL}
 	PREV_IDLE=${IDLE}

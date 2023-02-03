@@ -1,4 +1,7 @@
 VER=1.0.0
+TAG="v$VER"
+OWNER="OrShtrauch"
+REPO="RouterStress"
 
 dists=("arm" "arm64" "386" "amd64")
 os="linux"
@@ -29,4 +32,42 @@ for arch in "${dists[@]}"; do
     cd $wd
 
     rm -rf $TMP_DIR
+done
+
+create_rel_json() {
+cat <<EOF
+{
+    "tag_name":"$TAG",
+    "target_commitish":"main",
+    "name":"$TAG"
+}
+EOF
+}
+
+git tag -f "$TAG"
+# create release from tag
+curl \
+  -X POST \
+  -o /tmp/data.json \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer $TOKEN"\
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  "https://api.github.com/repos/$OWNER/$REPO/releases" \
+  -d "$(create_rel_json)"
+
+rel_id=$(jq ".id" /tmp/data.json)
+rm /tmp/data.json
+
+# upload builds
+for arch in "${dists[@]}"; do
+    filename="build/RouterStress-$VER-$arch.tar.gz"
+    echo $filename
+    curl \
+    -X POST \
+    -H "Accept: application/vnd.github+json" \
+    -H "Authorization: Bearer $TOKEN"\
+    -H "X-GitHub-Api-Version: 2022-11-28" \
+    -H "Content-Type: application/zip" \
+    "https://uploads.github.com/repos/$OWNER/$REPO/releases/$rel_id/assets?name=$filename" \
+    --data-binary "@$filename"
 done

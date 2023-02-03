@@ -49,11 +49,11 @@ func InitDocker(config *conf.Config) (*Docker, error) {
 	}
 
 	err = docker.BuildBaseImage()
-	
+
 	if err != nil {
 		return &docker, err
 	}
-	
+
 	err = docker.BuildModeImages(config)
 
 	if err != nil {
@@ -134,7 +134,6 @@ func (d *Docker) RunContainer(data ContainerData) (*dockerlib.Container, error) 
 
 func (d *Docker) createContainer(name string, mode string, env []string) (*dockerlib.Container, error) {
 	imageName := fmt.Sprintf("%v-%v:%v", consts.STRESS_CONTAINER_PREFIX, mode, consts.CONTAINER_VERSION)
-
 	workingDir, err := os.Getwd()
 
 	if err != nil {
@@ -216,6 +215,22 @@ func (d *Docker) WaitForStressContainersToDie() error {
 	}
 }
 
+func (d *Docker) WaitForContainerToDie(c *dockerlib.Container) error {
+	for {
+		c, err := d.Client.InspectContainerWithOptions(dockerlib.InspectContainerOptions{
+			ID: c.ID,
+		})
+
+		if err != nil {
+			return err
+		}
+
+		if !c.State.Running {
+			return nil
+		}
+	}
+}
+
 func (d *Docker) KillContainer(id string) error {
 	return d.Client.KillContainer(dockerlib.KillContainerOptions{
 		ID:     id,
@@ -229,6 +244,10 @@ func (d *Docker) BuildModeImages(config *conf.Config) error {
 
 	eg.Go(func() error {
 		return d.buildTrafficCaptureImage()
+	})
+
+	eg.Go(func() error {
+		return d.buildPlotterImage()
 	})
 
 	for _, s := range config.Scenarios.Scenarios {
@@ -275,8 +294,18 @@ func (d *Docker) buildTrafficCaptureImage() error {
 	})
 }
 
-func (d *Docker) StartTrafficCaptureContainer() (*dockerlib.Container, error) {
-	c, err := d.createTrafficCaptureContainer()
+func (d *Docker) buildPlotterImage() error {
+	imageName := fmt.Sprintf("%v:%v", consts.PLOTTER_CONTAINER_PREFIX, consts.CONTAINER_VERSION)
+
+	return d.Client.BuildImage(dockerlib.BuildImageOptions{
+		Name:         imageName,
+		ContextDir:   consts.PLOTTER_PATH,
+		OutputStream: io.Discard,
+	})
+}
+
+func (d *Docker) StartTrafficCaptureContainer(duration int, port int) (*dockerlib.Container, error) {
+	c, err := d.createTrafficCaptureContainer(duration, port)
 
 	if err != nil {
 		return c, err
@@ -285,17 +314,59 @@ func (d *Docker) StartTrafficCaptureContainer() (*dockerlib.Container, error) {
 	return c, d.startContainer(c)
 }
 
-func (d *Docker) createTrafficCaptureContainer() (*dockerlib.Container, error) {
+func (d *Docker) createTrafficCaptureContainer(duration int, port int) (*dockerlib.Container, error) {
 	imageName := fmt.Sprintf("%v:%v", consts.TRAFFIC_CONTAINER_PREFIX, consts.CONTAINER_VERSION)
 
 	env := []string{
 		fmt.Sprintf("HOST=%v", "testmymalwarefiles.com"),
-		fmt.Sprintf("PORT=%v", "5201"),
+		fmt.Sprintf("PORT=%v", port),
 		fmt.Sprintf("SOCKET=%v", consts.TRAFFIC_UNIX_SOCKET),
+		fmt.Sprintf("DURATION=%v", duration),
 	}
 
 	binds := []string{
 		"/tmp:/tmp",
+	}
+
+	return d.Client.CreateContainer(dockerlib.CreateContainerOptions{
+		Config: &dockerlib.Config{
+			Image: imageName,
+			Env:   env,
+		},
+		HostConfig: &dockerlib.HostConfig{
+			Binds: binds,
+		},
+	})
+}
+
+func (d *Docker) StartPlotterContainer() (*dockerlib.Container, error) {
+	c, err := d.createPlotterContainer()
+
+	if err != nil {
+		return c, err
+	}
+
+	return c, d.startContainer(c)
+}
+
+func (d *Docker) createPlotterContainer() (*dockerlib.Container, error) {
+	imageName := fmt.Sprintf("%v:%v", consts.PLOTTER_CONTAINER_PREFIX, consts.CONTAINER_VERSION)
+
+	env := []string{
+		fmt.Sprintf("dt_format=%v", consts.DT_FORMAT),
+		fmt.Sprintf("run_index=%v", consts.RUN_INDEX),
+	}
+
+	workingDir, err := os.Getwd()
+
+	if err != nil {
+		return nil, err
+	}
+
+	localPath := fmt.Sprintf("%v/%v/%v", workingDir, consts.RESULTS_DIR, consts.TEST_ID)
+
+	binds := []string{
+		fmt.Sprintf("%v:%v", localPath, "/var/tmp/stress/data"),
 	}
 
 	return d.Client.CreateContainer(dockerlib.CreateContainerOptions{

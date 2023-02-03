@@ -21,8 +21,9 @@ type Config struct {
 }
 
 type Settings struct {
-	S3    bool
-	Debug bool
+	S3        bool
+	Debug     bool
+	IperfPort int `json:"iperf_port"`
 }
 
 type Network struct {

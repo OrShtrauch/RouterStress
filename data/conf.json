@@ -1,7 +1,8 @@
 {
     "settings": {
         "s3": false,
-        "debug": true
+        "debug": true,
+        "iperf_port": 5201
     },
     "network": {
         "ssid": "Ferb_LG_Commscope_Puma7",
@@ -9,13 +10,13 @@
     },
     "iterations": [
         {
-            "duration": 3,
+            "duration": 1,
             "cooldown": 10,
             "protocols": [
                 {
                     "containers": [
                         {
-                            "amount": 50,
+                            "amount": 10,
                             "params": {
                                 "domain": "ynet.co.il",
                                 "record_type": "A",
@@ -24,6 +25,18 @@
                         }
                     ],
                     "mode": "dns"
+                },
+                {
+                    "containers": [
+                        {
+                            "amount": 5,
+                            "params": {
+                                "url": "google.com",
+                                "scheme": "https"
+                            }
+                        }
+                    ],
+                    "mode": "http"
                 }
             ]
         }

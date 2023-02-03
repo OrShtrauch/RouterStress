@@ -1,11 +1,11 @@
 package consts
 
 import (
-	"github.com/google/uuid"
+	"time"
 )
 
 var (
-	TEST_UUID = uuid.New().String()
+	TEST_UUID = time.Now().Format(ID_DT_LAYOUT)
 	TEST_ID   = ""
 	RUN_INDEX = 0
 
@@ -26,7 +26,7 @@ const (
 	SIGTERM     = 15
 	UNIX        = "unix"
 
-	INITIAL_CAPTURE_DURATION = 60
+	INITIAL_CAPTURE_DURATION = 20
 	RT_MAX_RATE              = 0.95
 
 	BUCKET = "agent-stress-test-results-dev"
@@ -35,9 +35,11 @@ const (
 	CONCURRENT     = 25
 	DT_FORMAT      = "%Y-%m-%d-%H:%M:%S"
 	DT_LAYOUT      = "2006-01-02-15:04:05"
+	ID_DT_LAYOUT   = "2006_01_02_15_04_05"
 	PLOT_DT_LAYOUT = "15:04"
 	TZ             = "Asia/Jerusalem"
 	DELAY          = 1
+	SAMPLER_DELAY  = 2
 
 	RESULTS_DIR        = "results/"
 	SAMPLER_NAME       = "router_sampler.sh"
@@ -51,6 +53,7 @@ const (
 	DOCKERFILES_PATH           = "containers/"
 	CONTAINER_SCRIPTS          = DOCKERFILES_PATH + "scripts"
 	TRAFFIC_CAPTURE_PATH       = DOCKERFILES_PATH + "traffic_capture/"
+	PLOTTER_PATH               = DOCKERFILES_PATH + "plotter/"
 	TRAFFIC_CAPTURE_IMAGE_NAME = "traffic_capture"
 
 	DATA_PATH          = "data/"
@@ -61,6 +64,7 @@ const (
 
 	STRESS_CONTAINER_PREFIX  = "stress"
 	TRAFFIC_CONTAINER_PREFIX = "traffic_capture"
+	PLOTTER_CONTAINER_PREFIX = "plotter"
 	CONTAINER_VERSION        = "latest"
 
 	REMOTE_VOLUME_PATH = "/var/tmp/stress/data"

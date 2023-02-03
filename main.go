@@ -5,11 +5,13 @@ import (
 	"RouterStress/consts"
 	"RouterStress/dataprocessing"
 	"RouterStress/log"
+
 	//"RouterStress/s3"
 	"RouterStress/stress"
 	"fmt"
 	"os"
 	"os/signal"
+
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )
@@ -70,7 +72,7 @@ func main() {
 	}
 
 	log.Logger.Debug("Proccessing test Data")
-	err = dataprocessing.Run(0)
+	err = dataprocessing.Run(&stress, 0)
 
 	if err != nil {
 		log.Logger.Error(err.Error())

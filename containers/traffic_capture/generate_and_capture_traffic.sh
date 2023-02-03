@@ -35,17 +35,23 @@ function teardown() {
 function run_sampler() {
     #tcpdump -i eth0 -w /tmp/data.pcap &
 
-    while true
-    do
+    # iperf3 -u -c $HOST -t $RUN_TIME -i 1 -p $PORT -J > temp.txt
+    # loss=$(jq '.end.sum.lost_packets' temp.txt)
+    # total=$(jq '.end.sum.packets' temp.txt)
+    # jq '.end.sum' temp.txt
+    # echo "$loss,$total" >> data.txt
+    # echo `cat data.txt`
+
+    while [ $SECONDS -lt $END_TIME ]; do
         # iperf3 -u -c $HOST -i 1 -p $PORT -J  > temp.txt
         # loss=$(jq '.end.sum.lost_packets' temp.txt)
         # total=$(jq '.end.sum.packets' temp.txt)
         # jq '.end.sum' temp.txt
         # echo "$loss,$total" >> data.txt
         # echo `cat data.txt`
+    done
 
-        sleep 2
-    done    
+    exit
 }
 
 function kill_all() {
@@ -57,7 +63,10 @@ function kill_all() {
 
 TOTAL=1
 RETRANSMISSION=1
+DELAY=5
+RUN_TIME=$((DURATION-DELAY))
 
+sleep $DELAY
 #rm /tmp/data.pcap /tmp/data.json $SOCKET
 
 trap kill_all SIGTERM
