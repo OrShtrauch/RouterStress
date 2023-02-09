@@ -1,467 +1,775 @@
-2023-02-03T14:20:10.181+0200	debug	stress/stress.go:184	Killing Container stress_dns_7f71d_0_0_0
-2023-02-03T14:20:10.425+0200	debug	stress/stress.go:184	Killing Container stress_http_eb1d3_0_0_11
-2023-02-03T14:20:10.744+0200	debug	stress/stress.go:184	Killing Container stress_dns_6f3a4_0_0_2
-2023-02-03T14:20:11.312+0200	debug	stress/stress.go:184	Killing Container stress_dns_c456d_0_0_6
-2023-02-03T14:20:11.541+0200	debug	stress/stress.go:184	Killing Container stress_dns_83663_0_0_9
-2023-02-03T14:20:11.542+0200	debug	stress/stress.go:184	Killing Container stress_dns_f5f36_0_0_1
-2023-02-03T14:20:11.699+0200	debug	stress/stress.go:184	Killing Container stress_dns_f0882_0_0_4
-2023-02-03T14:20:11.736+0200	debug	stress/stress.go:184	Killing Container stress_dns_09eed_0_0_7
-2023-02-03T14:20:11.858+0200	debug	stress/stress.go:184	Killing Container stress_http_5e5ab_0_0_10
-2023-02-03T14:20:12.059+0200	debug	stress/stress.go:184	Killing Container stress_http_ed8f2_0_0_14
-2023-02-03T14:20:12.339+0200	debug	stress/stress.go:184	Killing Container stress_http_b927e_0_0_13
-2023-02-03T14:20:12.788+0200	debug	stress/stress.go:184	Killing Container stress_dns_1ae07_0_0_8
-2023-02-03T14:20:13.011+0200	debug	stress/stress.go:184	Killing Container stress_dns_65205_0_0_5
-2023-02-03T14:20:13.063+0200	debug	stress/stress.go:184	Killing Container stress_http_99746_0_0_12
-2023-02-03T14:20:13.080+0200	debug	stress/stress.go:184	Killing Container stress_dns_dffc5_0_0_3
-2023-02-03T14:20:23.138+0200	debug	stress/stress.go:139	packet loss ratio: 1 < 0.95 is false
-2023-02-03T14:20:23.138+0200	debug	stress/stress.go:235	Running cleanup
-2023-02-03T14:20:24.201+0200	debug	RouterStress/main.go:72	Proccessing test Data
-2023-02-03T14:20:51.145+0200	debug	RouterStress/main.go:79	Done.
-2023-02-03T14:20:51.146+0200	debug	RouterStress/main.go:80	TestID: Ferb_LG_Commscope_Puma7_875d19c1-1a19-49b7-8663-8bc85704e916
+2023-02-09T10:09:05.203+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_10_09_05
+2023-02-09T10:09:05.203+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T10:09:05.206+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T10:09:05.206+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T10:09:05.460+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T10:09:05.464+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T10:09:11.596+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T10:09:15.399+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T10:09:15.399+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T10:09:35.707+0200	debug	traffic/traffic.go:94	losss is 0, total is 0
+2023-02-09T10:09:35.707+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T10:09:35.707+0200	info	stress/stress.go:89	starting
+2023-02-09T10:09:35.707+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T10:09:36.004+0200	debug	stress/stress.go:104	amount is 5
+2023-02-09T10:11:47.450+0200	debug	traffic/traffic.go:94	losss is 0, total is 0
+2023-02-09T10:11:47.450+0200	debug	stress/stress.go:175	inital percent: NaN
+2023-02-09T10:11:47.450+0200	debug	stress/stress.go:176	current percent: NaN
+2023-02-09T10:11:47.450+0200	debug	stress/stress.go:182	percent diff: NaN
+2023-02-09T10:11:47.450+0200	debug	stress/stress.go:288	Running cleanup
+2023-02-09T10:11:48.549+0200	debug	RouterStress/main.go:83	Proccessing test Data
+2023-02-09T10:11:50.862+0200	debug	RouterStress/main.go:91	Done.
+2023-02-09T10:11:50.862+0200	debug	RouterStress/main.go:92	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_10_09_05
 
-2023-02-03T14:46:29.624+0200	info	stress/stress.go:39	TestID: Ferb_LG_Commscope_Puma7_5e7207f7-4c05-4d71-b293-6a6c6d02e209
-2023-02-03T14:46:29.624+0200	debug	stress/stress.go:54	setting up DHCP Server
-2023-02-03T14:46:29.624+0200	debug	stress/stress.go:49	Setting up Docker Client and Network
-2023-02-03T14:46:29.624+0200	debug	stress/stress.go:44	Setting up Router Slave
-2023-02-03T14:46:29.885+0200	debug	stress/stress.go:197	created slave object
-2023-02-03T14:46:30.097+0200	debug	stress/stress.go:216	docker init done, now building images
-2023-02-03T14:46:36.023+0200	debug	stress/stress.go:205	transferred sampler, now starting sampler
-2023-02-03T14:46:39.830+0200	debug	stress/stress.go:226	dhcp init done
-2023-02-03T14:46:39.830+0200	info	stress/stress.go:62	Running inital traffic capture
-2023-02-03T14:47:00.201+0200	debug	RouterStress/main.go:57	finished setup
-2023-02-03T14:47:00.498+0200	debug	stress/stress.go:161	starting container stress_http_aead0_0_0_14
-2023-02-03T14:47:00.498+0200	debug	stress/stress.go:161	starting container stress_dns_346f0_0_0_4
-2023-02-03T14:47:00.498+0200	debug	stress/stress.go:161	starting container stress_http_f0cd4_0_0_11
-2023-02-03T14:47:00.498+0200	debug	stress/stress.go:161	starting container stress_dns_e6e51_0_0_6
-2023-02-03T14:47:00.498+0200	debug	stress/stress.go:161	starting container stress_dns_53d33_0_0_0
-2023-02-03T14:47:00.498+0200	debug	stress/stress.go:161	starting container stress_dns_4f920_0_0_9
-2023-02-03T14:47:00.498+0200	debug	stress/stress.go:161	starting container stress_http_44e0c_0_0_13
-2023-02-03T14:47:00.498+0200	debug	stress/stress.go:161	starting container stress_dns_90953_0_0_1
-2023-02-03T14:47:00.498+0200	debug	stress/stress.go:161	starting container stress_dns_6b481_0_0_8
-2023-02-03T14:47:00.498+0200	debug	stress/stress.go:161	starting container stress_dns_cd7bb_0_0_7
-2023-02-03T14:47:00.498+0200	debug	stress/stress.go:161	starting container stress_http_2f0a3_0_0_12
-2023-02-03T14:47:00.498+0200	debug	stress/stress.go:161	starting container stress_dns_cefbd_0_0_5
-2023-02-03T14:47:00.498+0200	debug	stress/stress.go:161	starting container stress_dns_972f8_0_0_3
-2023-02-03T14:47:00.498+0200	debug	stress/stress.go:161	starting container stress_dns_cca7b_0_0_2
-2023-02-03T14:47:00.498+0200	debug	stress/stress.go:161	starting container stress_http_3629d_0_0_10
-2023-02-03T14:50:01.281+0200	debug	stress/stress.go:184	Killing Container stress_dns_346f0_0_0_4
-2023-02-03T14:50:01.812+0200	debug	stress/stress.go:184	Killing Container stress_http_2f0a3_0_0_12
-2023-02-03T14:50:02.028+0200	debug	stress/stress.go:184	Killing Container stress_http_44e0c_0_0_13
-2023-02-03T14:50:02.241+0200	debug	stress/stress.go:184	Killing Container stress_dns_cefbd_0_0_5
-2023-02-03T14:50:02.241+0200	debug	stress/stress.go:184	Killing Container stress_dns_972f8_0_0_3
-2023-02-03T14:50:02.442+0200	debug	stress/stress.go:184	Killing Container stress_http_3629d_0_0_10
-2023-02-03T14:50:02.839+0200	debug	stress/stress.go:184	Killing Container stress_dns_6b481_0_0_8
-2023-02-03T14:50:03.190+0200	debug	stress/stress.go:184	Killing Container stress_dns_cca7b_0_0_2
-2023-02-03T14:50:03.292+0200	debug	stress/stress.go:184	Killing Container stress_http_aead0_0_0_14
-2023-02-03T14:50:03.341+0200	debug	stress/stress.go:184	Killing Container stress_dns_4f920_0_0_9
-2023-02-03T14:50:03.517+0200	debug	stress/stress.go:184	Killing Container stress_dns_e6e51_0_0_6
-2023-02-03T14:50:03.552+0200	debug	stress/stress.go:184	Killing Container stress_dns_53d33_0_0_0
-2023-02-03T14:50:04.054+0200	debug	stress/stress.go:184	Killing Container stress_dns_90953_0_0_1
-2023-02-03T14:50:04.231+0200	debug	stress/stress.go:184	Killing Container stress_dns_cd7bb_0_0_7
-2023-02-03T14:50:04.231+0200	debug	stress/stress.go:184	Killing Container stress_http_f0cd4_0_0_11
-2023-02-03T14:50:14.297+0200	debug	stress/stress.go:139	packet loss ratio: 1 < 0.95 is false
-2023-02-03T14:50:14.297+0200	debug	stress/stress.go:235	Running cleanup
-2023-02-03T14:50:15.327+0200	debug	RouterStress/main.go:74	Proccessing test Data
-2023-02-03T14:50:18.710+0200	debug	RouterStress/main.go:81	Done.
-2023-02-03T14:50:18.710+0200	debug	RouterStress/main.go:82	TestID: Ferb_LG_Commscope_Puma7_5e7207f7-4c05-4d71-b293-6a6c6d02e209
+2023-02-09T10:12:29.057+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_10_12_29
+2023-02-09T10:12:29.057+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T10:12:29.057+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T10:12:29.057+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T10:12:29.214+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T10:12:29.367+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T10:12:35.290+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T10:12:39.302+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T10:12:39.302+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T10:13:00.823+0200	debug	traffic/traffic.go:94	losss is 0, total is 1417
+2023-02-09T10:13:00.823+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T10:13:00.823+0200	info	stress/stress.go:89	starting
+2023-02-09T10:13:00.823+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T10:13:01.196+0200	debug	stress/stress.go:104	amount is 5
+2023-02-09T10:15:13.274+0200	debug	traffic/traffic.go:94	losss is 24, total is 11804
+2023-02-09T10:15:13.274+0200	debug	stress/stress.go:175	inital percent: 0
+2023-02-09T10:15:13.274+0200	debug	stress/stress.go:176	current percent: 0.0020332090816672314
+2023-02-09T10:15:13.274+0200	debug	stress/stress.go:182	percent diff: 0.0020332090816672314
+2023-02-09T10:15:13.274+0200	info	stress/stress.go:185	running again with increased amount
+2023-02-09T10:15:13.550+0200	debug	stress/stress.go:104	amount is 8
+2023-02-09T10:17:25.837+0200	debug	traffic/traffic.go:94	losss is 83, total is 11804
+2023-02-09T10:17:25.837+0200	debug	stress/stress.go:175	inital percent: 0
+2023-02-09T10:17:25.837+0200	debug	stress/stress.go:176	current percent: 0.007031514740765842
+2023-02-09T10:17:25.837+0200	debug	stress/stress.go:182	percent diff: 0.007031514740765842
+2023-02-09T10:17:25.837+0200	info	stress/stress.go:185	running again with increased amount
+2023-02-09T10:17:26.167+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T10:19:38.774+0200	debug	traffic/traffic.go:94	losss is 86, total is 11804
+2023-02-09T10:19:38.774+0200	debug	stress/stress.go:175	inital percent: 0
+2023-02-09T10:19:38.774+0200	debug	stress/stress.go:176	current percent: 0.007285665875974246
+2023-02-09T10:19:38.774+0200	debug	stress/stress.go:182	percent diff: 0.007285665875974246
+2023-02-09T10:19:38.774+0200	info	stress/stress.go:185	running again with increased amount
+2023-02-09T10:19:39.096+0200	debug	stress/stress.go:104	amount is 13
+2023-02-09T10:22:10.530+0200	debug	traffic/traffic.go:94	losss is 208, total is 11804
+2023-02-09T10:22:10.530+0200	debug	stress/stress.go:175	inital percent: 0
+2023-02-09T10:22:10.530+0200	debug	stress/stress.go:176	current percent: 0.01762114537444934
+2023-02-09T10:22:10.530+0200	debug	stress/stress.go:182	percent diff: 0.01762114537444934
+2023-02-09T10:22:10.530+0200	info	stress/stress.go:185	running again with increased amount
+2023-02-09T10:22:10.928+0200	debug	stress/stress.go:104	amount is 15
+2023-02-09T10:24:27.471+0200	debug	traffic/traffic.go:94	losss is 197, total is 11804
+2023-02-09T10:24:27.471+0200	debug	stress/stress.go:175	inital percent: 0
+2023-02-09T10:24:27.471+0200	debug	stress/stress.go:176	current percent: 0.016689257878685193
+2023-02-09T10:24:27.471+0200	debug	stress/stress.go:182	percent diff: 0.016689257878685193
+2023-02-09T10:24:27.471+0200	info	stress/stress.go:185	running again with increased amount
+2023-02-09T10:24:27.831+0200	debug	stress/stress.go:104	amount is 18
+2023-02-09T10:25:09.617+0200	info	RouterStress/main.go:43	Received interrupt
 
-2023-02-03T15:01:01.870+0200	info	stress/stress.go:39	TestID: Ferb_LG_Commscope_Puma7_9e1ed7fd-224e-4d6a-a296-1caee4308692
-2023-02-03T15:01:01.870+0200	debug	stress/stress.go:54	setting up DHCP Server
-2023-02-03T15:01:01.871+0200	debug	stress/stress.go:44	Setting up Router Slave
-2023-02-03T15:01:01.872+0200	debug	stress/stress.go:49	Setting up Docker Client and Network
-2023-02-03T15:01:02.115+0200	debug	stress/stress.go:197	created slave object
-2023-02-03T15:01:02.125+0200	debug	stress/stress.go:216	docker init done, now building images
-2023-02-03T15:01:08.244+0200	debug	stress/stress.go:205	transferred sampler, now starting sampler
-2023-02-03T15:01:08.340+0200	debug	router/slave.go:104	pid is 
-7953
+2023-02-09T10:25:09.617+0200	debug	stress/stress.go:288	Running cleanup
+2023-02-09T10:25:16.492+0200	debug	RouterStress/main.go:51	Proccessing test Data
+2023-02-09T10:25:28.428+0200	debug	RouterStress/main.go:59	Done.
+2023-02-09T10:25:28.428+0200	debug	RouterStress/main.go:60	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_10_12_29
 
-2023-02-03T15:01:12.142+0200	debug	stress/stress.go:226	dhcp init done
-2023-02-03T15:01:12.142+0200	info	stress/stress.go:62	Running inital traffic capture
-2023-02-03T15:01:32.478+0200	debug	RouterStress/main.go:57	finished setup
-2023-02-03T15:01:32.762+0200	debug	stress/stress.go:161	starting container stress_http_7d75c_0_0_14
-2023-02-03T15:01:32.762+0200	debug	stress/stress.go:161	starting container stress_dns_fcb99_0_0_6
-2023-02-03T15:01:32.762+0200	debug	stress/stress.go:161	starting container stress_http_349cc_0_0_12
-2023-02-03T15:01:32.762+0200	debug	stress/stress.go:161	starting container stress_dns_6e2b0_0_0_4
-2023-02-03T15:01:32.762+0200	debug	stress/stress.go:161	starting container stress_dns_c1754_0_0_1
-2023-02-03T15:01:32.762+0200	debug	stress/stress.go:161	starting container stress_http_1cbf9_0_0_11
-2023-02-03T15:01:32.762+0200	debug	stress/stress.go:161	starting container stress_dns_e497e_0_0_3
-2023-02-03T15:01:32.762+0200	debug	stress/stress.go:161	starting container stress_dns_ecaa0_0_0_7
-2023-02-03T15:01:32.762+0200	debug	stress/stress.go:161	starting container stress_dns_4e27c_0_0_2
-2023-02-03T15:01:32.762+0200	debug	stress/stress.go:161	starting container stress_dns_007bb_0_0_8
-2023-02-03T15:01:32.762+0200	debug	stress/stress.go:161	starting container stress_http_cf7e3_0_0_13
-2023-02-03T15:01:32.762+0200	debug	stress/stress.go:161	starting container stress_dns_92298_0_0_0
-2023-02-03T15:01:32.762+0200	debug	stress/stress.go:161	starting container stress_dns_5466a_0_0_5
-2023-02-03T15:01:32.762+0200	debug	stress/stress.go:161	starting container stress_http_baf8a_0_0_10
-2023-02-03T15:01:32.762+0200	debug	stress/stress.go:161	starting container stress_dns_4bcdc_0_0_9
-2023-02-03T15:02:33.469+0200	debug	stress/stress.go:184	Killing Container stress_dns_92298_0_0_0
-2023-02-03T15:02:33.752+0200	debug	stress/stress.go:184	Killing Container stress_dns_ecaa0_0_0_7
-2023-02-03T15:02:33.856+0200	debug	stress/stress.go:184	Killing Container stress_http_7d75c_0_0_14
-2023-02-03T15:02:34.187+0200	debug	stress/stress.go:184	Killing Container stress_http_1cbf9_0_0_11
-2023-02-03T15:02:34.668+0200	debug	stress/stress.go:184	Killing Container stress_dns_4bcdc_0_0_9
-2023-02-03T15:02:34.737+0200	debug	stress/stress.go:184	Killing Container stress_http_349cc_0_0_12
-2023-02-03T15:02:35.007+0200	debug	stress/stress.go:184	Killing Container stress_dns_4e27c_0_0_2
-2023-02-03T15:02:35.271+0200	debug	stress/stress.go:184	Killing Container stress_dns_6e2b0_0_0_4
-2023-02-03T15:02:35.450+0200	debug	stress/stress.go:184	Killing Container stress_http_cf7e3_0_0_13
-2023-02-03T15:02:35.656+0200	debug	stress/stress.go:184	Killing Container stress_dns_e497e_0_0_3
-2023-02-03T15:02:35.706+0200	debug	stress/stress.go:184	Killing Container stress_dns_fcb99_0_0_6
-2023-02-03T15:02:35.706+0200	debug	stress/stress.go:184	Killing Container stress_dns_c1754_0_0_1
-2023-02-03T15:02:35.860+0200	debug	stress/stress.go:184	Killing Container stress_dns_007bb_0_0_8
-2023-02-03T15:02:36.027+0200	debug	stress/stress.go:184	Killing Container stress_dns_5466a_0_0_5
-2023-02-03T15:02:36.208+0200	debug	stress/stress.go:184	Killing Container stress_http_baf8a_0_0_10
-2023-02-03T15:02:46.290+0200	debug	stress/stress.go:139	packet loss ratio: 1 < 0.95 is false
-2023-02-03T15:02:46.290+0200	debug	stress/stress.go:235	Running cleanup
-2023-02-03T15:02:46.294+0200	debug	router/slave.go:119	cmd: kill -9 
-7953
-, output: kill -9 
-kill: usage: kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill -l [sigspec]
-7953
+2023-02-09T10:26:39.628+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_10_26_39
+2023-02-09T10:26:39.628+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T10:26:39.629+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T10:26:39.629+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T10:26:39.826+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T10:26:39.908+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T10:26:45.952+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T10:26:49.850+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T10:26:49.850+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T10:27:11.431+0200	debug	traffic/traffic.go:94	losss is 0, total is 1417
+2023-02-09T10:27:11.431+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T10:27:11.431+0200	info	stress/stress.go:89	starting
+2023-02-09T10:27:11.431+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T10:27:11.694+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T10:29:25.107+0200	debug	traffic/traffic.go:94	losss is 61, total is 11804
+2023-02-09T10:29:25.107+0200	debug	stress/stress.go:175	inital percent: 0
+2023-02-09T10:29:25.107+0200	debug	stress/stress.go:176	current percent: 0.005167739749237546
+2023-02-09T10:29:25.107+0200	debug	stress/stress.go:182	percent diff: 0.005167739749237546
+2023-02-09T10:29:25.107+0200	info	stress/stress.go:185	running again with increased amount
+2023-02-09T10:29:25.448+0200	debug	stress/stress.go:104	amount is 15
+2023-02-09T10:31:39.058+0200	debug	traffic/traffic.go:94	losss is 178, total is 11804
+2023-02-09T10:31:39.059+0200	debug	stress/stress.go:175	inital percent: 0
+2023-02-09T10:31:39.059+0200	debug	stress/stress.go:176	current percent: 0.0150796340223653
+2023-02-09T10:31:39.059+0200	debug	stress/stress.go:182	percent diff: 0.0150796340223653
+2023-02-09T10:31:39.059+0200	debug	stress/stress.go:288	Running cleanup
+2023-02-09T10:31:40.162+0200	debug	RouterStress/main.go:83	Proccessing test Data
+2023-02-09T10:31:52.677+0200	debug	RouterStress/main.go:91	Done.
+2023-02-09T10:31:52.678+0200	debug	RouterStress/main.go:92	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_10_26_39
 
-2023-02-03T15:02:47.368+0200	debug	RouterStress/main.go:74	Proccessing test Data
-2023-02-03T15:02:49.053+0200	debug	RouterStress/main.go:81	Done.
-2023-02-03T15:02:49.053+0200	debug	RouterStress/main.go:82	TestID: Ferb_LG_Commscope_Puma7_9e1ed7fd-224e-4d6a-a296-1caee4308692
+2023-02-09T10:39:01.991+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_10_39_01
+2023-02-09T10:39:01.991+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T10:39:01.991+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T10:39:01.992+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T10:39:02.198+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T10:39:02.295+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T10:39:08.296+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T10:39:12.255+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T10:39:12.255+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T10:39:33.892+0200	debug	traffic/traffic.go:94	losss is 0, total is 1417
+2023-02-09T10:39:33.893+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T10:39:33.893+0200	info	stress/stress.go:89	starting
+2023-02-09T10:39:33.893+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T10:39:34.188+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T10:41:48.676+0200	debug	traffic/traffic.go:94	losss is 0, total is 0
+2023-02-09T10:41:48.676+0200	debug	stress/stress.go:175	inital percent: 0
+2023-02-09T10:41:48.676+0200	debug	stress/stress.go:176	current percent: NaN
+2023-02-09T10:41:48.676+0200	debug	stress/stress.go:182	percent diff: NaN
+2023-02-09T10:41:48.676+0200	debug	stress/stress.go:288	Running cleanup
+2023-02-09T10:41:49.725+0200	debug	RouterStress/main.go:83	Proccessing test Data
+2023-02-09T10:49:32.593+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_10_49_32
+2023-02-09T10:49:32.593+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T10:49:32.593+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T10:49:32.594+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T10:49:32.722+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T10:49:32.815+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T10:49:38.761+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T10:49:42.778+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T10:49:42.778+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T10:51:27.971+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_10_51_27
+2023-02-09T10:51:27.971+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T10:51:27.971+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T10:51:27.971+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T10:51:28.191+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T10:51:28.295+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T10:51:34.278+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T10:51:38.249+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T10:51:38.249+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T10:51:59.769+0200	debug	traffic/traffic.go:94	losss is 0, total is 1417
+2023-02-09T10:51:59.769+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T10:51:59.769+0200	info	stress/stress.go:89	starting
+2023-02-09T10:51:59.769+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T10:52:00.040+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T10:54:14.377+0200	debug	traffic/traffic.go:94	losss is 61, total is 11804
+2023-02-09T10:54:14.377+0200	debug	stress/stress.go:175	inital percent: 0
+2023-02-09T10:54:14.377+0200	debug	stress/stress.go:176	current percent: 0.005167739749237546
+2023-02-09T10:54:14.377+0200	debug	stress/stress.go:182	percent diff: 0.005167739749237546
+2023-02-09T10:54:14.377+0200	info	stress/stress.go:185	running again with increased amount
+2023-02-09T10:54:14.700+0200	debug	stress/stress.go:104	amount is 15
+2023-02-09T10:56:44.491+0200	debug	traffic/traffic.go:94	losss is 106, total is 11804
+2023-02-09T10:56:44.491+0200	debug	stress/stress.go:175	inital percent: 0
+2023-02-09T10:56:44.491+0200	debug	stress/stress.go:176	current percent: 0.008980006777363606
+2023-02-09T10:56:44.491+0200	debug	stress/stress.go:182	percent diff: 0.008980006777363606
+2023-02-09T10:56:44.491+0200	info	stress/stress.go:185	running again with increased amount
+2023-02-09T10:56:44.936+0200	debug	stress/stress.go:104	amount is 20
+2023-02-09T10:59:01.806+0200	debug	traffic/traffic.go:94	losss is 0, total is 0
+2023-02-09T10:59:01.806+0200	debug	stress/stress.go:175	inital percent: 0
+2023-02-09T10:59:01.806+0200	debug	stress/stress.go:176	current percent: NaN
+2023-02-09T10:59:01.806+0200	debug	stress/stress.go:182	percent diff: NaN
+2023-02-09T10:59:01.806+0200	debug	stress/stress.go:288	Running cleanup
+2023-02-09T10:59:02.876+0200	debug	RouterStress/main.go:83	Proccessing test Data
+2023-02-09T11:00:53.983+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_11_00_53
+2023-02-09T11:00:53.983+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T11:00:53.983+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T11:00:53.984+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T11:00:54.216+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T11:00:54.221+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T11:01:00.304+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T11:01:04.172+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T11:01:04.172+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T11:01:25.863+0200	debug	traffic/traffic.go:94	losss is 5, total is 1417
+2023-02-09T11:01:25.863+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T11:01:25.863+0200	info	stress/stress.go:89	starting
+2023-02-09T11:01:25.863+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T11:01:26.155+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T11:03:42.878+0200	debug	traffic/traffic.go:94	losss is 93, total is 11804
+2023-02-09T11:03:42.878+0200	debug	stress/stress.go:175	inital percent: 0.0035285815102328866
+2023-02-09T11:03:42.878+0200	debug	stress/stress.go:176	current percent: 0.007878685191460523
+2023-02-09T11:03:42.878+0200	debug	stress/stress.go:182	percent diff: 0.004350103681227636
+2023-02-09T11:03:42.878+0200	info	stress/stress.go:185	running again with increased amount
+2023-02-09T11:03:43.425+0200	debug	stress/stress.go:104	amount is 15
+2023-02-09T11:06:10.120+0200	debug	traffic/traffic.go:94	losss is 168, total is 11804
+2023-02-09T11:06:10.120+0200	debug	stress/stress.go:175	inital percent: 0.0035285815102328866
+2023-02-09T11:06:10.120+0200	debug	stress/stress.go:176	current percent: 0.01423246357167062
+2023-02-09T11:06:10.120+0200	debug	stress/stress.go:182	percent diff: 0.010703882061437733
+2023-02-09T11:06:10.120+0200	info	stress/stress.go:185	running again with increased amount
+2023-02-09T11:06:10.479+0200	debug	stress/stress.go:104	amount is 20
+2023-02-09T11:08:25.542+0200	debug	traffic/traffic.go:94	losss is 276, total is 11804
+2023-02-09T11:08:25.542+0200	debug	stress/stress.go:175	inital percent: 0.0035285815102328866
+2023-02-09T11:08:25.542+0200	debug	stress/stress.go:176	current percent: 0.02338190443917316
+2023-02-09T11:08:25.542+0200	debug	stress/stress.go:182	percent diff: 0.019853322928940275
+2023-02-09T11:08:25.542+0200	debug	stress/stress.go:288	Running cleanup
+2023-02-09T11:08:26.657+0200	debug	RouterStress/main.go:83	Proccessing test Data
+2023-02-09T11:16:44.120+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_11_16_44
+2023-02-09T11:16:44.120+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T11:16:44.120+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T11:16:44.121+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T11:16:44.355+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T11:16:44.383+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T11:16:50.516+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T11:16:54.321+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T11:16:54.321+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T11:17:15.934+0200	debug	traffic/traffic.go:94	losss is 0, total is 1417
+2023-02-09T11:17:15.934+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T11:17:15.934+0200	info	stress/stress.go:89	starting
+2023-02-09T11:17:15.935+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T11:17:16.411+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T11:19:32.966+0200	debug	traffic/traffic.go:94	losss is 90, total is 11804
+2023-02-09T11:19:32.967+0200	debug	stress/stress.go:175	inital percent: 0
+2023-02-09T11:19:32.967+0200	debug	stress/stress.go:176	current percent: 0.007624534056252118
+2023-02-09T11:19:32.967+0200	debug	stress/stress.go:182	percent diff: 0.007624534056252118
+2023-02-09T11:19:32.967+0200	debug	stress/stress.go:288	Running cleanup
+2023-02-09T11:19:49.081+0200	debug	RouterStress/main.go:83	Proccessing test Data
+2023-02-09T11:21:54.051+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_11_21_54
+2023-02-09T11:21:54.051+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T11:21:54.051+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T11:21:54.052+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T11:21:54.318+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T11:21:54.337+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T11:22:04.846+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_11_22_04
+2023-02-09T11:22:04.847+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T11:22:04.847+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T11:22:04.849+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T11:22:05.122+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T11:22:05.127+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T11:22:11.260+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T11:22:15.083+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T11:22:15.083+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T11:22:36.699+0200	debug	traffic/traffic.go:94	losss is 0, total is 1417
+2023-02-09T11:22:36.699+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T11:22:36.699+0200	info	stress/stress.go:89	starting
+2023-02-09T11:22:36.699+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T11:22:37.020+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T11:25:11.879+0200	debug	traffic/traffic.go:94	losss is 113, total is 11804
+2023-02-09T11:25:11.879+0200	debug	stress/stress.go:175	inital percent: 0
+2023-02-09T11:25:11.879+0200	debug	stress/stress.go:176	current percent: 0.00957302609284988
+2023-02-09T11:25:11.879+0200	debug	stress/stress.go:182	percent diff: 0.00957302609284988
+2023-02-09T11:25:11.879+0200	debug	stress/stress.go:288	Running cleanup
+2023-02-09T11:25:12.975+0200	debug	RouterStress/main.go:83	Proccessing test Data
+2023-02-09T11:25:22.021+0200	error	RouterStress/main.go:87	json: unsupported value: NaN
+2023-02-09T11:28:11.489+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_11_28_11
+2023-02-09T11:28:11.489+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T11:28:11.489+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T11:28:11.491+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T11:28:11.738+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T11:28:11.764+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T11:28:17.892+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T11:28:21.700+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T11:28:21.700+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T11:28:43.384+0200	debug	traffic/traffic.go:94	losss is 0, total is 1417
+2023-02-09T11:28:43.384+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T11:28:43.384+0200	info	stress/stress.go:89	starting
+2023-02-09T11:28:43.384+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T11:28:43.726+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T11:29:17.476+0200	info	RouterStress/main.go:43	Received interrupt
 
-2023-02-03T15:04:29.643+0200	info	stress/stress.go:39	TestID: Ferb_LG_Commscope_Puma7_a2c27ddf-78e4-4287-9746-e1f1fd2e3386
-2023-02-03T15:04:29.643+0200	debug	stress/stress.go:54	setting up DHCP Server
-2023-02-03T15:04:29.646+0200	debug	stress/stress.go:44	Setting up Router Slave
-2023-02-03T15:04:29.646+0200	debug	stress/stress.go:49	Setting up Docker Client and Network
-2023-02-03T15:04:29.883+0200	debug	stress/stress.go:197	created slave object
-2023-02-03T15:04:29.893+0200	debug	stress/stress.go:216	docker init done, now building images
-2023-02-03T15:04:36.015+0200	debug	stress/stress.go:205	transferred sampler, now starting sampler
-2023-02-03T15:04:36.119+0200	debug	router/slave.go:104	pid is 
-19470
+2023-02-09T11:29:17.476+0200	debug	stress/stress.go:288	Running cleanup
+2023-02-09T11:29:18.525+0200	debug	RouterStress/main.go:51	Proccessing test Data
+2023-02-09T11:29:18.530+0200	debug	dataprocessing/dataprocessing.go:38	metrics: {0xc000810c40 [0xc0003aa020]}
+2023-02-09T11:29:23.437+0200	debug	RouterStress/main.go:59	Done.
+2023-02-09T11:29:23.437+0200	debug	RouterStress/main.go:60	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_11_28_11
 
-2023-02-03T15:04:39.888+0200	debug	stress/stress.go:226	dhcp init done
-2023-02-03T15:04:39.888+0200	info	stress/stress.go:62	Running inital traffic capture
-2023-02-03T15:05:00.202+0200	debug	RouterStress/main.go:57	finished setup
-2023-02-03T15:05:00.474+0200	debug	stress/stress.go:161	starting container stress_http_34d35_0_0_14
-2023-02-03T15:05:00.474+0200	debug	stress/stress.go:161	starting container stress_dns_54b22_0_0_0
-2023-02-03T15:05:00.474+0200	debug	stress/stress.go:161	starting container stress_dns_35686_0_0_5
-2023-02-03T15:05:00.474+0200	debug	stress/stress.go:161	starting container stress_http_9974c_0_0_10
-2023-02-03T15:05:00.474+0200	debug	stress/stress.go:161	starting container stress_http_431ee_0_0_13
-2023-02-03T15:05:00.474+0200	debug	stress/stress.go:161	starting container stress_dns_dfbb2_0_0_4
-2023-02-03T15:05:00.474+0200	debug	stress/stress.go:161	starting container stress_http_7612d_0_0_12
-2023-02-03T15:05:00.474+0200	debug	stress/stress.go:161	starting container stress_dns_01a91_0_0_8
-2023-02-03T15:05:00.474+0200	debug	stress/stress.go:161	starting container stress_dns_78e77_0_0_9
-2023-02-03T15:05:00.474+0200	debug	stress/stress.go:161	starting container stress_http_b541a_0_0_11
-2023-02-03T15:05:00.474+0200	debug	stress/stress.go:161	starting container stress_dns_ca949_0_0_7
-2023-02-03T15:05:00.474+0200	debug	stress/stress.go:161	starting container stress_dns_238e5_0_0_3
-2023-02-03T15:05:00.474+0200	debug	stress/stress.go:161	starting container stress_dns_59723_0_0_6
-2023-02-03T15:05:00.474+0200	debug	stress/stress.go:161	starting container stress_dns_407ea_0_0_2
-2023-02-03T15:05:00.474+0200	debug	stress/stress.go:161	starting container stress_dns_9cf24_0_0_1
-2023-02-03T15:06:01.305+0200	debug	stress/stress.go:184	Killing Container stress_http_7612d_0_0_12
-2023-02-03T15:06:01.560+0200	debug	stress/stress.go:184	Killing Container stress_dns_78e77_0_0_9
-2023-02-03T15:06:01.675+0200	debug	stress/stress.go:184	Killing Container stress_http_b541a_0_0_11
-2023-02-03T15:06:01.976+0200	debug	stress/stress.go:184	Killing Container stress_dns_ca949_0_0_7
-2023-02-03T15:06:02.316+0200	debug	stress/stress.go:184	Killing Container stress_http_9974c_0_0_10
-2023-02-03T15:06:02.417+0200	debug	stress/stress.go:184	Killing Container stress_dns_9cf24_0_0_1
-2023-02-03T15:06:02.478+0200	debug	stress/stress.go:184	Killing Container stress_dns_59723_0_0_6
-2023-02-03T15:06:02.839+0200	debug	stress/stress.go:184	Killing Container stress_dns_01a91_0_0_8
-2023-02-03T15:06:03.031+0200	debug	stress/stress.go:184	Killing Container stress_dns_dfbb2_0_0_4
-2023-02-03T15:06:03.496+0200	debug	stress/stress.go:184	Killing Container stress_dns_238e5_0_0_3
-2023-02-03T15:06:03.894+0200	debug	stress/stress.go:184	Killing Container stress_http_34d35_0_0_14
-2023-02-03T15:06:03.935+0200	debug	stress/stress.go:184	Killing Container stress_dns_54b22_0_0_0
-2023-02-03T15:06:03.940+0200	debug	stress/stress.go:184	Killing Container stress_dns_407ea_0_0_2
-2023-02-03T15:06:04.016+0200	debug	stress/stress.go:184	Killing Container stress_dns_35686_0_0_5
-2023-02-03T15:06:04.147+0200	debug	stress/stress.go:184	Killing Container stress_http_431ee_0_0_13
-2023-02-03T15:06:14.213+0200	debug	stress/stress.go:139	packet loss ratio: 1 < 0.95 is false
-2023-02-03T15:06:14.214+0200	debug	stress/stress.go:235	Running cleanup
-2023-02-03T15:06:14.216+0200	debug	router/slave.go:119	cmd: kill -9 19470, output: kill -9 
-kill: usage: kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill -l [sigspec]
-1
-2023-02-03T15:06:15.295+0200	debug	RouterStress/main.go:74	Proccessing test Data
-2023-02-03T15:06:16.929+0200	debug	RouterStress/main.go:81	Done.
-2023-02-03T15:06:16.929+0200	debug	RouterStress/main.go:82	TestID: Ferb_LG_Commscope_Puma7_a2c27ddf-78e4-4287-9746-e1f1fd2e3386
+2023-02-09T11:37:28.022+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_11_37_28
+2023-02-09T11:37:28.022+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T11:37:28.022+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T11:37:28.022+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T11:37:28.171+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T11:37:28.306+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T11:37:34.312+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T11:37:38.213+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T11:37:38.213+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T11:37:59.838+0200	debug	traffic/traffic.go:94	losss is 0, total is 1417
+2023-02-09T11:37:59.838+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T11:37:59.838+0200	info	stress/stress.go:89	starting
+2023-02-09T11:37:59.838+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T11:38:00.124+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T11:40:14.346+0200	debug	traffic/traffic.go:94	losss is 0, total is 0
+2023-02-09T11:40:14.346+0200	debug	stress/stress.go:175	inital percent: 0
+2023-02-09T11:40:14.346+0200	debug	stress/stress.go:176	current percent: NaN
+2023-02-09T11:40:14.346+0200	debug	stress/stress.go:182	percent diff: NaN
+2023-02-09T11:40:14.346+0200	debug	stress/stress.go:288	Running cleanup
+2023-02-09T11:40:15.401+0200	debug	RouterStress/main.go:83	Proccessing test Data
+2023-02-09T11:41:49.227+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_11_41_49
+2023-02-09T11:41:49.227+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T11:41:49.228+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T11:41:49.228+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T11:41:49.469+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T11:41:49.556+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T11:41:55.685+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T11:41:59.453+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T11:41:59.453+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T11:42:21.010+0200	debug	traffic/traffic.go:94	losss is 13, total is 1417
+2023-02-09T11:42:21.011+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T11:42:21.011+0200	info	stress/stress.go:89	starting
+2023-02-09T11:42:21.011+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T11:42:21.300+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T11:44:37.232+0200	debug	traffic/traffic.go:94	losss is 122, total is 11804
+2023-02-09T11:44:37.232+0200	debug	stress/stress.go:175	inital percent: 0.009174311926605505
+2023-02-09T11:44:37.232+0200	debug	stress/stress.go:176	current percent: 0.010335479498475093
+2023-02-09T11:44:37.232+0200	debug	stress/stress.go:182	percent diff: 0.0011611675718695876
+2023-02-09T11:44:37.232+0200	debug	stress/stress.go:288	Running cleanup
+2023-02-09T11:44:38.331+0200	debug	RouterStress/main.go:83	Proccessing test Data
+2023-02-09T11:44:45.580+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_11_44_45
+2023-02-09T11:44:45.580+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T11:44:45.580+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T11:44:45.581+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T11:44:45.994+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T11:44:46.107+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T11:44:52.339+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T11:44:56.081+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T11:44:56.081+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T11:45:17.623+0200	debug	traffic/traffic.go:94	losss is 0, total is 1417
+2023-02-09T11:45:17.623+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T11:45:17.623+0200	info	stress/stress.go:89	starting
+2023-02-09T11:45:17.623+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T11:45:17.920+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T11:47:32.438+0200	debug	traffic/traffic.go:94	losss is 121, total is 11804
+2023-02-09T11:47:32.438+0200	debug	stress/stress.go:175	inital percent: 0
+2023-02-09T11:47:32.438+0200	debug	stress/stress.go:176	current percent: 0.010250762453405626
+2023-02-09T11:47:32.438+0200	debug	stress/stress.go:182	percent diff: 0.010250762453405626
+2023-02-09T11:47:32.438+0200	debug	stress/stress.go:288	Running cleanup
+2023-02-09T11:47:33.535+0200	debug	RouterStress/main.go:83	Proccessing test Data
+2023-02-09T11:48:45.167+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_11_48_45
+2023-02-09T11:48:45.167+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T11:48:45.168+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T11:48:45.168+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T11:48:45.377+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T11:48:45.441+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T11:48:51.480+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T11:48:55.385+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T11:48:55.385+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T11:49:17.100+0200	debug	traffic/traffic.go:94	losss is 0, total is 1417
+2023-02-09T11:49:17.100+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T11:49:17.100+0200	info	stress/stress.go:89	starting
+2023-02-09T11:49:17.100+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T11:49:17.456+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T11:51:49.339+0200	debug	traffic/traffic.go:94	losss is 132, total is 11804
+2023-02-09T11:51:49.339+0200	debug	stress/stress.go:175	inital percent: 0
+2023-02-09T11:51:49.339+0200	debug	stress/stress.go:176	current percent: 0.011182649949169773
+2023-02-09T11:51:49.339+0200	debug	stress/stress.go:182	percent diff: 0.011182649949169773
+2023-02-09T11:51:49.339+0200	debug	stress/stress.go:288	Running cleanup
+2023-02-09T11:51:50.391+0200	debug	RouterStress/main.go:83	Proccessing test Data
+2023-02-09T11:56:59.226+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_11_56_59
+2023-02-09T11:56:59.226+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T11:56:59.227+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T11:56:59.227+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T11:56:59.508+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T11:56:59.553+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T11:57:05.644+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T11:57:09.452+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T11:57:09.452+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T11:57:30.972+0200	debug	traffic/traffic.go:94	losss is 2, total is 1417
+2023-02-09T11:57:30.972+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T11:57:30.972+0200	info	stress/stress.go:89	starting
+2023-02-09T11:57:30.972+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T11:57:31.396+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T11:59:48.642+0200	debug	traffic/traffic.go:94	losss is 123, total is 11804
+2023-02-09T11:59:48.642+0200	debug	stress/stress.go:175	inital percent: 0.0014114326040931546
+2023-02-09T11:59:48.642+0200	debug	stress/stress.go:176	current percent: 0.010420196543544561
+2023-02-09T11:59:48.642+0200	debug	stress/stress.go:182	percent diff: 0.009008763939451407
+2023-02-09T11:59:48.642+0200	debug	stress/stress.go:288	Running cleanup
+2023-02-09T11:59:49.696+0200	debug	RouterStress/main.go:83	Proccessing test Data
+2023-02-09T11:59:49.696+0200	debug	dataprocessing/dataprocessing.go:130	req: 0
+2023-02-09T12:02:09.142+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_12_02_09
+2023-02-09T12:02:09.142+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T12:02:09.142+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T12:02:09.142+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T12:02:09.370+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T12:02:09.379+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T12:02:15.512+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T12:02:19.332+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T12:02:19.332+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T12:02:41.501+0200	debug	traffic/traffic.go:94	losss is 0, total is 1417
+2023-02-09T12:02:41.501+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T12:02:41.501+0200	info	stress/stress.go:89	starting
+2023-02-09T12:02:41.501+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T12:02:41.756+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T12:05:18.176+0200	debug	traffic/traffic.go:94	losss is 98, total is 11804
+2023-02-09T12:05:18.176+0200	debug	stress/stress.go:175	inital percent: 0
+2023-02-09T12:05:18.176+0200	debug	stress/stress.go:176	current percent: 0.008302270416807861
+2023-02-09T12:05:18.176+0200	debug	stress/stress.go:182	percent diff: 0.008302270416807861
+2023-02-09T12:05:18.176+0200	debug	stress/stress.go:288	Running cleanup
+2023-02-09T12:05:19.271+0200	debug	RouterStress/main.go:83	Proccessing test Data
+2023-02-09T12:05:19.271+0200	debug	dataprocessing/dataprocessing.go:134	avg is nil
+2023-02-09T12:11:42.829+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_12_11_42
+2023-02-09T12:11:42.829+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T12:11:42.830+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T12:11:42.831+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T12:11:43.102+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T12:11:43.328+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T12:11:49.460+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T12:11:53.061+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T12:11:53.061+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T12:12:14.551+0200	debug	traffic/traffic.go:94	losss is 0, total is 1417
+2023-02-09T12:12:14.551+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T12:12:14.551+0200	info	stress/stress.go:89	starting
+2023-02-09T12:12:14.551+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T12:12:14.847+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T12:14:28.795+0200	debug	traffic/traffic.go:94	losss is 98, total is 11804
+2023-02-09T12:14:28.795+0200	debug	stress/stress.go:175	inital percent: 0
+2023-02-09T12:14:28.795+0200	debug	stress/stress.go:176	current percent: 0.008302270416807861
+2023-02-09T12:14:28.795+0200	debug	stress/stress.go:182	percent diff: 0.008302270416807861
+2023-02-09T12:14:28.795+0200	debug	stress/stress.go:288	Running cleanup
+2023-02-09T12:14:29.906+0200	debug	RouterStress/main.go:83	Proccessing test Data
+2023-02-09T12:14:29.906+0200	debug	dataprocessing/dataprocessing.go:95	data map: map[]
+2023-02-09T12:14:29.906+0200	debug	dataprocessing/dataprocessing.go:136	avg is nil
+2023-02-09T12:15:06.099+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_12_15_06
+2023-02-09T12:15:06.099+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T12:15:06.100+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T12:15:06.100+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T12:15:06.337+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T12:15:06.387+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T12:15:12.476+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T12:15:16.287+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T12:15:16.287+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T12:15:37.990+0200	debug	traffic/traffic.go:94	losss is 0, total is 1417
+2023-02-09T12:15:37.990+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T12:15:37.990+0200	info	stress/stress.go:89	starting
+2023-02-09T12:15:37.990+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T12:15:38.360+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T12:17:57.313+0200	debug	traffic/traffic.go:94	losss is 119, total is 11804
+2023-02-09T12:17:57.313+0200	debug	stress/stress.go:175	inital percent: 0
+2023-02-09T12:17:57.313+0200	debug	stress/stress.go:176	current percent: 0.01008132836326669
+2023-02-09T12:17:57.313+0200	debug	stress/stress.go:182	percent diff: 0.01008132836326669
+2023-02-09T12:17:57.313+0200	debug	stress/stress.go:288	Running cleanup
+2023-02-09T12:17:58.418+0200	debug	RouterStress/main.go:83	Proccessing test Data
+2023-02-09T12:17:58.419+0200	debug	dataprocessing/dataprocessing.go:95	files: []
+2023-02-09T12:17:58.419+0200	debug	dataprocessing/dataprocessing.go:136	avg is nil
+2023-02-09T12:37:13.919+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_12_37_13
+2023-02-09T12:37:13.919+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T12:37:13.919+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T12:37:13.920+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T12:37:14.182+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T12:37:14.227+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T12:37:20.356+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T12:37:24.147+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T12:37:24.147+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T12:37:45.774+0200	debug	traffic/traffic.go:94	losss is 5, total is 1417
+2023-02-09T12:37:45.774+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T12:37:45.774+0200	info	stress/stress.go:89	starting
+2023-02-09T12:37:45.774+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T12:37:46.072+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T12:40:17.757+0200	debug	traffic/traffic.go:94	losss is 62, total is 11804
+2023-02-09T12:40:17.757+0200	debug	stress/stress.go:175	inital percent: 0.0035285815102328866
+2023-02-09T12:40:17.757+0200	debug	stress/stress.go:176	current percent: 0.005252456794307014
+2023-02-09T12:40:17.757+0200	debug	stress/stress.go:182	percent diff: 0.0017238752840741276
+2023-02-09T12:40:17.757+0200	debug	stress/stress.go:288	Running cleanup
+2023-02-09T12:40:18.817+0200	debug	RouterStress/main.go:83	Proccessing test Data
+2023-02-09T12:40:18.817+0200	debug	dataprocessing/dataprocessing.go:330	splitName: [stress http 0afad 0 0 7], ri: %!(EXTRA int=0)
+2023-02-09T12:40:18.817+0200	debug	dataprocessing/dataprocessing.go:330	splitName: [stress http 30403 0 0 8], ri: %!(EXTRA int=0)
+2023-02-09T12:40:18.817+0200	debug	dataprocessing/dataprocessing.go:330	splitName: [stress http 33fe5 0 0 6], ri: %!(EXTRA int=0)
+2023-02-09T12:40:18.817+0200	debug	dataprocessing/dataprocessing.go:330	splitName: [stress http 380a7 0 0 9], ri: %!(EXTRA int=0)
+2023-02-09T12:40:18.817+0200	debug	dataprocessing/dataprocessing.go:330	splitName: [stress http 3fc22 0 0 3], ri: %!(EXTRA int=0)
+2023-02-09T12:40:18.817+0200	debug	dataprocessing/dataprocessing.go:330	splitName: [stress http 5be00 0 0 5], ri: %!(EXTRA int=0)
+2023-02-09T12:40:18.817+0200	debug	dataprocessing/dataprocessing.go:330	splitName: [stress http 81b2e 0 0 1], ri: %!(EXTRA int=0)
+2023-02-09T12:40:18.817+0200	debug	dataprocessing/dataprocessing.go:330	splitName: [stress http 96364 0 0 4], ri: %!(EXTRA int=0)
+2023-02-09T12:40:18.817+0200	debug	dataprocessing/dataprocessing.go:330	splitName: [stress http aae5a 0 0 0], ri: %!(EXTRA int=0)
+2023-02-09T12:40:18.817+0200	debug	dataprocessing/dataprocessing.go:330	splitName: [stress http d98ab 0 0 2], ri: %!(EXTRA int=0)
+2023-02-09T12:40:18.817+0200	debug	dataprocessing/dataprocessing.go:95	files: []
+2023-02-09T12:40:18.817+0200	debug	dataprocessing/dataprocessing.go:136	avg is nil
+2023-02-09T12:43:20.912+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_12_43_20
+2023-02-09T12:43:20.912+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T12:43:20.912+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T12:43:20.912+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T12:43:21.155+0200	debug	stress/stress.go:270	docker init done, now building images
+2023-02-09T12:43:21.208+0200	debug	stress/stress.go:251	created slave object
+2023-02-09T12:43:27.336+0200	debug	stress/stress.go:259	transferred sampler, now starting sampler
+2023-02-09T12:43:31.121+0200	debug	stress/stress.go:280	dhcp init done
+2023-02-09T12:43:31.121+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T12:43:52.669+0200	debug	traffic/traffic.go:94	losss is 2, total is 1417
+2023-02-09T12:43:52.670+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T12:43:52.670+0200	info	stress/stress.go:89	starting
+2023-02-09T12:43:52.670+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T12:43:52.973+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T12:43:52.973+0200	debug	stress/stress.go:108	starting container stress_http_5f8b4_0_0_0, ri: 0
+2023-02-09T12:43:52.973+0200	debug	stress/stress.go:108	starting container stress_http_0fff1_0_0_1, ri: 0
+2023-02-09T12:43:52.973+0200	debug	stress/stress.go:108	starting container stress_http_13465_0_0_2, ri: 0
+2023-02-09T12:43:52.973+0200	debug	stress/stress.go:108	starting container stress_http_b6cf4_0_0_3, ri: 0
+2023-02-09T12:43:52.973+0200	debug	stress/stress.go:108	starting container stress_http_83a1e_0_0_4, ri: 0
+2023-02-09T12:43:52.973+0200	debug	stress/stress.go:108	starting container stress_http_cc5e9_0_0_5, ri: 0
+2023-02-09T12:43:52.973+0200	debug	stress/stress.go:108	starting container stress_http_ecfc5_0_0_6, ri: 0
+2023-02-09T12:43:52.973+0200	debug	stress/stress.go:108	starting container stress_http_78336_0_0_7, ri: 0
+2023-02-09T12:43:52.973+0200	debug	stress/stress.go:108	starting container stress_http_d4b7c_0_0_8, ri: 0
+2023-02-09T12:43:52.973+0200	debug	stress/stress.go:108	starting container stress_http_d533a_0_0_9, ri: 0
+2023-02-09T12:44:20.736+0200	info	RouterStress/main.go:43	Received interrupt
 
-2023-02-03T15:34:45.046+0200	info	stress/stress.go:39	TestID: Ferb_LG_Commscope_Puma7_d6eed03b-5421-47a2-b26f-ca03c218d6c4
-2023-02-03T15:34:45.047+0200	debug	stress/stress.go:54	setting up DHCP Server
-2023-02-03T15:34:45.047+0200	debug	stress/stress.go:44	Setting up Router Slave
-2023-02-03T15:34:45.047+0200	debug	stress/stress.go:49	Setting up Docker Client and Network
-2023-02-03T15:34:45.207+0200	debug	stress/stress.go:197	created slave object
-2023-02-03T15:34:45.289+0200	debug	stress/stress.go:216	docker init done, now building images
-2023-02-03T15:34:51.344+0200	debug	stress/stress.go:205	transferred sampler, now starting sampler
-2023-02-03T15:34:51.435+0200	debug	router/slave.go:104	pid is 
-23141
+2023-02-09T12:44:20.736+0200	debug	stress/stress.go:289	Running cleanup
+2023-02-09T12:44:21.827+0200	debug	RouterStress/main.go:51	Proccessing test Data
+2023-02-09T12:44:21.827+0200	debug	dataprocessing/dataprocessing.go:334	splitName: [stress http 0fff1 0 0 1], ri: %!(EXTRA int=0)
+2023-02-09T12:44:21.827+0200	debug	dataprocessing/dataprocessing.go:334	splitName: [stress http 13465 0 0 2], ri: %!(EXTRA int=0)
+2023-02-09T12:44:21.827+0200	debug	dataprocessing/dataprocessing.go:334	splitName: [stress http 5f8b4 0 0 0], ri: %!(EXTRA int=0)
+2023-02-09T12:44:21.827+0200	debug	dataprocessing/dataprocessing.go:334	splitName: [stress http 78336 0 0 7], ri: %!(EXTRA int=0)
+2023-02-09T12:44:21.827+0200	debug	dataprocessing/dataprocessing.go:334	splitName: [stress http 83a1e 0 0 4], ri: %!(EXTRA int=0)
+2023-02-09T12:44:21.827+0200	debug	dataprocessing/dataprocessing.go:334	splitName: [stress http b6cf4 0 0 3], ri: %!(EXTRA int=0)
+2023-02-09T12:44:21.827+0200	debug	dataprocessing/dataprocessing.go:334	splitName: [stress http cc5e9 0 0 5], ri: %!(EXTRA int=0)
+2023-02-09T12:44:21.827+0200	debug	dataprocessing/dataprocessing.go:334	splitName: [stress http d4b7c 0 0 8], ri: %!(EXTRA int=0)
+2023-02-09T12:44:21.827+0200	debug	dataprocessing/dataprocessing.go:334	splitName: [stress http d533a 0 0 9], ri: %!(EXTRA int=0)
+2023-02-09T12:44:21.827+0200	debug	dataprocessing/dataprocessing.go:334	splitName: [stress http ecfc5 0 0 6], ri: %!(EXTRA int=0)
+2023-02-09T12:44:21.829+0200	debug	dataprocessing/dataprocessing.go:99	files: [/home/qa/Documents/RouterStress/results/Ferb_LG_Commscope_Puma7_2023_02_09_12_43_20/stress_http_0fff1_0_0_1.csv /home/qa/Documents/RouterStress/results/Ferb_LG_Commscope_Puma7_2023_02_09_12_43_20/stress_http_13465_0_0_2.csv /home/qa/Documents/RouterStress/results/Ferb_LG_Commscope_Puma7_2023_02_09_12_43_20/stress_http_5f8b4_0_0_0.csv /home/qa/Documents/RouterStress/results/Ferb_LG_Commscope_Puma7_2023_02_09_12_43_20/stress_http_78336_0_0_7.csv /home/qa/Documents/RouterStress/results/Ferb_LG_Commscope_Puma7_2023_02_09_12_43_20/stress_http_83a1e_0_0_4.csv /home/qa/Documents/RouterStress/results/Ferb_LG_Commscope_Puma7_2023_02_09_12_43_20/stress_http_b6cf4_0_0_3.csv /home/qa/Documents/RouterStress/results/Ferb_LG_Commscope_Puma7_2023_02_09_12_43_20/stress_http_cc5e9_0_0_5.csv /home/qa/Documents/RouterStress/results/Ferb_LG_Commscope_Puma7_2023_02_09_12_43_20/stress_http_d4b7c_0_0_8.csv /home/qa/Documents/RouterStress/results/Ferb_LG_Commscope_Puma7_2023_02_09_12_43_20/stress_http_d533a_0_0_9.csv /home/qa/Documents/RouterStress/results/Ferb_LG_Commscope_Puma7_2023_02_09_12_43_20/stress_http_ecfc5_0_0_6.csv]
+2023-02-09T12:45:02.163+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_12_45_02
+2023-02-09T12:45:02.163+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T12:45:02.163+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T12:45:02.163+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T12:45:02.432+0200	debug	stress/stress.go:251	created slave object
+2023-02-09T12:45:02.440+0200	debug	stress/stress.go:270	docker init done, now building images
+2023-02-09T12:45:08.564+0200	debug	stress/stress.go:259	transferred sampler, now starting sampler
+2023-02-09T12:45:12.335+0200	debug	stress/stress.go:280	dhcp init done
+2023-02-09T12:45:12.335+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T12:45:33.896+0200	debug	traffic/traffic.go:94	losss is 0, total is 1417
+2023-02-09T12:45:33.896+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T12:45:33.897+0200	info	stress/stress.go:89	starting
+2023-02-09T12:45:33.897+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T12:45:34.268+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T12:45:34.268+0200	debug	stress/stress.go:108	starting container stress_http_4402f_0_0_0, ri: 0
+2023-02-09T12:45:34.268+0200	debug	stress/stress.go:108	starting container stress_http_7a265_0_0_1, ri: 0
+2023-02-09T12:45:34.268+0200	debug	stress/stress.go:108	starting container stress_http_ce5bc_0_0_2, ri: 0
+2023-02-09T12:45:34.268+0200	debug	stress/stress.go:108	starting container stress_http_9a524_0_0_3, ri: 0
+2023-02-09T12:45:34.268+0200	debug	stress/stress.go:108	starting container stress_http_6fdfb_0_0_4, ri: 0
+2023-02-09T12:45:34.268+0200	debug	stress/stress.go:108	starting container stress_http_a7687_0_0_5, ri: 0
+2023-02-09T12:45:34.268+0200	debug	stress/stress.go:108	starting container stress_http_12f7d_0_0_6, ri: 0
+2023-02-09T12:45:34.268+0200	debug	stress/stress.go:108	starting container stress_http_72cc6_0_0_7, ri: 0
+2023-02-09T12:45:34.268+0200	debug	stress/stress.go:108	starting container stress_http_84860_0_0_8, ri: 0
+2023-02-09T12:45:34.268+0200	debug	stress/stress.go:108	starting container stress_http_9a681_0_0_9, ri: 0
+2023-02-09T12:47:48.442+0200	debug	traffic/traffic.go:94	losss is 0, total is 0
+2023-02-09T12:47:48.442+0200	debug	stress/stress.go:175	inital percent: 0
+2023-02-09T12:47:48.442+0200	debug	stress/stress.go:176	current percent: NaN
+2023-02-09T12:47:48.442+0200	debug	stress/stress.go:182	percent diff: NaN
+2023-02-09T12:47:48.442+0200	debug	stress/stress.go:289	Running cleanup
+2023-02-09T12:47:49.532+0200	debug	RouterStress/main.go:83	Proccessing test Data
+2023-02-09T12:47:49.533+0200	debug	dataprocessing/dataprocessing.go:334	splitName: [stress http 12f7d 0 0 6], ri: %!(EXTRA int=0)
+2023-02-09T12:47:49.533+0200	debug	dataprocessing/dataprocessing.go:334	splitName: [stress http 4402f 0 0 0], ri: %!(EXTRA int=0)
+2023-02-09T12:47:49.533+0200	debug	dataprocessing/dataprocessing.go:334	splitName: [stress http 6fdfb 0 0 4], ri: %!(EXTRA int=0)
+2023-02-09T12:47:49.533+0200	debug	dataprocessing/dataprocessing.go:334	splitName: [stress http 72cc6 0 0 7], ri: %!(EXTRA int=0)
+2023-02-09T12:47:49.533+0200	debug	dataprocessing/dataprocessing.go:334	splitName: [stress http 7a265 0 0 1], ri: %!(EXTRA int=0)
+2023-02-09T12:47:49.533+0200	debug	dataprocessing/dataprocessing.go:334	splitName: [stress http 84860 0 0 8], ri: %!(EXTRA int=0)
+2023-02-09T12:47:49.533+0200	debug	dataprocessing/dataprocessing.go:334	splitName: [stress http 9a524 0 0 3], ri: %!(EXTRA int=0)
+2023-02-09T12:47:49.533+0200	debug	dataprocessing/dataprocessing.go:334	splitName: [stress http 9a681 0 0 9], ri: %!(EXTRA int=0)
+2023-02-09T12:47:49.533+0200	debug	dataprocessing/dataprocessing.go:334	splitName: [stress http a7687 0 0 5], ri: %!(EXTRA int=0)
+2023-02-09T12:47:49.533+0200	debug	dataprocessing/dataprocessing.go:334	splitName: [stress http ce5bc 0 0 2], ri: %!(EXTRA int=0)
+2023-02-09T12:47:49.544+0200	debug	dataprocessing/dataprocessing.go:99	files: [/home/qa/Documents/RouterStress/results/Ferb_LG_Commscope_Puma7_2023_02_09_12_45_02/stress_http_12f7d_0_0_6.csv /home/qa/Documents/RouterStress/results/Ferb_LG_Commscope_Puma7_2023_02_09_12_45_02/stress_http_4402f_0_0_0.csv /home/qa/Documents/RouterStress/results/Ferb_LG_Commscope_Puma7_2023_02_09_12_45_02/stress_http_6fdfb_0_0_4.csv /home/qa/Documents/RouterStress/results/Ferb_LG_Commscope_Puma7_2023_02_09_12_45_02/stress_http_72cc6_0_0_7.csv /home/qa/Documents/RouterStress/results/Ferb_LG_Commscope_Puma7_2023_02_09_12_45_02/stress_http_7a265_0_0_1.csv /home/qa/Documents/RouterStress/results/Ferb_LG_Commscope_Puma7_2023_02_09_12_45_02/stress_http_84860_0_0_8.csv /home/qa/Documents/RouterStress/results/Ferb_LG_Commscope_Puma7_2023_02_09_12_45_02/stress_http_9a524_0_0_3.csv /home/qa/Documents/RouterStress/results/Ferb_LG_Commscope_Puma7_2023_02_09_12_45_02/stress_http_9a681_0_0_9.csv /home/qa/Documents/RouterStress/results/Ferb_LG_Commscope_Puma7_2023_02_09_12_45_02/stress_http_a7687_0_0_5.csv /home/qa/Documents/RouterStress/results/Ferb_LG_Commscope_Puma7_2023_02_09_12_45_02/stress_http_ce5bc_0_0_2.csv]
+2023-02-09T12:50:03.255+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_12_50_03
+2023-02-09T12:50:03.255+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T12:50:03.256+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T12:50:03.257+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T12:50:03.487+0200	debug	stress/stress.go:270	docker init done, now building images
+2023-02-09T12:50:03.588+0200	debug	stress/stress.go:251	created slave object
+2023-02-09T12:50:09.672+0200	debug	stress/stress.go:259	transferred sampler, now starting sampler
+2023-02-09T12:50:13.457+0200	debug	stress/stress.go:280	dhcp init done
+2023-02-09T12:50:13.457+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T12:50:33.790+0200	debug	traffic/traffic.go:94	losss is 0, total is 0
+2023-02-09T12:50:33.790+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T12:50:33.790+0200	info	stress/stress.go:89	starting
+2023-02-09T12:50:33.790+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T12:50:34.075+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T12:50:34.075+0200	debug	stress/stress.go:108	starting container stress_http_f3ea8_0_0_0, ri: 0
+2023-02-09T12:50:34.075+0200	debug	stress/stress.go:108	starting container stress_http_4a760_0_0_1, ri: 0
+2023-02-09T12:50:34.075+0200	debug	stress/stress.go:108	starting container stress_http_51157_0_0_2, ri: 0
+2023-02-09T12:50:34.075+0200	debug	stress/stress.go:108	starting container stress_http_bece2_0_0_3, ri: 0
+2023-02-09T12:50:34.075+0200	debug	stress/stress.go:108	starting container stress_http_22dbe_0_0_4, ri: 0
+2023-02-09T12:50:34.075+0200	debug	stress/stress.go:108	starting container stress_http_2d9b9_0_0_5, ri: 0
+2023-02-09T12:50:34.075+0200	debug	stress/stress.go:108	starting container stress_http_a312e_0_0_6, ri: 0
+2023-02-09T12:50:34.075+0200	debug	stress/stress.go:108	starting container stress_http_0c3b3_0_0_7, ri: 0
+2023-02-09T12:50:34.075+0200	debug	stress/stress.go:108	starting container stress_http_e8959_0_0_8, ri: 0
+2023-02-09T12:50:34.075+0200	debug	stress/stress.go:108	starting container stress_http_661a0_0_0_9, ri: 0
+2023-02-09T12:52:46.633+0200	debug	traffic/traffic.go:94	losss is 0, total is 0
+2023-02-09T12:52:46.634+0200	debug	stress/stress.go:175	inital percent: NaN
+2023-02-09T12:52:46.634+0200	debug	stress/stress.go:176	current percent: NaN
+2023-02-09T12:52:46.634+0200	debug	stress/stress.go:182	percent diff: NaN
+2023-02-09T12:52:46.634+0200	debug	stress/stress.go:289	Running cleanup
+2023-02-09T12:52:47.685+0200	debug	RouterStress/main.go:83	Proccessing test Data
+2023-02-09T12:52:47.685+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 0c3b3 0 0 7], ri: %!(EXTRA int=0)
+2023-02-09T12:52:47.685+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 22dbe 0 0 4], ri: %!(EXTRA int=0)
+2023-02-09T12:52:47.685+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 2d9b9 0 0 5], ri: %!(EXTRA int=0)
+2023-02-09T12:52:47.685+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 4a760 0 0 1], ri: %!(EXTRA int=0)
+2023-02-09T12:52:47.685+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 51157 0 0 2], ri: %!(EXTRA int=0)
+2023-02-09T12:52:47.685+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 661a0 0 0 9], ri: %!(EXTRA int=0)
+2023-02-09T12:52:47.685+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http a312e 0 0 6], ri: %!(EXTRA int=0)
+2023-02-09T12:52:47.685+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http bece2 0 0 3], ri: %!(EXTRA int=0)
+2023-02-09T12:52:47.685+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http e8959 0 0 8], ri: %!(EXTRA int=0)
+2023-02-09T12:52:47.685+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http f3ea8 0 0 0], ri: %!(EXTRA int=0)
+2023-02-09T12:52:47.708+0200	debug	dataprocessing/dataprocessing.go:42	metrics: {0xc0007119c0 [0xc00019e020]}
+2023-02-09T12:52:50.044+0200	debug	RouterStress/main.go:91	Done.
+2023-02-09T12:52:50.044+0200	debug	RouterStress/main.go:92	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_12_50_03
 
-2023-02-03T15:34:55.298+0200	debug	stress/stress.go:226	dhcp init done
-2023-02-03T15:34:55.298+0200	info	stress/stress.go:62	Running inital traffic capture
-2023-02-03T15:37:39.119+0200	info	stress/stress.go:39	TestID: Ferb_LG_Commscope_Puma7_0105de1e-0003-4eaf-9edb-c4110a618521
-2023-02-03T15:37:39.119+0200	debug	stress/stress.go:54	setting up DHCP Server
-2023-02-03T15:37:39.120+0200	debug	stress/stress.go:44	Setting up Router Slave
-2023-02-03T15:37:39.121+0200	debug	stress/stress.go:49	Setting up Docker Client and Network
-2023-02-03T15:37:39.269+0200	debug	stress/stress.go:197	created slave object
-2023-02-03T15:37:39.637+0200	debug	stress/stress.go:216	docker init done, now building images
-2023-02-03T15:37:45.408+0200	debug	stress/stress.go:205	transferred sampler, now starting sampler
-2023-02-03T15:37:49.346+0200	debug	stress/stress.go:226	dhcp init done
-2023-02-03T15:37:49.346+0200	info	stress/stress.go:62	Running inital traffic capture
-2023-02-03T15:40:02.796+0200	info	stress/stress.go:39	TestID: Ferb_LG_Commscope_Puma7_c18b9d31-61d1-4888-8ff9-a731586218c0
-2023-02-03T15:40:02.797+0200	debug	stress/stress.go:54	setting up DHCP Server
-2023-02-03T15:40:02.797+0200	debug	stress/stress.go:44	Setting up Router Slave
-2023-02-03T15:40:02.797+0200	debug	stress/stress.go:49	Setting up Docker Client and Network
-2023-02-03T15:40:02.911+0200	debug	stress/stress.go:197	created slave object
-2023-02-03T15:40:03.353+0200	debug	stress/stress.go:216	docker init done, now building images
-2023-02-03T15:40:08.946+0200	debug	stress/stress.go:205	transferred sampler, now starting sampler
-2023-02-03T15:40:13.033+0200	debug	stress/stress.go:226	dhcp init done
-2023-02-03T15:40:13.033+0200	info	stress/stress.go:62	Running inital traffic capture
-2023-02-03T15:40:21.870+0200	info	stress/stress.go:39	TestID: Ferb_LG_Commscope_Puma7_9c80d58b-e789-49fa-bd96-bb5d7e5a7c32
-2023-02-03T15:40:21.870+0200	debug	stress/stress.go:54	setting up DHCP Server
-2023-02-03T15:40:21.870+0200	debug	stress/stress.go:44	Setting up Router Slave
-2023-02-03T15:40:21.871+0200	debug	stress/stress.go:49	Setting up Docker Client and Network
-2023-02-03T15:40:22.115+0200	debug	stress/stress.go:197	created slave object
-2023-02-03T15:40:22.393+0200	debug	stress/stress.go:216	docker init done, now building images
-2023-02-03T15:40:28.240+0200	debug	stress/stress.go:205	transferred sampler, now starting sampler
-2023-02-03T15:40:32.116+0200	debug	stress/stress.go:226	dhcp init done
-2023-02-03T15:40:32.116+0200	info	stress/stress.go:62	Running inital traffic capture
-2023-02-03T15:40:52.465+0200	debug	RouterStress/main.go:57	finished setup
-2023-02-03T15:40:52.721+0200	debug	stress/stress.go:161	starting container stress_http_c868b_0_0_14
-2023-02-03T15:40:52.721+0200	debug	stress/stress.go:161	starting container stress_http_543b7_0_0_10
-2023-02-03T15:40:52.721+0200	debug	stress/stress.go:161	starting container stress_dns_e813c_0_0_8
-2023-02-03T15:40:52.721+0200	debug	stress/stress.go:161	starting container stress_dns_33f47_0_0_0
-2023-02-03T15:40:52.721+0200	debug	stress/stress.go:161	starting container stress_http_18b6c_0_0_11
-2023-02-03T15:40:52.721+0200	debug	stress/stress.go:161	starting container stress_dns_3bfca_0_0_5
-2023-02-03T15:40:52.721+0200	debug	stress/stress.go:161	starting container stress_dns_835d4_0_0_6
-2023-02-03T15:40:52.721+0200	debug	stress/stress.go:161	starting container stress_dns_bed74_0_0_1
-2023-02-03T15:40:52.721+0200	debug	stress/stress.go:161	starting container stress_dns_acdde_0_0_2
-2023-02-03T15:40:52.721+0200	debug	stress/stress.go:161	starting container stress_dns_f0532_0_0_4
-2023-02-03T15:40:52.721+0200	debug	stress/stress.go:161	starting container stress_dns_ddeb5_0_0_9
-2023-02-03T15:40:52.721+0200	debug	stress/stress.go:161	starting container stress_dns_2d914_0_0_7
-2023-02-03T15:40:52.721+0200	debug	stress/stress.go:161	starting container stress_http_47c5d_0_0_12
-2023-02-03T15:40:52.721+0200	debug	stress/stress.go:161	starting container stress_dns_5dde0_0_0_3
-2023-02-03T15:40:52.721+0200	debug	stress/stress.go:161	starting container stress_http_761b1_0_0_13
-2023-02-03T15:41:53.605+0200	debug	stress/stress.go:184	Killing Container stress_http_c868b_0_0_14
-2023-02-03T15:41:53.836+0200	debug	stress/stress.go:184	Killing Container stress_dns_2d914_0_0_7
-2023-02-03T15:41:54.282+0200	debug	stress/stress.go:184	Killing Container stress_http_18b6c_0_0_11
-2023-02-03T15:41:54.481+0200	debug	stress/stress.go:184	Killing Container stress_dns_3bfca_0_0_5
-2023-02-03T15:41:54.614+0200	debug	stress/stress.go:184	Killing Container stress_http_761b1_0_0_13
-2023-02-03T15:41:54.769+0200	debug	stress/stress.go:184	Killing Container stress_dns_33f47_0_0_0
-2023-02-03T15:41:54.861+0200	debug	stress/stress.go:184	Killing Container stress_http_47c5d_0_0_12
-2023-02-03T15:41:55.314+0200	debug	stress/stress.go:184	Killing Container stress_dns_acdde_0_0_2
-2023-02-03T15:41:55.633+0200	debug	stress/stress.go:184	Killing Container stress_http_543b7_0_0_10
-2023-02-03T15:41:56.217+0200	debug	stress/stress.go:184	Killing Container stress_dns_ddeb5_0_0_9
-2023-02-03T15:41:56.217+0200	debug	stress/stress.go:184	Killing Container stress_dns_5dde0_0_0_3
-2023-02-03T15:41:56.381+0200	debug	stress/stress.go:184	Killing Container stress_dns_bed74_0_0_1
-2023-02-03T15:41:56.427+0200	debug	stress/stress.go:184	Killing Container stress_dns_835d4_0_0_6
-2023-02-03T15:41:56.603+0200	debug	stress/stress.go:184	Killing Container stress_dns_e813c_0_0_8
-2023-02-03T15:41:56.603+0200	debug	stress/stress.go:184	Killing Container stress_dns_f0532_0_0_4
-2023-02-03T15:42:06.665+0200	debug	stress/stress.go:139	packet loss ratio: 1 < 0.95 is false
-2023-02-03T15:42:06.666+0200	debug	stress/stress.go:235	Running cleanup
-2023-02-03T15:42:06.670+0200	debug	router/slave.go:119	cmd: kill -9 15211, output: 
+2023-02-09T13:50:29.374+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_13_50_29
+2023-02-09T13:50:29.374+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T13:50:29.374+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T13:50:29.374+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T13:50:29.616+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T13:50:29.632+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T13:50:35.744+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T13:50:39.592+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T13:50:39.592+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T13:51:01.334+0200	debug	traffic/traffic.go:94	losss is 0, total is 1417
+2023-02-09T13:51:01.334+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T13:51:01.334+0200	info	stress/stress.go:89	starting
+2023-02-09T13:51:01.334+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T13:51:01.796+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T13:53:18.258+0200	debug	traffic/traffic.go:94	losss is 46, total is 11804
+2023-02-09T13:53:18.258+0200	debug	stress/stress.go:174	inital percent: 0
+2023-02-09T13:53:18.258+0200	debug	stress/stress.go:175	current percent: 0.003896984073195527
+2023-02-09T13:53:18.258+0200	debug	stress/stress.go:181	percent diff: 0.003896984073195527
+2023-02-09T13:53:18.258+0200	info	stress/stress.go:185	running again with increased amount
+2023-02-09T13:53:18.617+0200	debug	stress/stress.go:104	amount is 15
+2023-02-09T13:55:46.045+0200	debug	traffic/traffic.go:94	losss is 325, total is 11804
+2023-02-09T13:55:46.045+0200	debug	stress/stress.go:174	inital percent: 0
+2023-02-09T13:55:46.045+0200	debug	stress/stress.go:175	current percent: 0.02753303964757709
+2023-02-09T13:55:46.045+0200	debug	stress/stress.go:181	percent diff: 0.02753303964757709
+2023-02-09T13:55:46.045+0200	debug	stress/stress.go:288	Running cleanup
+2023-02-09T13:55:47.154+0200	debug	RouterStress/main.go:83	Proccessing test Data
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 115ba 1 0 12], ri: %!(EXTRA int=1)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 1264c 0 0 5], ri: %!(EXTRA int=0)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 2a282 0 0 0], ri: %!(EXTRA int=0)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 2dc6a 1 0 3], ri: %!(EXTRA int=1)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 2f366 1 0 1], ri: %!(EXTRA int=1)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 382e0 1 0 13], ri: %!(EXTRA int=1)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 46743 1 0 0], ri: %!(EXTRA int=1)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 5a1de 1 0 9], ri: %!(EXTRA int=1)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 681fe 0 0 3], ri: %!(EXTRA int=0)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 7589d 1 0 5], ri: %!(EXTRA int=1)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 79a22 1 0 8], ri: %!(EXTRA int=1)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 80a78 1 0 6], ri: %!(EXTRA int=1)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 8866c 0 0 9], ri: %!(EXTRA int=0)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 8c007 1 0 11], ri: %!(EXTRA int=1)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http a0285 0 0 4], ri: %!(EXTRA int=0)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http bd749 1 0 2], ri: %!(EXTRA int=1)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http c9e2f 0 0 8], ri: %!(EXTRA int=0)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http d0241 1 0 7], ri: %!(EXTRA int=1)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http d979e 0 0 6], ri: %!(EXTRA int=0)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http e13c0 1 0 4], ri: %!(EXTRA int=1)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http e566f 0 0 2], ri: %!(EXTRA int=0)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http f385f 0 0 1], ri: %!(EXTRA int=0)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http feeef 0 0 7], ri: %!(EXTRA int=0)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http ff3af 1 0 14], ri: %!(EXTRA int=1)
+2023-02-09T13:55:47.155+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http ffbf4 1 0 10], ri: %!(EXTRA int=1)
+2023-02-09T13:55:47.177+0200	debug	dataprocessing/dataprocessing.go:42	metrics: {0xc000790e80 [0xc00048c040]}
+2023-02-09T13:56:03.845+0200	debug	RouterStress/main.go:91	Done.
+2023-02-09T13:56:03.845+0200	debug	RouterStress/main.go:92	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_13_50_29
 
-2023-02-03T15:42:07.745+0200	debug	RouterStress/main.go:74	Proccessing test Data
-2023-02-03T15:42:10.234+0200	debug	RouterStress/main.go:81	Done.
-2023-02-03T15:42:10.234+0200	debug	RouterStress/main.go:82	TestID: Ferb_LG_Commscope_Puma7_9c80d58b-e789-49fa-bd96-bb5d7e5a7c32
+2023-02-09T13:57:07.666+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_13_57_07
+2023-02-09T13:57:07.666+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T13:57:07.667+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T13:57:07.667+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T13:57:07.932+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T13:57:07.944+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T13:57:14.072+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T13:57:17.880+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T13:57:17.880+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T13:57:39.418+0200	debug	traffic/traffic.go:94	losss is 0, total is 1417
+2023-02-09T13:57:39.419+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T13:57:39.419+0200	info	stress/stress.go:89	starting
+2023-02-09T13:57:39.419+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T13:57:39.704+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T14:00:03.809+0200	debug	traffic/traffic.go:94	losss is 161, total is 11804
+2023-02-09T14:00:03.809+0200	debug	stress/stress.go:174	inital percent: 0
+2023-02-09T14:00:03.809+0200	debug	stress/stress.go:175	current percent: 0.013639444256184345
+2023-02-09T14:00:03.809+0200	debug	stress/stress.go:181	percent diff: 0.013639444256184345
+2023-02-09T14:00:03.809+0200	info	stress/stress.go:185	running again with increased amount
+2023-02-09T14:00:08.418+0200	debug	stress/stress.go:104	amount is 15
+2023-02-09T14:02:39.271+0200	debug	traffic/traffic.go:94	losss is 448, total is 11804
+2023-02-09T14:02:39.271+0200	debug	stress/stress.go:174	inital percent: 0
+2023-02-09T14:02:39.271+0200	debug	stress/stress.go:175	current percent: 0.037953236191121655
+2023-02-09T14:02:39.271+0200	debug	stress/stress.go:181	percent diff: 0.037953236191121655
+2023-02-09T14:02:39.271+0200	debug	stress/stress.go:288	Running cleanup
+2023-02-09T14:02:40.415+0200	debug	RouterStress/main.go:83	Proccessing test Data
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 01de6 1 0 4], ri: %!(EXTRA int=1)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 04849 1 0 11], ri: %!(EXTRA int=1)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 18b5b 0 0 6], ri: %!(EXTRA int=0)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 3be91 1 0 6], ri: %!(EXTRA int=1)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 450ad 0 0 4], ri: %!(EXTRA int=0)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 49444 1 0 1], ri: %!(EXTRA int=1)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 4bba0 0 0 1], ri: %!(EXTRA int=0)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 4ca96 0 0 2], ri: %!(EXTRA int=0)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 755e5 1 0 12], ri: %!(EXTRA int=1)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 8d76c 1 0 0], ri: %!(EXTRA int=1)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 8e87e 1 0 7], ri: %!(EXTRA int=1)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http 9d158 0 0 8], ri: %!(EXTRA int=0)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http a26c2 1 0 13], ri: %!(EXTRA int=1)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http a3ea0 0 0 7], ri: %!(EXTRA int=0)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http ac7ff 0 0 9], ri: %!(EXTRA int=0)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http ad919 1 0 8], ri: %!(EXTRA int=1)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http b3553 1 0 3], ri: %!(EXTRA int=1)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http b97e6 0 0 5], ri: %!(EXTRA int=0)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http d0a7e 0 0 3], ri: %!(EXTRA int=0)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http db187 1 0 10], ri: %!(EXTRA int=1)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http dcf36 1 0 14], ri: %!(EXTRA int=1)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http ed091 1 0 5], ri: %!(EXTRA int=1)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http f5081 0 0 0], ri: %!(EXTRA int=0)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http f754b 1 0 9], ri: %!(EXTRA int=1)
+2023-02-09T14:02:40.416+0200	debug	dataprocessing/dataprocessing.go:332	splitName: [stress http f8d20 1 0 2], ri: %!(EXTRA int=1)
+2023-02-09T14:02:40.436+0200	debug	dataprocessing/dataprocessing.go:42	metrics: {0xc00082ae80 [0xc000088060]}
+2023-02-09T14:02:56.662+0200	debug	RouterStress/main.go:91	Done.
+2023-02-09T14:02:56.662+0200	debug	RouterStress/main.go:92	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_13_57_07
 
-2023-02-03T15:47:04.140+0200	info	stress/stress.go:42	TestID: Ferb_LG_Commscope_Puma7_19e28f67-8e8f-4fb2-b139-094e9217e036
-2023-02-03T15:47:04.141+0200	debug	stress/stress.go:57	setting up DHCP Server
-2023-02-03T15:47:04.141+0200	debug	stress/stress.go:47	Setting up Router Slave
-2023-02-03T15:47:04.142+0200	debug	stress/stress.go:52	Setting up Docker Client and Network
-2023-02-03T15:47:04.363+0200	debug	stress/stress.go:230	docker init done, now building images
-2023-02-03T15:47:04.380+0200	debug	stress/stress.go:211	created slave object
-2023-02-03T15:47:10.504+0200	debug	stress/stress.go:219	transferred sampler, now starting sampler
-2023-02-03T15:47:14.379+0200	debug	stress/stress.go:240	dhcp init done
-2023-02-03T15:47:14.380+0200	info	stress/stress.go:65	Running inital traffic capture
-2023-02-03T15:47:34.717+0200	debug	RouterStress/main.go:57	finished setup
-2023-02-03T15:47:34.985+0200	debug	stress/stress.go:175	starting container stress_http_1983e_0_0_14
-2023-02-03T15:47:34.985+0200	debug	stress/stress.go:175	starting container stress_http_83654_0_0_10
-2023-02-03T15:47:34.985+0200	debug	stress/stress.go:175	starting container stress_dns_e54de_0_0_1
-2023-02-03T15:47:34.985+0200	debug	stress/stress.go:175	starting container stress_http_f6bf8_0_0_12
-2023-02-03T15:47:34.985+0200	debug	stress/stress.go:175	starting container stress_dns_613ab_0_0_9
-2023-02-03T15:47:34.985+0200	debug	stress/stress.go:175	starting container stress_dns_58948_0_0_7
-2023-02-03T15:47:34.985+0200	debug	stress/stress.go:175	starting container stress_dns_ef344_0_0_3
-2023-02-03T15:47:34.985+0200	debug	stress/stress.go:175	starting container stress_dns_5683e_0_0_0
-2023-02-03T15:47:34.985+0200	debug	stress/stress.go:175	starting container stress_dns_f4663_0_0_8
-2023-02-03T15:47:34.985+0200	debug	stress/stress.go:175	starting container stress_dns_1ef54_0_0_4
-2023-02-03T15:47:34.985+0200	debug	stress/stress.go:175	starting container stress_http_8369e_0_0_13
-2023-02-03T15:47:34.985+0200	debug	stress/stress.go:175	starting container stress_dns_d4b42_0_0_2
-2023-02-03T15:47:34.985+0200	debug	stress/stress.go:175	starting container stress_dns_3242d_0_0_6
-2023-02-03T15:47:34.985+0200	debug	stress/stress.go:175	starting container stress_dns_8cb75_0_0_5
-2023-02-03T15:47:34.985+0200	debug	stress/stress.go:175	starting container stress_http_6c12c_0_0_11
-2023-02-03T15:48:35.643+0200	debug	stress/stress.go:198	Killing Container stress_dns_1ef54_0_0_4
-2023-02-03T15:48:36.085+0200	debug	stress/stress.go:198	Killing Container stress_http_1983e_0_0_14
-2023-02-03T15:48:36.091+0200	debug	stress/stress.go:198	Killing Container stress_http_8369e_0_0_13
-2023-02-03T15:48:36.654+0200	debug	stress/stress.go:198	Killing Container stress_dns_5683e_0_0_0
-2023-02-03T15:48:36.956+0200	debug	stress/stress.go:198	Killing Container stress_dns_8cb75_0_0_5
-2023-02-03T15:48:37.132+0200	debug	stress/stress.go:198	Killing Container stress_http_f6bf8_0_0_12
-2023-02-03T15:48:37.170+0200	debug	stress/stress.go:198	Killing Container stress_dns_3242d_0_0_6
-2023-02-03T15:48:37.530+0200	debug	stress/stress.go:198	Killing Container stress_dns_ef344_0_0_3
-2023-02-03T15:48:37.700+0200	debug	stress/stress.go:198	Killing Container stress_dns_f4663_0_0_8
-2023-02-03T15:48:37.819+0200	debug	stress/stress.go:198	Killing Container stress_dns_613ab_0_0_9
-2023-02-03T15:48:37.911+0200	debug	stress/stress.go:198	Killing Container stress_http_83654_0_0_10
-2023-02-03T15:48:37.932+0200	debug	stress/stress.go:198	Killing Container stress_dns_58948_0_0_7
-2023-02-03T15:48:38.145+0200	debug	stress/stress.go:198	Killing Container stress_http_6c12c_0_0_11
-2023-02-03T15:48:38.355+0200	debug	stress/stress.go:198	Killing Container stress_dns_d4b42_0_0_2
-2023-02-03T15:48:38.575+0200	debug	stress/stress.go:198	Killing Container stress_dns_e54de_0_0_1
-2023-02-03T15:48:48.642+0200	debug	stress/stress.go:153	packet loss ratio: 1 < 0.95 is false
-2023-02-03T15:48:48.642+0200	debug	stress/stress.go:249	Running cleanup
-2023-02-03T15:48:48.645+0200	debug	router/slave.go:118	cmd: kill -9 16347, output: 
+2023-02-09T14:02:56.962+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_14_02_56
+2023-02-09T14:02:56.962+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T14:02:56.962+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T14:02:56.962+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T14:02:57.432+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T14:02:57.543+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T14:03:03.524+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T14:03:07.483+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T14:03:07.483+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T14:03:29.209+0200	debug	traffic/traffic.go:94	losss is 4, total is 1417
+2023-02-09T14:03:29.209+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T14:03:29.210+0200	info	stress/stress.go:89	starting
+2023-02-09T14:03:29.210+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T14:03:29.704+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T14:05:59.505+0200	debug	traffic/traffic.go:94	losss is 226, total is 11804
+2023-02-09T14:05:59.505+0200	debug	stress/stress.go:174	inital percent: 0.0028228652081863093
+2023-02-09T14:05:59.505+0200	debug	stress/stress.go:175	current percent: 0.01914605218569976
+2023-02-09T14:05:59.505+0200	debug	stress/stress.go:181	percent diff: 0.016323186977513452
+2023-02-09T14:05:59.505+0200	debug	stress/stress.go:288	Running cleanup
+2023-02-09T14:06:00.607+0200	debug	RouterStress/main.go:83	Proccessing test Data
+2023-02-09T14:06:00.622+0200	debug	dataprocessing/dataprocessing.go:42	metrics: {0xc000110780 [0xc00012a020]}
+2023-02-09T14:06:08.468+0200	debug	RouterStress/main.go:91	Done.
+2023-02-09T14:06:08.468+0200	debug	RouterStress/main.go:92	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_14_02_56
 
-2023-02-03T15:48:49.723+0200	debug	RouterStress/main.go:74	Proccessing test Data
-2023-02-03T15:48:51.904+0200	debug	RouterStress/main.go:81	Done.
-2023-02-03T15:48:51.904+0200	debug	RouterStress/main.go:82	TestID: Ferb_LG_Commscope_Puma7_19e28f67-8e8f-4fb2-b139-094e9217e036
+2023-02-09T14:14:15.937+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_14_14_15
+2023-02-09T14:14:15.937+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T14:14:15.937+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T14:14:15.937+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T14:14:16.190+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T14:14:16.216+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T14:14:22.392+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T14:14:26.148+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T14:14:26.148+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T14:14:47.860+0200	debug	traffic/traffic.go:94	losss is 8, total is 1417
+2023-02-09T14:14:47.860+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T14:14:47.860+0200	info	stress/stress.go:89	starting
+2023-02-09T14:14:47.860+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T14:14:48.228+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T14:17:13.008+0200	debug	traffic/traffic.go:94	losss is 302, total is 11804
+2023-02-09T14:17:13.008+0200	debug	stress/stress.go:174	inital percent: 0.0056457304163726185
+2023-02-09T14:17:13.008+0200	debug	stress/stress.go:175	current percent: 0.02558454761097933
+2023-02-09T14:17:13.008+0200	debug	stress/stress.go:181	percent diff: 0.01993881719460671
+2023-02-09T14:17:13.008+0200	debug	stress/stress.go:288	Running cleanup
+2023-02-09T14:17:14.066+0200	debug	RouterStress/main.go:83	Proccessing test Data
+2023-02-09T14:17:14.092+0200	debug	dataprocessing/dataprocessing.go:42	metrics: {0xc000910cc0 [0xc000a22020]}
+2023-02-09T14:17:20.917+0200	debug	RouterStress/main.go:91	Done.
+2023-02-09T14:17:20.917+0200	debug	RouterStress/main.go:92	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_14_14_15
 
-2023-02-03T15:49:22.469+0200	info	stress/stress.go:42	TestID: Ferb_LG_Commscope_Puma7_a7100a36-7c0b-4928-afa8-44d388d46825
-2023-02-03T15:49:22.469+0200	debug	stress/stress.go:57	setting up DHCP Server
-2023-02-03T15:49:22.469+0200	debug	stress/stress.go:47	Setting up Router Slave
-2023-02-03T15:49:22.469+0200	debug	stress/stress.go:52	Setting up Docker Client and Network
-2023-02-03T15:49:22.631+0200	debug	stress/stress.go:211	created slave object
-2023-02-03T15:49:22.739+0200	debug	stress/stress.go:230	docker init done, now building images
-2023-02-03T15:49:28.776+0200	debug	stress/stress.go:219	transferred sampler, now starting sampler
-2023-02-03T15:49:32.724+0200	debug	stress/stress.go:240	dhcp init done
-2023-02-03T15:49:32.724+0200	info	stress/stress.go:65	Running inital traffic capture
-2023-02-03T15:49:53.085+0200	debug	RouterStress/main.go:57	finished setup
-2023-02-03T15:49:53.334+0200	debug	stress/stress.go:175	starting container stress_dns_62676_0_0_3
-2023-02-03T15:49:53.334+0200	debug	stress/stress.go:175	starting container stress_dns_8f21c_0_0_5
-2023-02-03T15:49:53.334+0200	debug	stress/stress.go:175	starting container stress_http_d0fe0_0_0_10
-2023-02-03T15:49:53.334+0200	debug	stress/stress.go:175	starting container stress_dns_66ac0_0_0_8
-2023-02-03T15:49:53.334+0200	debug	stress/stress.go:175	starting container stress_dns_9ff7d_0_0_1
-2023-02-03T15:49:53.334+0200	debug	stress/stress.go:175	starting container stress_http_567f7_0_0_12
-2023-02-03T15:49:53.334+0200	debug	stress/stress.go:175	starting container stress_dns_dcb70_0_0_9
-2023-02-03T15:49:53.334+0200	debug	stress/stress.go:175	starting container stress_http_25cb3_0_0_14
-2023-02-03T15:49:53.334+0200	debug	stress/stress.go:175	starting container stress_dns_d455a_0_0_4
-2023-02-03T15:49:53.335+0200	debug	stress/stress.go:175	starting container stress_http_c0458_0_0_11
-2023-02-03T15:49:53.335+0200	debug	stress/stress.go:175	starting container stress_http_45e7b_0_0_13
-2023-02-03T15:49:53.334+0200	debug	stress/stress.go:175	starting container stress_dns_999cd_0_0_0
-2023-02-03T15:49:53.335+0200	debug	stress/stress.go:175	starting container stress_dns_7bd8c_0_0_7
-2023-02-03T15:49:53.334+0200	debug	stress/stress.go:175	starting container stress_dns_089e8_0_0_2
-2023-02-03T15:49:53.334+0200	debug	stress/stress.go:175	starting container stress_dns_05c7e_0_0_6
-2023-02-03T15:59:54.253+0200	debug	stress/stress.go:198	Killing Container stress_dns_66ac0_0_0_8
-2023-02-03T15:59:54.753+0200	debug	stress/stress.go:198	Killing Container stress_dns_9ff7d_0_0_1
-2023-02-03T15:59:55.199+0200	debug	stress/stress.go:198	Killing Container stress_dns_8f21c_0_0_5
-2023-02-03T15:59:55.199+0200	debug	stress/stress.go:198	Killing Container stress_dns_7bd8c_0_0_7
-2023-02-03T15:59:55.199+0200	debug	stress/stress.go:198	Killing Container stress_http_567f7_0_0_12
-2023-02-03T15:59:55.475+0200	debug	stress/stress.go:198	Killing Container stress_dns_dcb70_0_0_9
-2023-02-03T15:59:55.476+0200	debug	stress/stress.go:198	Killing Container stress_http_25cb3_0_0_14
-2023-02-03T15:59:55.626+0200	debug	stress/stress.go:198	Killing Container stress_http_c0458_0_0_11
-2023-02-03T15:59:56.008+0200	debug	stress/stress.go:198	Killing Container stress_http_d0fe0_0_0_10
-2023-02-03T15:59:56.368+0200	debug	stress/stress.go:198	Killing Container stress_dns_999cd_0_0_0
-2023-02-03T15:59:56.491+0200	debug	stress/stress.go:198	Killing Container stress_http_45e7b_0_0_13
-2023-02-03T15:59:56.628+0200	debug	stress/stress.go:198	Killing Container stress_dns_62676_0_0_3
-2023-02-03T15:59:56.836+0200	debug	stress/stress.go:198	Killing Container stress_dns_05c7e_0_0_6
-2023-02-03T15:59:57.006+0200	debug	stress/stress.go:198	Killing Container stress_dns_d455a_0_0_4
-2023-02-03T15:59:57.027+0200	debug	stress/stress.go:198	Killing Container stress_dns_089e8_0_0_2
-2023-02-03T16:00:07.085+0200	debug	stress/stress.go:153	packet loss ratio: 1 < 0.95 is false
-2023-02-03T16:00:07.085+0200	debug	stress/stress.go:249	Running cleanup
-2023-02-03T16:00:07.091+0200	debug	router/slave.go:118	cmd: kill -9 28272, output: 
-
-2023-02-03T16:00:08.174+0200	debug	RouterStress/main.go:74	Proccessing test Data
-2023-02-03T16:00:10.141+0200	debug	RouterStress/main.go:81	Done.
-2023-02-03T16:00:10.141+0200	debug	RouterStress/main.go:82	TestID: Ferb_LG_Commscope_Puma7_a7100a36-7c0b-4928-afa8-44d388d46825
-
-2023-02-03T16:02:10.133+0200	info	stress/stress.go:42	TestID: Ferb_LG_Commscope_Puma7_d601e3ad-7070-4245-8f22-1c241f2335b1
-2023-02-03T16:02:10.133+0200	debug	stress/stress.go:57	setting up DHCP Server
-2023-02-03T16:02:10.134+0200	debug	stress/stress.go:47	Setting up Router Slave
-2023-02-03T16:02:10.134+0200	debug	stress/stress.go:52	Setting up Docker Client and Network
-2023-02-03T16:02:10.266+0200	debug	stress/stress.go:211	created slave object
-2023-02-03T16:02:10.377+0200	debug	stress/stress.go:230	docker init done, now building images
-2023-02-03T16:02:16.403+0200	debug	stress/stress.go:219	transferred sampler, now starting sampler
-2023-02-03T16:02:20.357+0200	debug	stress/stress.go:240	dhcp init done
-2023-02-03T16:02:20.357+0200	info	stress/stress.go:65	Running inital traffic capture
-2023-02-03T16:02:40.738+0200	debug	RouterStress/main.go:57	finished setup
-2023-02-03T16:02:40.977+0200	debug	stress/stress.go:175	starting container stress_dns_71a09_0_0_6
-2023-02-03T16:02:40.977+0200	debug	stress/stress.go:175	starting container stress_dns_68e5a_0_0_8
-2023-02-03T16:02:40.977+0200	debug	stress/stress.go:175	starting container stress_dns_d79ba_0_0_5
-2023-02-03T16:02:40.977+0200	debug	stress/stress.go:175	starting container stress_http_ded9a_0_0_10
-2023-02-03T16:02:40.977+0200	debug	stress/stress.go:175	starting container stress_http_24d74_0_0_13
-2023-02-03T16:02:40.977+0200	debug	stress/stress.go:175	starting container stress_http_45822_0_0_12
-2023-02-03T16:02:40.977+0200	debug	stress/stress.go:175	starting container stress_dns_0c930_0_0_9
-2023-02-03T16:02:40.977+0200	debug	stress/stress.go:175	starting container stress_dns_c7a55_0_0_4
-2023-02-03T16:02:40.977+0200	debug	stress/stress.go:175	starting container stress_dns_24d32_0_0_7
-2023-02-03T16:02:40.977+0200	debug	stress/stress.go:175	starting container stress_dns_40fe9_0_0_2
-2023-02-03T16:02:40.977+0200	debug	stress/stress.go:175	starting container stress_http_137fd_0_0_14
-2023-02-03T16:02:40.977+0200	debug	stress/stress.go:175	starting container stress_dns_d7c1d_0_0_1
-2023-02-03T16:02:40.977+0200	debug	stress/stress.go:175	starting container stress_dns_a044c_0_0_0
-2023-02-03T16:02:40.977+0200	debug	stress/stress.go:175	starting container stress_dns_af187_0_0_3
-2023-02-03T16:02:40.977+0200	debug	stress/stress.go:175	starting container stress_http_f08a1_0_0_11
-2023-02-03T16:06:41.665+0200	debug	stress/stress.go:198	Killing Container stress_dns_68e5a_0_0_8
-2023-02-03T16:06:42.025+0200	debug	stress/stress.go:198	Killing Container stress_http_45822_0_0_12
-2023-02-03T16:06:42.192+0200	debug	stress/stress.go:198	Killing Container stress_dns_24d32_0_0_7
-2023-02-03T16:06:42.349+0200	debug	stress/stress.go:198	Killing Container stress_http_ded9a_0_0_10
-2023-02-03T16:06:42.860+0200	debug	stress/stress.go:198	Killing Container stress_dns_0c930_0_0_9
-2023-02-03T16:06:42.861+0200	debug	stress/stress.go:198	Killing Container stress_http_f08a1_0_0_11
-2023-02-03T16:06:43.057+0200	debug	stress/stress.go:198	Killing Container stress_dns_71a09_0_0_6
-2023-02-03T16:06:43.440+0200	debug	stress/stress.go:198	Killing Container stress_dns_a044c_0_0_0
-2023-02-03T16:06:43.574+0200	debug	stress/stress.go:198	Killing Container stress_http_24d74_0_0_13
-2023-02-03T16:06:43.591+0200	debug	stress/stress.go:198	Killing Container stress_http_137fd_0_0_14
-2023-02-03T16:06:43.681+0200	debug	stress/stress.go:198	Killing Container stress_dns_af187_0_0_3
-2023-02-03T16:06:44.011+0200	debug	stress/stress.go:198	Killing Container stress_dns_c7a55_0_0_4
-2023-02-03T16:06:44.268+0200	debug	stress/stress.go:198	Killing Container stress_dns_d7c1d_0_0_1
-2023-02-03T16:06:44.616+0200	debug	stress/stress.go:198	Killing Container stress_dns_d79ba_0_0_5
-2023-02-03T16:06:44.723+0200	debug	stress/stress.go:198	Killing Container stress_dns_40fe9_0_0_2
-2023-02-03T16:06:54.790+0200	debug	stress/stress.go:153	packet loss ratio: 1 < 0.95 is false
-2023-02-03T16:06:54.790+0200	debug	stress/stress.go:249	Running cleanup
-2023-02-03T16:06:55.830+0200	debug	RouterStress/main.go:74	Proccessing test Data
-2023-02-03T16:06:57.804+0200	debug	RouterStress/main.go:81	Done.
-2023-02-03T16:06:57.804+0200	debug	RouterStress/main.go:82	TestID: Ferb_LG_Commscope_Puma7_d601e3ad-7070-4245-8f22-1c241f2335b1
-
-2023-02-03T16:11:27.223+0200	info	stress/stress.go:42	TestID: Ferb_LG_Commscope_Puma7_2023-02-03-16:11:27
-2023-02-03T16:11:27.223+0200	debug	stress/stress.go:57	setting up DHCP Server
-2023-02-03T16:11:27.223+0200	debug	stress/stress.go:47	Setting up Router Slave
-2023-02-03T16:11:27.224+0200	debug	stress/stress.go:52	Setting up Docker Client and Network
-2023-02-03T16:11:27.397+0200	debug	stress/stress.go:211	created slave object
-2023-02-03T16:11:27.474+0200	debug	stress/stress.go:230	docker init done, now building images
-2023-02-03T16:11:33.527+0200	debug	stress/stress.go:219	transferred sampler, now starting sampler
-2023-02-03T16:11:37.462+0200	debug	stress/stress.go:240	dhcp init done
-2023-02-03T16:11:37.462+0200	info	stress/stress.go:65	Running inital traffic capture
-2023-02-03T16:11:57.834+0200	debug	RouterStress/main.go:57	finished setup
-2023-02-03T16:11:58.105+0200	debug	stress/stress.go:175	starting container stress_http_b08d7_0_0_14
-2023-02-03T16:11:58.105+0200	debug	stress/stress.go:175	starting container stress_dns_b81cc_0_0_6
-2023-02-03T16:11:58.105+0200	debug	stress/stress.go:175	starting container stress_dns_10d22_0_0_7
-2023-02-03T16:11:58.105+0200	debug	stress/stress.go:175	starting container stress_dns_90be1_0_0_2
-2023-02-03T16:11:58.105+0200	debug	stress/stress.go:175	starting container stress_http_9f5e0_0_0_11
-2023-02-03T16:11:58.105+0200	debug	stress/stress.go:175	starting container stress_dns_a677e_0_0_5
-2023-02-03T16:11:58.105+0200	debug	stress/stress.go:175	starting container stress_dns_32803_0_0_9
-2023-02-03T16:11:58.105+0200	debug	stress/stress.go:175	starting container stress_dns_82eec_0_0_3
-2023-02-03T16:11:58.105+0200	debug	stress/stress.go:175	starting container stress_http_60219_0_0_12
-2023-02-03T16:11:58.105+0200	debug	stress/stress.go:175	starting container stress_dns_663aa_0_0_4
-2023-02-03T16:11:58.105+0200	debug	stress/stress.go:175	starting container stress_dns_95d38_0_0_1
-2023-02-03T16:11:58.105+0200	debug	stress/stress.go:175	starting container stress_http_b615c_0_0_10
-2023-02-03T16:11:58.105+0200	debug	stress/stress.go:175	starting container stress_dns_38cff_0_0_0
-2023-02-03T16:11:58.105+0200	debug	stress/stress.go:175	starting container stress_dns_84216_0_0_8
-2023-02-03T16:11:58.105+0200	debug	stress/stress.go:175	starting container stress_http_de82d_0_0_13
-2023-02-03T16:11:58.156+0200	error	RouterStress/main.go:62	API error (500): invalid volume specification: '/home/qa/Documents/RouterStress/results//Ferb_LG_Commscope_Puma7_2023-02-03-16:11:27:/var/tmp/stress/data'
-2023-02-03T16:11:58.156+0200	debug	stress/stress.go:249	Running cleanup
-2023-02-03T16:12:50.273+0200	info	stress/stress.go:42	TestID: Ferb_LG_Commscope_Puma7_2023_02_03_16_12_50
-2023-02-03T16:12:50.273+0200	debug	stress/stress.go:57	setting up DHCP Server
-2023-02-03T16:12:50.274+0200	debug	stress/stress.go:47	Setting up Router Slave
-2023-02-03T16:12:50.274+0200	debug	stress/stress.go:52	Setting up Docker Client and Network
-2023-02-03T16:12:50.432+0200	debug	stress/stress.go:211	created slave object
-2023-02-03T16:12:50.496+0200	debug	stress/stress.go:230	docker init done, now building images
-2023-02-03T16:12:56.568+0200	debug	stress/stress.go:219	transferred sampler, now starting sampler
-2023-02-03T16:13:00.509+0200	debug	stress/stress.go:240	dhcp init done
-2023-02-03T16:13:00.509+0200	info	stress/stress.go:65	Running inital traffic capture
-2023-02-03T16:13:20.929+0200	debug	RouterStress/main.go:57	finished setup
-2023-02-03T16:13:21.234+0200	debug	stress/stress.go:175	starting container stress_http_7c527_0_0_14
-2023-02-03T16:13:21.234+0200	debug	stress/stress.go:175	starting container stress_dns_223f1_0_0_9
-2023-02-03T16:13:21.234+0200	debug	stress/stress.go:175	starting container stress_dns_ef107_0_0_8
-2023-02-03T16:13:21.234+0200	debug	stress/stress.go:175	starting container stress_http_4f612_0_0_12
-2023-02-03T16:13:21.234+0200	debug	stress/stress.go:175	starting container stress_http_f149f_0_0_11
-2023-02-03T16:13:21.234+0200	debug	stress/stress.go:175	starting container stress_dns_82918_0_0_5
-2023-02-03T16:13:21.234+0200	debug	stress/stress.go:175	starting container stress_dns_0504a_0_0_2
-2023-02-03T16:13:21.234+0200	debug	stress/stress.go:175	starting container stress_dns_92aa5_0_0_0
-2023-02-03T16:13:21.234+0200	debug	stress/stress.go:175	starting container stress_http_e92b0_0_0_10
-2023-02-03T16:13:21.234+0200	debug	stress/stress.go:175	starting container stress_http_1ab4c_0_0_13
-2023-02-03T16:13:21.234+0200	debug	stress/stress.go:175	starting container stress_dns_87697_0_0_7
-2023-02-03T16:13:21.234+0200	debug	stress/stress.go:175	starting container stress_dns_de486_0_0_1
-2023-02-03T16:13:21.234+0200	debug	stress/stress.go:175	starting container stress_dns_477b3_0_0_3
-2023-02-03T16:13:21.234+0200	debug	stress/stress.go:175	starting container stress_dns_3ad8b_0_0_6
-2023-02-03T16:13:21.234+0200	debug	stress/stress.go:175	starting container stress_dns_91bc8_0_0_4
-2023-02-03T16:14:22.209+0200	debug	stress/stress.go:198	Killing Container stress_dns_223f1_0_0_9
-2023-02-03T16:14:22.241+0200	debug	stress/stress.go:198	Killing Container stress_dns_92aa5_0_0_0
-2023-02-03T16:14:22.549+0200	debug	stress/stress.go:198	Killing Container stress_http_e92b0_0_0_10
-2023-02-03T16:14:22.994+0200	debug	stress/stress.go:198	Killing Container stress_dns_82918_0_0_5
-2023-02-03T16:14:23.310+0200	debug	stress/stress.go:198	Killing Container stress_http_7c527_0_0_14
-2023-02-03T16:14:23.376+0200	debug	stress/stress.go:198	Killing Container stress_dns_0504a_0_0_2
-2023-02-03T16:14:23.376+0200	debug	stress/stress.go:198	Killing Container stress_dns_87697_0_0_7
-2023-02-03T16:14:23.715+0200	debug	stress/stress.go:198	Killing Container stress_http_1ab4c_0_0_13
-2023-02-03T16:14:23.952+0200	debug	stress/stress.go:198	Killing Container stress_http_4f612_0_0_12
-2023-02-03T16:14:24.057+0200	debug	stress/stress.go:198	Killing Container stress_dns_ef107_0_0_8
-2023-02-03T16:14:24.293+0200	debug	stress/stress.go:198	Killing Container stress_dns_477b3_0_0_3
-2023-02-03T16:14:24.317+0200	debug	stress/stress.go:198	Killing Container stress_dns_91bc8_0_0_4
-2023-02-03T16:14:24.518+0200	debug	stress/stress.go:198	Killing Container stress_http_f149f_0_0_11
-2023-02-03T16:14:24.666+0200	debug	stress/stress.go:198	Killing Container stress_dns_de486_0_0_1
-2023-02-03T16:14:24.787+0200	debug	stress/stress.go:198	Killing Container stress_dns_3ad8b_0_0_6
-2023-02-03T16:14:34.866+0200	debug	stress/stress.go:153	packet loss ratio: 1 < 0.95 is false
-2023-02-03T16:14:34.866+0200	debug	stress/stress.go:249	Running cleanup
-2023-02-03T16:14:35.947+0200	debug	RouterStress/main.go:74	Proccessing test Data
-2023-02-03T16:14:37.724+0200	debug	RouterStress/main.go:81	Done.
-2023-02-03T16:14:37.724+0200	debug	RouterStress/main.go:82	TestID: Ferb_LG_Commscope_Puma7_2023_02_03_16_12_50
+2023-02-09T14:17:56.350+0200	info	stress/stress.go:43	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_14_17_56
+2023-02-09T14:17:56.350+0200	debug	stress/stress.go:58	setting up DHCP Server
+2023-02-09T14:17:56.351+0200	debug	stress/stress.go:48	Setting up Router Slave
+2023-02-09T14:17:56.351+0200	debug	stress/stress.go:53	Setting up Docker Client and Network
+2023-02-09T14:17:56.618+0200	debug	stress/stress.go:269	docker init done, now building images
+2023-02-09T14:17:56.628+0200	debug	stress/stress.go:250	created slave object
+2023-02-09T14:18:02.757+0200	debug	stress/stress.go:258	transferred sampler, now starting sampler
+2023-02-09T14:18:06.561+0200	debug	stress/stress.go:279	dhcp init done
+2023-02-09T14:18:06.561+0200	info	stress/stress.go:66	Running inital traffic capture
+2023-02-09T14:18:28.135+0200	debug	traffic/traffic.go:94	losss is 4, total is 1417
+2023-02-09T14:18:28.135+0200	debug	RouterStress/main.go:66	finished setup
+2023-02-09T14:18:28.135+0200	info	stress/stress.go:89	starting
+2023-02-09T14:18:28.135+0200	info	stress/stress.go:90	Run Index: 0
+2023-02-09T14:18:28.522+0200	debug	stress/stress.go:104	amount is 10
+2023-02-09T14:20:43.051+0200	debug	traffic/traffic.go:94	losss is 269, total is 11804
+2023-02-09T14:20:43.051+0200	debug	stress/stress.go:174	inital percent: 0.0028228652081863093
+2023-02-09T14:20:43.051+0200	debug	stress/stress.go:175	current percent: 0.022788885123686885
+2023-02-09T14:20:43.051+0200	debug	stress/stress.go:181	percent diff: 0.019966019915500576
+2023-02-09T14:20:43.051+0200	info	stress/stress.go:185	running again with increased amount
+2023-02-09T14:20:43.412+0200	debug	stress/stress.go:104	amount is 15
+2023-02-09T14:22:59.612+0200	debug	traffic/traffic.go:94	losss is 439, total is 11804
+2023-02-09T14:22:59.612+0200	debug	stress/stress.go:174	inital percent: 0.0028228652081863093
+2023-02-09T14:22:59.612+0200	debug	stress/stress.go:175	current percent: 0.037190782785496444
+2023-02-09T14:22:59.612+0200	debug	stress/stress.go:181	percent diff: 0.034367917577310135
+2023-02-09T14:22:59.612+0200	debug	stress/stress.go:288	Running cleanup
+2023-02-09T14:23:00.677+0200	debug	RouterStress/main.go:83	Proccessing test Data
+2023-02-09T14:23:00.697+0200	debug	dataprocessing/dataprocessing.go:42	metrics: {0xc000110d80 [0xc00012a020]}
+2023-02-09T14:23:08.808+0200	debug	RouterStress/main.go:91	Done.
+2023-02-09T14:23:08.808+0200	debug	RouterStress/main.go:92	TestID: Ferb_LG_Commscope_Puma7_2023_02_09_14_17_56
 

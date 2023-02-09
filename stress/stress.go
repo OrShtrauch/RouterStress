@@ -12,7 +12,8 @@ import (
 	"math"
 	"math/rand"
 	"os"
-	"strconv"
+
+	// "strconv"
 	"time"
 
 	"github.com/google/uuid"
@@ -85,6 +86,9 @@ func (s *Stress) Start() error {
 
 	totalTime := CalcTotalTime(s.Config)
 
+	log.Logger.Info("starting")
+	log.Logger.Sugar().Infof("Run Index: %v", consts.RUN_INDEX)
+
 	for s.ShouldRunAgain(&data.Data, initial) {
 		data = traffic.RunTrafficCapture(s.Docker, totalTime, s.Config.Settings.IperfPort, func() error {
 			var eg errgroup.Group
@@ -96,7 +100,9 @@ func (s *Stress) Start() error {
 				index := 0
 				for _, protocol := range iteration.Protocols {
 					for j, container := range protocol.Containers {
-						for i := 0; i < s.GetAdjustedAmount(container.Amount); i++ {
+						amount := s.GetAdjustedAmount(container.Amount)
+						log.Logger.Sugar().Debugf("amount is %v", amount)
+						for i := 0; i < amount; i++ {
 							uid := uuid.New().String()[:5]
 							name := fmt.Sprintf("stress_%v_%v_%v_%v_%v", protocol.Mode, uid, consts.RUN_INDEX, iterationIndex, index)
 							env := protocol.Containers[j].Params
@@ -105,7 +111,7 @@ func (s *Stress) Start() error {
 							eg.Go(func() error {
 								// sleep for a random time between 1 and 5 seconds
 								// to space out even more the containers
-								time.Sleep(time.Duration(GenerateRandomSleep()))
+								time.Sleep(GenerateRandomSleep())
 
 								return s.runStressContainer(name, mode, duration, iterationIndex, index, env)
 							})
@@ -130,7 +136,6 @@ func (s *Stress) Start() error {
 		}
 
 		initial = false
-		consts.RUN_INDEX += 1
 	}
 
 	return nil
@@ -140,17 +145,17 @@ func CalcTotalTime(config *conf.Config) int {
 	var total int
 
 	for _, iteration := range config.Iterations {
-		total += iteration.Duration + iteration.Cooldown
+		total += (iteration.Duration * 60) + iteration.Cooldown
 	}
 
 	return total
 }
 
-func GenerateRandomSleep() int {
+func GenerateRandomSleep() time.Duration {
 	min := 1
 	max := 5
 
-	return rand.Intn(max-min) + min
+	return time.Duration(rand.Intn(max-min) + min)
 }
 
 func (s *Stress) ShouldRunAgain(data *traffic.TrafficData, initial bool) bool {
@@ -158,15 +163,25 @@ func (s *Stress) ShouldRunAgain(data *traffic.TrafficData, initial bool) bool {
 		return initial
 	}
 
-	initialPercent, _ := strconv.ParseFloat(s.InitialCaptureData.Percent, 32)
+	if !s.Config.Settings.Recursive {
+		return false
+	}
 
-	percent, _ := strconv.ParseFloat(data.Percent, 32)
+	initialPercent := s.InitialCaptureData.Loss / s.InitialCaptureData.Total
 
-	should_run_again := percent/initialPercent < consts.RT_MAX_RATE
+	percent := data.Loss / data.Total
 
-	log.Logger.Debug(fmt.Sprintf("packet loss ratio: %v < %v is %v", percent/initialPercent, consts.RT_MAX_RATE, should_run_again))
+	log.Logger.Sugar().Debugf("inital percent: %v", initialPercent)
+	log.Logger.Sugar().Debugf("current percent: %v", percent)
+
+	percentDiff := math.Abs(percent - initialPercent)
+
+	should_run_again := percentDiff < consts.RT_MAX_DIFF
+
+	log.Logger.Debug(fmt.Sprintf("percent diff: %v", percentDiff))
 
 	if should_run_again {
+		consts.RUN_INDEX += 1
 		log.Logger.Info("running again with increased amount")
 	}
 
@@ -174,6 +189,16 @@ func (s *Stress) ShouldRunAgain(data *traffic.TrafficData, initial bool) bool {
 }
 
 func (s *Stress) GetAdjustedAmount(amount int) int {
+	if consts.RUN_INDEX == 0 {
+		return amount
+	}
+
+	maxAmount := len(s.DHCPServer.Pool)
+	if amount > maxAmount {
+		log.Logger.Sugar().Infof("%v is bigger than the server pool (%v), running with max amount", amount, maxAmount)
+		return maxAmount
+	}
+
 	value := float64(amount) * ((0.5 * float64(consts.RUN_INDEX)) + 1)
 
 	return int(math.Ceil(value))
@@ -186,7 +211,7 @@ func (s *Stress) runStressContainer(name string, mode string, duration int, iter
 		return err
 	}
 
-	log.Logger.Debug(fmt.Sprintf("starting container %v", name))
+	//log.Logger.Debug(fmt.Sprintf("starting container %v", name))
 
 	container, err := s.Docker.RunContainer(docker.ContainerData{
 		Ssid:           s.Config.Router.Ssid,
@@ -209,7 +234,7 @@ func (s *Stress) runStressContainer(name string, mode string, duration int, iter
 
 	s.DHCPServer.Release(ip)
 
-	log.Logger.Debug(fmt.Sprintf("Killing Container %v", name))
+	//log.Logger.Debug(fmt.Sprintf("Killing Container %v", name))
 
 	return s.Docker.KillContainer(container.ID)
 }

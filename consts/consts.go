@@ -9,7 +9,7 @@ var (
 	TEST_ID   = ""
 	RUN_INDEX = 0
 
-	TRAFFIC_CAPTURE_URL = "http://testmymalwarefiles.com/CH7465LG-NCIP-6.15.32p4-SH.p7"
+	TRAFFIC_CAPTURE_URL = "testmymalwarefiles.com" //"192.168.0.236" //"http://testmymalwarefiles.com/CH7465LG-NCIP-6.15.32p4-SH.p7"
 )
 
 const (
@@ -27,19 +27,18 @@ const (
 	UNIX        = "unix"
 
 	INITIAL_CAPTURE_DURATION = 20
-	RT_MAX_RATE              = 0.95
+	RT_MAX_DIFF              = 0.025
 
 	BUCKET = "agent-stress-test-results-dev"
 
-	THREADS        = 25
-	CONCURRENT     = 25
-	DT_FORMAT      = "%Y-%m-%d-%H:%M:%S"
-	DT_LAYOUT      = "2006-01-02-15:04:05"
-	ID_DT_LAYOUT   = "2006_01_02_15_04_05"
-	PLOT_DT_LAYOUT = "15:04"
-	TZ             = "Asia/Jerusalem"
-	DELAY          = 1
-	SAMPLER_DELAY  = 2
+	THREADS       = 25
+	CONCURRENT    = 25
+	DT_FORMAT     = "%Y-%m-%d-%H:%M:%S"
+	DT_LAYOUT     = "2006-01-02-15:04:05"
+	ID_DT_LAYOUT  = "2006_01_02_15_04_05"
+	TZ            = "Asia/Jerusalem"
+	DELAY         = 1
+	SAMPLER_DELAY = 2
 
 	RESULTS_DIR        = "results/"
 	SAMPLER_NAME       = "router_sampler.sh"

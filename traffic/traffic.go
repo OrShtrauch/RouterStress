@@ -3,6 +3,7 @@ package traffic
 import (
 	"RouterStress/consts"
 	"RouterStress/docker"
+	"RouterStress/log"
 	"encoding/json"
 	"net"
 	"os"
@@ -14,7 +15,8 @@ import (
 // }
 
 type TrafficData struct {
-	Percent string
+	Loss  float64 `json:",string"`
+	Total float64 `json:",string"`
 }
 
 type TrafficMessage struct {
@@ -22,7 +24,7 @@ type TrafficMessage struct {
 	Error error
 }
 
-func RunTrafficCapture(d *docker.Docker, duration int, port int ,cb func() error) TrafficMessage {
+func RunTrafficCapture(d *docker.Docker, duration int, port int, cb func() error) TrafficMessage {
 	var traffic TrafficData
 	var err error
 
@@ -50,12 +52,20 @@ func RunTrafficCapture(d *docker.Docker, duration int, port int ,cb func() error
 
 		traffic, err = parseJsonData(jsonData)
 
+		if err != nil {
+			channel <- TrafficMessage{
+				Data:  TrafficData{},
+				Error: err,
+			}
+			return
+		}
+
 		channel <- TrafficMessage{
 			Data:  traffic,
 			Error: err,
 		}
 	}(channel)
-	
+
 	err = cb()
 
 	if err != nil {
@@ -65,7 +75,7 @@ func RunTrafficCapture(d *docker.Docker, duration int, port int ,cb func() error
 		}
 	}
 
-	if err = d.KillContainer(c.ID); err != nil {		
+	if err = d.WaitForContainerToDie(c); err != nil {
 		return TrafficMessage{
 			Data:  TrafficData{},
 			Error: err,
@@ -73,6 +83,15 @@ func RunTrafficCapture(d *docker.Docker, duration int, port int ,cb func() error
 	}
 
 	msg := <-channel
+
+	if msg.Error != nil {
+		return TrafficMessage{
+			Data:  TrafficData{},
+			Error: err,
+		}
+	}
+
+	log.Logger.Sugar().Debugf("losss is %v, total is %v", msg.Data.Loss, msg.Data.Total)
 	close(channel)
 
 	return msg

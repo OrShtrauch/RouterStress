@@ -29,12 +29,18 @@ type Metrics struct {
 }
 
 type Scenario struct {
-	Name    string `json:"name"`
-	Total   *Metrics `json:"total"`
+	Name    string              `json:"name"`
+	Total   *Metrics            `json:"total"`
 	Minutes map[string]*Metrics `json:"minutes"`
 }
 
 type TestMetrics struct {
-	Total     *Metrics `json:"total"`
+	Total     *Metrics    `json:"total"`
 	Scenarios []*Scenario `json:"scenarios"`
+}
+
+type NoFilesFound struct{}
+
+func (n NoFilesFound) Error() string {
+	return "No Files Found With given file Index"
 }

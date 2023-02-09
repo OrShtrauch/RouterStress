@@ -24,6 +24,7 @@ type Settings struct {
 	S3        bool
 	Debug     bool
 	IperfPort int `json:"iperf_port"`
+	Recursive bool
 }
 
 type Network struct {

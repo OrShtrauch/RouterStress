@@ -48,6 +48,15 @@ func main() {
 			fmt.Println(err.Error())
 		}
 
+		log.Logger.Debug("Proccessing test Data")
+		err = dataprocessing.Run(&stress, consts.RUN_INDEX)
+
+		if err != nil {
+			log.Logger.Error(err.Error())
+			panic(err)
+		}
+
+		log.Logger.Debug("Done.")
 		log.Logger.Debug(fmt.Sprintf("TestID: %v\n", consts.TEST_ID))
 
 		close(channel)
@@ -72,12 +81,13 @@ func main() {
 	}
 
 	log.Logger.Debug("Proccessing test Data")
-	err = dataprocessing.Run(&stress, 0)
+	err = dataprocessing.Run(&stress, consts.RUN_INDEX)
 
 	if err != nil {
 		log.Logger.Error(err.Error())
 		panic(err)
 	}
+
 	log.Logger.Debug("Done.")
 	log.Logger.Debug(fmt.Sprintf("TestID: %v\n", consts.TEST_ID))
 }

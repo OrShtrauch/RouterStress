@@ -2,6 +2,7 @@ package dataprocessing
 
 import (
 	"RouterStress/consts"
+	"RouterStress/log"
 	"RouterStress/stress"
 	"encoding/json"
 	"fmt"
@@ -29,12 +30,16 @@ func Run(stress *stress.Stress, runIndex int) error {
 			return err
 		}
 
+		if len(sampleFiles) == 0 {
+			return NoFilesFound{}
+		}
+
 		metrics, err := GetTestMetrics(sampleFiles, runIndex)
 
 		if err != nil {
 			return err
 		}
-
+		log.Logger.Sugar().Debugf("metrics: %v", *metrics)
 		return saveJson(*metrics)
 	})
 
@@ -86,9 +91,11 @@ func GetTestMetrics(files []string, runIndex int) (*TestMetrics, error) {
 	}
 
 	testTotalMetrics.Total.RunIndex = &runIndex
-
 	testTotalMetrics.Total.Clients = new(int)
+	testTotalMetrics.Total.Requests = new(int)
+
 	dataMap, err := getDataMap(files)
+
 	if err != nil {
 		return testTotalMetrics, err
 	}
@@ -124,6 +131,12 @@ func GetTestMetrics(files []string, runIndex int) (*TestMetrics, error) {
 }
 
 func CalcAvgAndErrorRate(testTotalMetrics *TestMetrics) {
+	if testTotalMetrics.Total.Requests == nil {
+		log.Logger.Debug("req is nil")
+	}
+	if testTotalMetrics.Total.AvgElapsed == nil {
+		log.Logger.Debug("avg is nil")
+	}
 	*testTotalMetrics.Total.AvgElapsed /= float32(*testTotalMetrics.Total.Requests)
 	*testTotalMetrics.Total.ErrorRate /= float32(*testTotalMetrics.Total.Requests)
 
@@ -164,7 +177,7 @@ func appendDataToMetrics(metrics *Metrics, row DataRow) {
 		metrics.MinElapsed = &row.Elasped
 	} else {
 		if row.Elasped < *metrics.MinElapsed {
-			metrics.MinElapsed = &row.Elasped
+			*metrics.MinElapsed = row.Elasped
 		}
 	}
 
@@ -172,7 +185,7 @@ func appendDataToMetrics(metrics *Metrics, row DataRow) {
 		metrics.MaxElapsed = &row.Elasped
 	} else {
 		if row.Elasped > *metrics.MaxElapsed {
-			metrics.MaxElapsed = &row.Elasped
+			*metrics.MaxElapsed = row.Elasped
 		}
 	}
 

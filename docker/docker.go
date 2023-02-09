@@ -232,10 +232,22 @@ func (d *Docker) WaitForContainerToDie(c *dockerlib.Container) error {
 }
 
 func (d *Docker) KillContainer(id string) error {
-	return d.Client.KillContainer(dockerlib.KillContainerOptions{
-		ID:     id,
-		Signal: consts.SIGTERM,
+	c, err := d.Client.InspectContainerWithOptions(dockerlib.InspectContainerOptions{
+		ID: id,
 	})
+
+	if err != nil {
+		return err
+	}
+
+	if c.State.Running {
+		return d.Client.KillContainer(dockerlib.KillContainerOptions{
+			ID:     id,
+			Signal: consts.SIGTERM,
+		})
+	} else {
+		return nil
+	}
 }
 
 func (d *Docker) BuildModeImages(config *conf.Config) error {
@@ -318,7 +330,7 @@ func (d *Docker) createTrafficCaptureContainer(duration int, port int) (*dockerl
 	imageName := fmt.Sprintf("%v:%v", consts.TRAFFIC_CONTAINER_PREFIX, consts.CONTAINER_VERSION)
 
 	env := []string{
-		fmt.Sprintf("HOST=%v", "testmymalwarefiles.com"),
+		fmt.Sprintf("HOST=%v", consts.TRAFFIC_CAPTURE_URL),
 		fmt.Sprintf("PORT=%v", port),
 		fmt.Sprintf("SOCKET=%v", consts.TRAFFIC_UNIX_SOCKET),
 		fmt.Sprintf("DURATION=%v", duration),
@@ -380,40 +392,31 @@ func (d *Docker) createPlotterContainer() (*dockerlib.Container, error) {
 	})
 }
 
-func (d *Docker) Cleanup() error {
-	var err error
+func (d *Docker) Prune() error {
 
-	err = d.KillAllStressContainers()
-
-	if err != nil {
+	if _, err := d.Client.PruneContainers(dockerlib.PruneContainersOptions{}); err != nil {
 		return err
 	}
 
-	err = d.WaitForStressContainersToDie()
-
-	if err != nil {
+	if _, err := d.Client.PruneNetworks(dockerlib.PruneNetworksOptions{}); err != nil {
 		return err
 	}
 
-	_, err = d.Client.PruneContainers(dockerlib.PruneContainersOptions{})
-
-	if err != nil {
+	if _, err := d.Client.PruneVolumes(dockerlib.PruneVolumesOptions{}); err != nil {
 		return err
 	}
 
-	_, err = d.Client.PruneNetworks(dockerlib.PruneNetworksOptions{})
-
-	if err != nil {
-		return err
-	}
-
-	_, err = d.Client.PruneImages(dockerlib.PruneImagesOptions{})
-
-	if err != nil {
-		return err
-	}
-
-	_, err = d.Client.PruneVolumes(dockerlib.PruneVolumesOptions{})
+	_, err := d.Client.PruneImages(dockerlib.PruneImagesOptions{})
 
 	return err
+
+}
+
+func (d *Docker) Cleanup() error {
+	err := d.KillAllStressContainers()
+	if err != nil {
+		return err
+	}
+
+	return d.Prune()
 }
