@@ -38,7 +38,7 @@ create_rel_json() {
 cat <<EOF
 {
     "tag_name":"$TAG",
-    "target_commitish":"main",
+    "target_commitish":"master",
     "name":"$TAG"
 }
 EOF

@@ -176,7 +176,7 @@ func (s *Stress) ShouldRunAgain(data *traffic.TrafficData, initial bool) bool {
 
 	percentDiff := math.Abs(percent - initialPercent)
 
-	should_run_again := percentDiff < consts.RT_MAX_DIFF
+	should_run_again := percentDiff < s.Config.Settings.PercentDiff
 
 	log.Logger.Debug(fmt.Sprintf("percent diff: %v", percentDiff))
 

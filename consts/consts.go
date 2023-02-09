@@ -9,7 +9,7 @@ var (
 	TEST_ID   = ""
 	RUN_INDEX = 0
 
-	TRAFFIC_CAPTURE_URL = "testmymalwarefiles.com" //"192.168.0.236" //"http://testmymalwarefiles.com/CH7465LG-NCIP-6.15.32p4-SH.p7"
+	TRAFFIC_CAPTURE_URL = "testmymalwarefiles.com"
 )
 
 const (
@@ -26,8 +26,7 @@ const (
 	SIGTERM     = 15
 	UNIX        = "unix"
 
-	INITIAL_CAPTURE_DURATION = 20
-	RT_MAX_DIFF              = 0.025
+	INITIAL_CAPTURE_DURATION = 60
 
 	BUCKET = "agent-stress-test-results-dev"
 

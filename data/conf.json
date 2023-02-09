@@ -3,7 +3,8 @@
         "s3": false,
         "debug": true,
         "iperf_port": 5201,
-        "recursive": true
+        "recursive": true,
+        "percent_diff": 0.015
     },
     "network": {
         "ssid": "Ferb_LG_Commscope_Puma7",
