@@ -316,8 +316,8 @@ func (d *Docker) buildPlotterImage() error {
 	})
 }
 
-func (d *Docker) StartTrafficCaptureContainer(duration int, port int) (*dockerlib.Container, error) {
-	c, err := d.createTrafficCaptureContainer(duration, port)
+func (d *Docker) StartTrafficCaptureContainer(duration int, host string, port int) (*dockerlib.Container, error) {
+	c, err := d.createTrafficCaptureContainer(duration, host, port)
 
 	if err != nil {
 		return c, err
@@ -326,11 +326,11 @@ func (d *Docker) StartTrafficCaptureContainer(duration int, port int) (*dockerli
 	return c, d.startContainer(c)
 }
 
-func (d *Docker) createTrafficCaptureContainer(duration int, port int) (*dockerlib.Container, error) {
+func (d *Docker) createTrafficCaptureContainer(duration int, host string, port int) (*dockerlib.Container, error) {
 	imageName := fmt.Sprintf("%v:%v", consts.TRAFFIC_CONTAINER_PREFIX, consts.CONTAINER_VERSION)
 
 	env := []string{
-		fmt.Sprintf("HOST=%v", consts.TRAFFIC_CAPTURE_URL),
+		fmt.Sprintf("HOST=%v", host),
 		fmt.Sprintf("PORT=%v", port),
 		fmt.Sprintf("SOCKET=%v", consts.TRAFFIC_UNIX_SOCKET),
 		fmt.Sprintf("DURATION=%v", duration),

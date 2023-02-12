@@ -1,8 +1,13 @@
 #!/bin/bash
 
-sudo apt update && sudo apt docker-engine -y
-sudo groupadd docker && sudo usermod -aG docker $USER
+if [[ $(/usr/bin/id -u) -ne 0 ]]; then
+    echo "you must run as root (or with sudo), to run this script"
+    exit 1
+fi
+
+curl -fsSL https://get.docker.com | sh
+groupadd docker && usermod -aG docker $USER
 newgrp docker
 
-sudo systemctl enable docker.service
-sudo systemctl enable containerd.service
+systemctl enable docker.service
+systemctl enable containerd.service

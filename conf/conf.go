@@ -23,7 +23,8 @@ type Config struct {
 type Settings struct {
 	S3          bool
 	Debug       bool
-	IperfPort   int `json:"iperf_port"`
+	IpefHost    string `json:"iperf_host"`
+	IperfPort   int    `json:"iperf_port"`
 	Recursive   bool
 	PercentDiff float64 `json:"percent_diff"`
 }

@@ -61,10 +61,9 @@ the test id will be written to the log file
 The test results will be in the results folder in a sub directory with the name of test id.
 the results will consist of the following:
 
- - router_data.csv, csv file with cpu and memory data on the router while the test is running
  - stress_mode_*.csv, file spesifing each request a container make, the time it took, and it's exit code
- - TODO: cpu over time graph
- - TODO: aggregated json file
+ - cpu.png: cpu usage over time graph
+ - results.json: json file containing data on requests made by this test
 
  ## Adding More Routers
  you can add new routers in 2 ways:
@@ -84,27 +83,45 @@ the results will consist of the following:
 after adding it, a docker image will be created on runtime, so you can use the mode in the conf.json
 
 ## Config file
-The config file is composed of 2 main parts, 
+The config file is composed of 3 main parts, 
+
+### Settings
+configuration settings:
+
+```json
+"settings": 
+{
+    "s3": false,
+    "debug": true,
+    "iperf_port": 5201,
+    "recursive": true,
+    "percent_diff": 0.015
+}
+```
+ | field | value | 
+ | ----- | ----- |
+ | `s3` | upload results to s3 |
+ | `debug` | show debug logs | 
+ | `iperf_port` | iperf server port |
+ | `recursive` | use recursive mode |
+ | `percent_diff` | max percent diff between initial and current packet loss percent |
+
 
 ### Network 
-network and router data (by default, only the ssid, and interface are needed)
+network and router data
 
 #### Example:
 ```json
 "network":
 {
-	"ssid": "Josh_HT138",
-	"gateway": "10.0.0.138",
-	"interface": "eno1",
-	"network_id": "10.0.0.0/24"
+	"ssid": "Josh_HT138",	
+	"parent": "eno1"
 }
 ```
  | field | value | 
  | ----- | ----- |
  | `ssid` | router's ssid |
- | `gateway` | router's default gateway ip address |
- | `interface` | parent interface of the host machine(must be connected to the router by an Ethernet cable) |
- | `network_id` | calculated from the gateway field (assuming the subnet is 24), for a custom one, specify it yourself manually in the config file |
+ | `parent` | parent interface of the host machine(must be connected to the router by an Ethernet cable) | 
 
 ### Iterations:
 iteration is the main flow event, each iteration is defined by its duration, the protocols it uses,

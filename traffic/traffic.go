@@ -24,11 +24,11 @@ type TrafficMessage struct {
 	Error error
 }
 
-func RunTrafficCapture(d *docker.Docker, duration int, port int, cb func() error) TrafficMessage {
+func RunTrafficCapture(d *docker.Docker, duration int, host string, port int, cb func() error) TrafficMessage {
 	var traffic TrafficData
 	var err error
 
-	c, err := d.StartTrafficCaptureContainer(duration, port)
+	c, err := d.StartTrafficCaptureContainer(duration, host, port)
 
 	if err != nil {
 		return TrafficMessage{

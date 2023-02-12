@@ -65,7 +65,7 @@ func NewStress(config *conf.Config) (Stress, error) {
 
 	log.Logger.Info("Running inital traffic capture")
 	trafficMessage := traffic.RunTrafficCapture(stress.Docker,
-		consts.INITIAL_CAPTURE_DURATION, config.Settings.IperfPort,
+		consts.INITIAL_CAPTURE_DURATION, config.Settings.IpefHost, config.Settings.IperfPort,
 		func() error {
 			time.Sleep(time.Second * consts.INITIAL_CAPTURE_DURATION)
 			return nil
@@ -90,7 +90,7 @@ func (s *Stress) Start() error {
 	log.Logger.Sugar().Infof("Run Index: %v", consts.RUN_INDEX)
 
 	for s.ShouldRunAgain(&data.Data, initial) {
-		data = traffic.RunTrafficCapture(s.Docker, totalTime, s.Config.Settings.IperfPort, func() error {
+		data = traffic.RunTrafficCapture(s.Docker, totalTime, s.Config.Settings.IpefHost, s.Config.Settings.IperfPort, func() error {
 			var eg errgroup.Group
 			var err error
 
