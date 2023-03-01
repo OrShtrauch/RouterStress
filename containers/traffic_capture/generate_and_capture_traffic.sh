@@ -100,8 +100,6 @@ total=$(jq '.end.sum.packets' $results_file)
 echo "loss is $loss total is $total" | tee -a /tmp/traffic
 
 percent=$((loss/total))
-loss=0
-total=0
 
 jq -n --arg loss "$loss" --arg total "$total" \
     '{"loss": $loss, "total": $total }' | socat - unix-connect:$SOCKET
