@@ -1,3 +1,4 @@
+// Package containing all the data models for the configuration object, and helper functions
 package conf
 
 import (
@@ -72,6 +73,8 @@ func GetConfig() (Config, error) {
 
 	config.Scenarios = scenarios
 
+	config.BuildDockerFiles()
+
 	routers, err := router.LoadRouters(consts.ROUTERS_PATH)
 
 	if err != nil {
@@ -131,9 +134,22 @@ func (c *Config) BuildDockerFiles() error {
 }
 
 func writeDockerFile(s Scenario) error {
-	scriptName := strings.Split(s.Name, "/")[1]
+	wd, err := os.Getwd()
 
-	templateFile := fmt.Sprintf("%v/Dockerfile.template", consts.DOCKERFILES_PATH)
+	if err != nil {
+		return err
+	}
+
+	newDockerFile := fmt.Sprintf("%v/%vDockerfile.%v", wd, consts.DOCKERFILES_PATH, s.Name)
+	err = os.Remove(newDockerFile)
+
+	if err != nil {
+		if !os.IsNotExist(err) {
+			return err
+		}
+	}
+
+	templateFile := fmt.Sprintf("%v/Dockerfile_template", consts.DOCKERFILES_PATH)
 	dockerFile, err := os.ReadFile(templateFile)
 	dockerFileText := string(dockerFile)
 
@@ -141,11 +157,13 @@ func writeDockerFile(s Scenario) error {
 		return err
 	}
 
-	dockerFileText = strings.Replace(dockerFileText, "{script_path}", consts.CONTAINER_SCRIPTS, -1)
-	dockerFileText = strings.Replace(dockerFileText, "{script_name}", scriptName, -1)
-	dockerFileText = strings.Replace(dockerFileText, "{pip}", s.PipDependencies, -1)
+	pipCmd := ""
+	if s.PipDependencies != "" {
+		pipCmd = fmt.Sprintf("RUN pip3 install %v", s.PipDependencies)
+	}
 
-	newDockerFile := fmt.Sprintf("%v/Dockerfile.%v", consts.DOCKERFILES_PATH, s.Name)
+	dockerFileText = strings.Replace(dockerFileText, "{script_name}", s.Script, -1)
+	dockerFileText = strings.Replace(dockerFileText, "{pip}", pipCmd, -1)
 
 	err = os.WriteFile(newDockerFile, []byte(dockerFileText), 0644)
 

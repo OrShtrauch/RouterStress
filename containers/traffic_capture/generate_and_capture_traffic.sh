@@ -85,6 +85,7 @@ trap kill_all SIGTERM
 
 iperf3 -u -c $HOST -t $RUN_TIME -i 1 -p $PORT -J > "$results_file" &
 PID=$!
+sleep $RUN_TIME
 
 echo "Running run sampler pid: $PID"
 echo "waiting for sampler to die"
@@ -99,6 +100,8 @@ total=$(jq '.end.sum.packets' $results_file)
 echo "loss is $loss total is $total" | tee -a /tmp/traffic
 
 percent=$((loss/total))
+loss=0
+total=0
 
 jq -n --arg loss "$loss" --arg total "$total" \
     '{"loss": $loss, "total": $total }' | socat - unix-connect:$SOCKET

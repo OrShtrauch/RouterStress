@@ -1,3 +1,4 @@
+// Package responsible for implementing a dhcp server
 package dhcp
 
 import (

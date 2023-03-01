@@ -1,8 +1,0 @@
-
-FROM stress:latest
-
-COPY {script_path}{script_name} script/{script_name}
-
-RUN pip3 install {pip}
-
-CMD ["python3", "script/{script_name}"]

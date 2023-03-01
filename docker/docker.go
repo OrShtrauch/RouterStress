@@ -1,3 +1,4 @@
+// helper package for managing the containers
 package docker
 
 import (

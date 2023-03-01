@@ -4,7 +4,7 @@
             "name": "http",
             "display_name": "HTTP",
             "pip_dependencies": "httpx",
-            "script": "scripts/http_script.py",
+            "script": "http_script.py",
             "params": [
                 "scheme",
                 "url"
@@ -14,7 +14,7 @@
             "name": "dns",
             "display_name": "DNS",
             "pip_dependencies": "dnspython",
-            "script": "scripts/dns_script.py",
+            "script": "dns_script.py",
             "params": [
                 "domain",
                 "record_type",
@@ -25,7 +25,7 @@
             "name": "icmp",
             "display_name": "ICMP",
             "pip_dependencies": "scapy",
-            "script": "scripts/icmp_script.py",
+            "script": "icmp_script.py",
             "params": [
                 "target"
             ]
@@ -34,10 +34,17 @@
             "name": "port_scan",
             "display_name": "PORT SCAN",
             "pip_dependencies": "python-nmap",
-            "script": "scripts/port_scan_script.py",
+            "script": "port_scan_script.py",
             "params": [
                 "target"
             ]
+        },
+        {
+            "name": "vrz",
+            "display_name": "VRZ",
+            "pip_dependencies": "requests",
+            "script": "vrz.py",
+            "params": []
         }
     ]
 }

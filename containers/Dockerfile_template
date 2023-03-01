@@ -1,0 +1,8 @@
+
+FROM stress:latest
+
+COPY scripts/{script_name} script/{script_name}
+
+{pip}
+
+CMD ["python3", "script/{script_name}"]

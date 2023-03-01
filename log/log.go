@@ -1,3 +1,4 @@
+// Package that holds a refernce to a logger object (singleton like architecture)
 package log
 
 import (

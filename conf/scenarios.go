@@ -11,10 +11,10 @@ type Scenarios struct {
 }
 
 type Scenario struct {
-	Name string
-	PipDependencies string
-	Script string
-	Params []string
+	Name string `json:"name"`
+	PipDependencies string `json:"pip_dependencies"`
+	Script string `json:"script"`
+	Params []string `json:"params"`
 }
 
 func GetScenarios() (Scenarios, error) {

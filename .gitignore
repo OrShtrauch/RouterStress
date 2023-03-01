@@ -3,3 +3,4 @@ results/*
 *log
 RouterStress
 build/
+containers/Dockerfile.*

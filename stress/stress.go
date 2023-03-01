@@ -46,24 +46,45 @@ func NewStress(config *conf.Config) (Stress, error) {
 
 	eg.Go(func() error {
 		log.Logger.Debug("Setting up Router Slave")
-		return setupSlave(&stress)
+		err := setupSlave(&stress)
+		
+		if err != nil {
+			log.Logger.Sugar().Debugf("error in Slave setup: %v", err)
+		}		
+
+		return err
 	})
 
 	eg.Go(func() error {
 		log.Logger.Debug("Setting up Docker Client and Network")
-		return setupDocker(&stress)
+		err := setupDocker(&stress)
+		
+		if err != nil {
+			log.Logger.Sugar().Debugf("error in Docker setup: %v", err)
+		}	
+
+		return err
 	})
 
 	eg.Go(func() error {
 		log.Logger.Debug("setting up DHCP Server")
-		return setupDHCP(&stress)
+		err := setupDHCP(&stress)
+
+		if err != nil {
+			log.Logger.Sugar().Debugf("error in DHCP setup: %v", err)
+		}	
+
+		return err
 	})
 
 	if err := eg.Wait(); err != nil {
 		return stress, err
 	}
 
+	log.Logger.Info("Setup Done.")
+
 	log.Logger.Info("Running inital traffic capture")
+	
 	trafficMessage := traffic.RunTrafficCapture(stress.Docker,
 		consts.INITIAL_CAPTURE_DURATION, config.Settings.IpefHost, config.Settings.IperfPort,
 		func() error {

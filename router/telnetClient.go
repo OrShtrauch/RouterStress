@@ -29,7 +29,7 @@ func NewTelnetClient(ip string, port string, login ...string) (*TelnetClient, er
 	}
 
 	
-	if login[0] != "" {
+	if len(login) > 0 {
 		client.login(login)
 	} else {			
 		client.receiveUntilPrompt()

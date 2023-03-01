@@ -1,9 +1,11 @@
+// Package responsible for processing the raw test results to a JSON file and a graph.
 package dataprocessing
 
 import (
 	"RouterStress/consts"
 	"RouterStress/log"
 	"RouterStress/stress"
+	"RouterStress/errors"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -31,7 +33,7 @@ func Run(stress *stress.Stress, runIndex int) error {
 		}
 
 		if len(sampleFiles) == 0 {
-			return NoFilesFound{}
+			return errors.NoFilesFound{}
 		}
 
 		metrics, err := GetTestMetrics(sampleFiles, runIndex)

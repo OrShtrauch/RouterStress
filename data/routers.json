@@ -1046,7 +1046,7 @@
         "ip": "192.168.1.1",
         "ssid": "Tabib_Fios",
         "password": "TabibTabib",
-        "busybox": "/dev/busybox",
+        "busybox": "/tmp/busybox",
         "sam_dir": "/var/sam/sam",
         "login_info": [
             "chr2f",

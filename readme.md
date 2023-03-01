@@ -10,7 +10,7 @@ And it's scenarios are defined by a scenarios.json file
 ` awk`,` nc`
 
 - A ***Linux*** machine connected to the tested router via an ethernet cable
-- Docker Daemon up and running on the linux machine
+- Docker Daemon up and running on the linux machine (you can use the ***install_docker.sh*** script)
 
 
 ## Folder Structure

@@ -1,9 +1,10 @@
 package router
 
 import (
+	"RouterStress/consts"
 	"bytes"
 	"fmt"
-	"RouterStress/consts"
+
 	"golang.org/x/crypto/ssh"
 )
 
@@ -42,27 +43,28 @@ func NewSSHClient(ip string, port string, username string, password string) (*SS
 }
 
 func (c *SSHClient) Run(cmd string) (string, error) {
-	var session *ssh.Session
 	var err error
 
 	if c.session != nil {
-		session = c.session
-	} else {
-		session, err = c.client.NewSession()
-		c.session = session
+		c.session.Close()
+	}
 
-		if err != nil {
-			return "", err
-		}
+	session, err := c.client.NewSession()
+	c.session = session
+	
+	if err != nil {
+		fmt.Printf("session")
+		return "", err
 	}
 
 	var b bytes.Buffer
-	session.Stdout = &b
+	c.session.Stdout = &b
 
-	err = session.Run(cmd)
+	err = c.session.Run(cmd)
 	data := b.String()
 
 	if err != nil {
+		fmt.Println(err)
 		return data, err
 	}
 

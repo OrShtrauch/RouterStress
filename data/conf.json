@@ -4,12 +4,12 @@
         "debug": true,
         "iperf_host": "testmymalwarefiles.com",
         "iperf_port": 5201,
-        "recursive": true,
+        "recursive": false,
         "percent_diff": 0.015
     },
     "network": {
-        "ssid": "Ferb_LG_Commscope_Puma7",
-        "parent": "enx00e04c360abc"
+        "ssid": "Tabib_Fios",
+        "parent": "enx00e04c363d25"
     },
     "iterations": [
         {
@@ -20,13 +20,10 @@
                     "containers": [
                         {
                             "amount": 10,
-                            "params": {
-                                "url": "1.1.1.1",
-                                "scheme": "https"
-                            }
+                            "params": {}
                         }
                     ],
-                    "mode": "http"
+                    "mode": "vrz"
                 }
             ]
         }

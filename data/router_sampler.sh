@@ -8,7 +8,7 @@ fi
 
 if  [ "$2" != "resume" ]
 then
-  echo "timestamp,cpu,mem" > /var/tmp/hardware_data.csv
+  echo "timestamp,cpu,mem" > /tmp/hardware_data.csv
 fi
 
 PREV_TOTAL=0

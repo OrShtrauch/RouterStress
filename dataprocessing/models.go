@@ -39,8 +39,3 @@ type TestMetrics struct {
 	Scenarios []*Scenario `json:"scenarios"`
 }
 
-type NoFilesFound struct{}
-
-func (n NoFilesFound) Error() string {
-	return "No Files Found With given file Index"
-}
