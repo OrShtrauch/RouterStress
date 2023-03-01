@@ -27,7 +27,7 @@ const (
 	SIGTERM     = 15
 	UNIX        = "unix"
 
-	INITIAL_CAPTURE_DURATION = 60
+	INITIAL_CAPTURE_DURATION = 10
 
 	BUCKET = "agent-stress-test-results-dev"
 

@@ -83,23 +83,23 @@ sleep $DELAY
 
 trap kill_all SIGTERM
 
-iperf3 -u -c $HOST -t $RUN_TIME -i 1 -p $PORT -J > "$results_file" &
-PID=$!
+# iperf3 -u -c $HOST -t $RUN_TIME -i 1 -p $PORT -J > "$results_file" &
+# PID=$!
 sleep $RUN_TIME
 
-echo "Running run sampler pid: $PID"
-echo "waiting for sampler to die"
+# echo "Running run sampler pid: $PID"
+# echo "waiting for sampler to die"
 
-wait $PID
+# wait $PID
 
-echo "sampler died"
+# echo "sampler died"
 
-loss=$(jq '.end.sum.lost_packets' $results_file)
-total=$(jq '.end.sum.packets' $results_file)
+# loss=$(jq '.end.sum.lost_packets' $results_file)
+# total=$(jq '.end.sum.packets' $results_file)
 
-echo "loss is $loss total is $total" | tee -a /tmp/traffic
+# echo "loss is $loss total is $total" | tee -a /tmp/traffic
 
-percent=$((loss/total))
+# percent=$((loss/total))
 loss=0
 total=0
 
