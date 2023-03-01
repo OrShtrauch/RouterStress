@@ -121,7 +121,7 @@ run() {
     # upload build to release as assests
     upload_builds
     # cleanup build folder
-    rm $wd/build/*
+    rm -r $wd/build/*
 }
 
 run
