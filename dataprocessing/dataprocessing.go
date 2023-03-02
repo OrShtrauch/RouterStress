@@ -3,9 +3,9 @@ package dataprocessing
 
 import (
 	"RouterStress/consts"
+	"RouterStress/errors"
 	"RouterStress/log"
 	"RouterStress/stress"
-	"RouterStress/errors"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -41,7 +41,7 @@ func Run(stress *stress.Stress, runIndex int) error {
 		if err != nil {
 			return err
 		}
-		log.Logger.Sugar().Debugf("metrics: %v", *metrics)
+		log.Logger.Debugf("metrics: %v", *metrics)
 		return saveJson(*metrics)
 	})
 

@@ -40,17 +40,17 @@ func NewStress(config *conf.Config) (Stress, error) {
 	stress.TestID = fmt.Sprintf("%v_%v", config.Router.Ssid, consts.TEST_UUID)
 	consts.TEST_ID = stress.TestID
 
-	log.Logger.Info(fmt.Sprintf("TestID: %v", stress.TestID))
+	log.Logger.Infof("TestID: %v", stress.TestID)
 
 	createTestDir(stress.TestID)
 
 	eg.Go(func() error {
 		log.Logger.Debug("Setting up Router Slave")
 		err := setupSlave(&stress)
-		
+
 		if err != nil {
-			log.Logger.Sugar().Debugf("error in Slave setup: %v", err)
-		}		
+			log.Logger.Debugf("error in Slave setup: %v", err)
+		}
 
 		return err
 	})
@@ -58,10 +58,10 @@ func NewStress(config *conf.Config) (Stress, error) {
 	eg.Go(func() error {
 		log.Logger.Debug("Setting up Docker Client and Network")
 		err := setupDocker(&stress)
-		
+
 		if err != nil {
-			log.Logger.Sugar().Debugf("error in Docker setup: %v", err)
-		}	
+			log.Logger.Debugf("error in Docker setup: %v", err)
+		}
 
 		return err
 	})
@@ -71,8 +71,8 @@ func NewStress(config *conf.Config) (Stress, error) {
 		err := setupDHCP(&stress)
 
 		if err != nil {
-			log.Logger.Sugar().Debugf("error in DHCP setup: %v", err)
-		}	
+			log.Logger.Debugf("error in DHCP setup: %v", err)
+		}
 
 		return err
 	})
@@ -84,7 +84,7 @@ func NewStress(config *conf.Config) (Stress, error) {
 	log.Logger.Info("Setup Done.")
 
 	log.Logger.Info("Running inital traffic capture")
-	
+
 	trafficMessage := traffic.RunTrafficCapture(stress.Docker,
 		consts.INITIAL_CAPTURE_DURATION, config.Settings.IpefHost, config.Settings.IperfPort,
 		func() error {
@@ -108,7 +108,7 @@ func (s *Stress) Start() error {
 	totalTime := CalcTotalTime(s.Config)
 
 	log.Logger.Info("starting")
-	log.Logger.Sugar().Infof("Run Index: %v", consts.RUN_INDEX)
+	log.Logger.Infof("Run Index: %v", consts.RUN_INDEX)
 
 	for s.ShouldRunAgain(&data.Data, initial) {
 		data = traffic.RunTrafficCapture(s.Docker, totalTime, s.Config.Settings.IpefHost, s.Config.Settings.IperfPort, func() error {
@@ -122,7 +122,7 @@ func (s *Stress) Start() error {
 				for _, protocol := range iteration.Protocols {
 					for j, container := range protocol.Containers {
 						amount := s.GetAdjustedAmount(container.Amount)
-						log.Logger.Sugar().Debugf("amount is %v", amount)
+						log.Logger.Debugf("amount is %v", amount)
 						for i := 0; i < amount; i++ {
 							uid := uuid.New().String()[:5]
 							name := fmt.Sprintf("stress_%v_%v_%v_%v_%v", protocol.Mode, uid, consts.RUN_INDEX, iterationIndex, index)
@@ -192,14 +192,14 @@ func (s *Stress) ShouldRunAgain(data *traffic.TrafficData, initial bool) bool {
 
 	percent := data.Loss / data.Total
 
-	log.Logger.Sugar().Debugf("inital percent: %v", initialPercent)
-	log.Logger.Sugar().Debugf("current percent: %v", percent)
+	log.Logger.Debugf("inital percent: %v", initialPercent)
+	log.Logger.Debugf("current percent: %v", percent)
 
 	percentDiff := math.Abs(percent - initialPercent)
 
 	should_run_again := percentDiff < s.Config.Settings.PercentDiff
 
-	log.Logger.Debug(fmt.Sprintf("percent diff: %v", percentDiff))
+	log.Logger.Debugf("percent diff: %v", percentDiff)
 
 	if should_run_again {
 		consts.RUN_INDEX += 1
@@ -216,7 +216,7 @@ func (s *Stress) GetAdjustedAmount(amount int) int {
 
 	maxAmount := len(s.DHCPServer.Pool)
 	if amount > maxAmount {
-		log.Logger.Sugar().Infof("%v is bigger than the server pool (%v), running with max amount", amount, maxAmount)
+		log.Logger.Infof("%v is bigger than the server pool (%v), running with max amount", amount, maxAmount)
 		return maxAmount
 	}
 
@@ -232,7 +232,7 @@ func (s *Stress) runStressContainer(name string, mode string, duration int, iter
 		return err
 	}
 
-	//log.Logger.Debug(fmt.Sprintf("starting container %v", name))
+	//log.Logger.Debugf("starting container %v", name)
 
 	container, err := s.Docker.RunContainer(docker.ContainerData{
 		Ssid:           s.Config.Router.Ssid,
@@ -255,7 +255,7 @@ func (s *Stress) runStressContainer(name string, mode string, duration int, iter
 
 	s.DHCPServer.Release(ip)
 
-	//log.Logger.Debug(fmt.Sprintf("Killing Container %v", name))
+	//log.Logger.Debugf("Killing Container %v", name)
 
 	return s.Docker.KillContainer(container.ID)
 }

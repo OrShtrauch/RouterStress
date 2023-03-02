@@ -6,5 +6,5 @@ import (
 )
 
 var (
-	Logger *zap.Logger
+	Logger *zap.SugaredLogger
 )

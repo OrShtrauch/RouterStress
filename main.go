@@ -5,10 +5,10 @@ import (
 	"RouterStress/consts"
 	"RouterStress/dataprocessing"
 	"RouterStress/log"
+	"syscall"
 
 	//"RouterStress/s3"
 	"RouterStress/stress"
-	"fmt"
 	"os"
 	"os/signal"
 
@@ -17,8 +17,6 @@ import (
 )
 
 func main() {
-	//s3.Upload()
-
 	config, err := conf.GetConfig()
 
 	if err != nil {
@@ -34,30 +32,15 @@ func main() {
 		panic(err)
 	}
 
-	channel := make(chan os.Signal)
+	channel := make(chan os.Signal, 1)
 
-	signal.Notify(channel, os.Interrupt)
-
+	signal.Notify(channel, os.Interrupt, syscall.SIGINT, syscall.SIGTERM)
 	go func() {
 		sig := <-channel
-		log.Logger.Info(fmt.Sprintf("Received %s\n", sig))
 
-		stress.Cleanup()
+		log.Logger.Infof("Received %s\n", sig)
 
-		if err != nil {
-			fmt.Println(err.Error())
-		}
-
-		log.Logger.Debug("Proccessing test Data")
-		err = dataprocessing.Run(&stress, consts.RUN_INDEX)
-
-		if err != nil {
-			log.Logger.Error(err.Error())
-			panic(err)
-		}
-
-		log.Logger.Debug("Done.")
-		log.Logger.Debug(fmt.Sprintf("TestID: %v\n", consts.TEST_ID))
+		cleanup(stress)
 
 		close(channel)
 		os.Exit(0)
@@ -73,7 +56,11 @@ func main() {
 		panic(err)
 	}
 
-	err = stress.Cleanup()
+	cleanup(stress)
+}
+
+func cleanup(stress stress.Stress) {
+	err := stress.Cleanup()
 
 	if err != nil {
 		log.Logger.Error(err.Error())
@@ -89,7 +76,7 @@ func main() {
 	}
 
 	log.Logger.Debug("Done.")
-	log.Logger.Debug(fmt.Sprintf("TestID: %v\n", consts.TEST_ID))
+	log.Logger.Debugf("TestID: %v\n", consts.TEST_ID)
 }
 
 func InitLogger(config *conf.Config) {
@@ -109,5 +96,5 @@ func InitLogger(config *conf.Config) {
 		zapcore.NewCore(fileEncoder, writer, logLvl),
 	)
 
-	log.Logger = zap.New(core, zap.AddCaller())
+	log.Logger = zap.New(core, zap.AddCaller()).Sugar()
 }
