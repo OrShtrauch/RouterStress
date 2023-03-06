@@ -232,7 +232,7 @@ func (s *Stress) runStressContainer(name string, mode string, duration int, iter
 		return err
 	}
 
-	//log.Logger.Debugf("starting container %v", name)
+	log.Logger.Debugf("starting container %v", name)
 
 	container, err := s.Docker.RunContainer(docker.ContainerData{
 		Ssid:           s.Config.Router.Ssid,
@@ -255,7 +255,7 @@ func (s *Stress) runStressContainer(name string, mode string, duration int, iter
 
 	s.DHCPServer.Release(ip)
 
-	//log.Logger.Debugf("Killing Container %v", name)
+	log.Logger.Debugf("Killing Container %v", name)
 
 	return s.Docker.KillContainer(container.ID)
 }

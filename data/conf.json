@@ -8,8 +8,8 @@
         "percent_diff": 0.015
     },
     "network": {
-        "ssid": "Tabib_Fios",
-        "parent": "enx00e04c363d25"
+        "ssid": "Pumba_HT138",
+        "parent": "v3_aruba_2530"
     },
     "iterations": [
         {
@@ -20,10 +20,14 @@
                     "containers": [
                         {
                             "amount": 10,
-                            "params": {}
+                            "params": {
+                                "domain": "ynet.co.il",
+                                "record_type": "A",
+                                "resolver": "8.8.8.8"
+                            }
                         }
                     ],
-                    "mode": "vrz"
+                    "mode": "dns"
                 }
             ]
         }
