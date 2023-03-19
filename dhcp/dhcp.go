@@ -70,7 +70,7 @@ func (server *DHCPServer) Lease() (string, error) {
 
 		return ip, err
 	} else {
-		return "", &EmptyPool{msg: "No Available IP address For Lease"}
+		return "", &EmptyPool{}
 	}
 }
 

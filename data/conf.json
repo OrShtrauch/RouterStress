@@ -9,7 +9,7 @@
     },
     "network": {
         "ssid": "Pumba_HT138",
-        "parent": "v3_aruba_2530"
+        "parent": "enx00e04c363d25"
     },
     "iterations": [
         {
