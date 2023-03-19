@@ -2,28 +2,26 @@ package s3
 
 import (
 	"RouterStress/consts"
-	"bytes"
 	"fmt"	
-	"net/http"
 	"os"
 
 	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3"
 )
 
+
 func Upload() error {
+	var err error
+	session, err := session.NewSession(&aws.Config{
+		Region: aws.String("eu-central-1"),
+	})
 
-	creds := credentials.NewEnvCredentials()
-
-	_, err := creds.Get()
 	if err != nil {
 		return err
 	}
 
-	cfg := aws.NewConfig().WithRegion("eu-central-1").WithCredentials(creds)
-	svc := s3.New(session.New(), cfg)
+	s3Client := s3.New(session)
 
 	workingDir, err := os.Getwd()
 
@@ -31,7 +29,8 @@ func Upload() error {
 		return err
 	}
 
-	testID := "Ferb_LG_Commscope_Puma7_0ddb88a5-5b40-4993-8925-c58c5832a400"
+
+	testID := "Pumba_HT138_2023_03_15_15_36_20"
 	localPath := fmt.Sprintf("%v/%v/%v", workingDir, consts.RESULTS_DIR, testID)
 
 	files, err := os.ReadDir(localPath)
@@ -41,36 +40,23 @@ func Upload() error {
 	}
 
 	for _, file := range files {
-		fileName := fmt.Sprintf("%v/%v", localPath, file)
+		name := fmt.Sprintf("%v/%v", localPath, file.Name())
 
-		file, err := os.Open(fileName)
-
-		if err != nil {
-			return err
-		}
-		defer file.Close()
-
-		info, err := file.Stat()
+		fd, err := os.Open(name)
 
 		if err != nil {
 			return err
 		}
 
-		buffer := make([]byte, info.Size())
+		defer fd.Close()
 
-		file.Read(buffer)
-		fileBytes := bytes.NewReader(buffer)
-		fileType := http.DetectContentType(buffer)
+		s3key := fmt.Sprintf("%v/%s", testID, file.Name())
 
-		params := &s3.PutObjectInput{
+		_, err = s3Client.PutObject(&s3.PutObjectInput{
 			Bucket: aws.String(consts.BUCKET),
-			Key: aws.String(fileName),
-			Body: fileBytes,
-			ContentLength: aws.Int64(info.Size()),
-			ContentType: aws.String(fileType),
-		}
-
-		_, err = svc.PutObject(params)
+			Key:    aws.String(s3key),
+			Body:   fd,
+		})
 
 		if err != nil {
 			return err

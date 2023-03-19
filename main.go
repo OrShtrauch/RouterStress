@@ -7,7 +7,7 @@ import (
 	"RouterStress/log"
 	"syscall"
 
-	//"RouterStress/s3"
+	"RouterStress/s3"
 	"RouterStress/stress"
 	"os"
 	"os/signal"
@@ -60,18 +60,21 @@ func main() {
 }
 
 func cleanup(stress stress.Stress) {
-	err := stress.Cleanup()
-
-	if err != nil {
+	if err := stress.Cleanup(); err != nil {
 		log.Logger.Error(err.Error())
 		panic(err)
 	}
 
 	log.Logger.Debug("Proccessing test Data")
-	err = dataprocessing.Run(&stress, consts.RUN_INDEX)
 
-	if err != nil {
+	if err := dataprocessing.Run(&stress, consts.RUN_INDEX); err != nil {
 		log.Logger.Error(err.Error())
+		panic(err)
+	}
+
+	log.Logger.Info("Uploading to S3")
+
+	if err := s3.Upload(); err != nil {
 		panic(err)
 	}
 

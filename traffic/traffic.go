@@ -91,7 +91,7 @@ func RunTrafficCapture(d *docker.Docker, duration int, host string, port int, cb
 		}
 	}
 
-	log.Logger.Debugf("losss is %v, total is %v", msg.Data.Loss, msg.Data.Total)
+	log.Logger.Debugf("loss is %v, total is %v", msg.Data.Loss, msg.Data.Total)
 	close(channel)
 
 	return msg

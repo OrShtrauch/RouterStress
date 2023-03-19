@@ -1,4 +1,4 @@
-VER=2.6.0
+VER=0.8.0
 TAG="v$VER"
 OWNER="OrShtrauch"
 REPO="RouterStress"
