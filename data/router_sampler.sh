@@ -8,7 +8,7 @@ fi
 
 if  [ "$2" != "resume" ]
 then
-  echo "timestamp,cpu,mem" > /tmp/hardware_data.csv
+  echo "timestamp,cpu,mem" > SAMPLER_DATA
 fi
 
 PREV_TOTAL=0
@@ -34,7 +34,7 @@ do
 
 	DIFF_USAGE=$(((1000*(DIFF_TOTAL-DIFF_IDLE)/DIFF_TOTAL+5)/10))
 
-	echo "$TIMESTAMP,$DIFF_USAGE,$MEM" >> /var/tmp/hardware_data.csv
+	echo "$TIMESTAMP,$DIFF_USAGE,$MEM" >> SAMPLER_DATA
 	sleep $SLEEP
 
 	PREV_TOTAL=${TOTAL}

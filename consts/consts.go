@@ -42,8 +42,7 @@ const (
 
 	RESULTS_DIR        = "results/"
 	SAMPLER_NAME       = "router_sampler.sh"
-	SAMPLER_PATH       = "/tmp/" + SAMPLER_NAME
-	SAMPLER_DATA_PATH  = "/tmp/hardware_data.csv"
+	SAMPLER_DATA_NAME = "hardware_data.csv"
 	SAMPLER_LOCAL_NAME = "router_data.csv"
 	TRAFFIC_DATA_NAME  = "packet_loss.json"
 

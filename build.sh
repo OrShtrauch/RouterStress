@@ -1,4 +1,4 @@
-VER=0.8.1
+VER=2.6.0
 TAG="v$VER"
 OWNER="OrShtrauch"
 REPO="RouterStress"
@@ -112,7 +112,7 @@ run() {
     rm $tmpfile
     # deleting any other release by the same name
     delete_old_release
-    # updating the tag
+    # updating/creating the tag
     git tag -f "$TAG"
     # creating a new release in github
     create_release

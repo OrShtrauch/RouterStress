@@ -30,8 +30,7 @@ func Upload() error {
 	}
 
 
-	testID := "Pumba_HT138_2023_03_15_15_36_20"
-	localPath := fmt.Sprintf("%v/%v/%v", workingDir, consts.RESULTS_DIR, testID)
+	localPath := fmt.Sprintf("%v/%v/%v", workingDir, consts.RESULTS_DIR, consts.TEST_ID)
 
 	files, err := os.ReadDir(localPath)
 
@@ -50,7 +49,7 @@ func Upload() error {
 
 		defer fd.Close()
 
-		s3key := fmt.Sprintf("%v/%s", testID, file.Name())
+		s3key := fmt.Sprintf("%v/%s", consts.TEST_ID, file.Name())
 
 		_, err = s3Client.PutObject(&s3.PutObjectInput{
 			Bucket: aws.String(consts.BUCKET),

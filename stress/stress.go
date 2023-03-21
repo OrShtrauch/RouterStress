@@ -8,12 +8,11 @@ import (
 	"RouterStress/log"
 	"RouterStress/router"
 	"RouterStress/traffic"
+	
 	"fmt"
 	"math"
 	"math/rand"
 	"os"
-
-	// "strconv"
 	"time"
 
 	"github.com/google/uuid"
@@ -262,12 +261,13 @@ func (s *Stress) runStressContainer(name string, mode string, duration int, iter
 
 func setupSlave(stress *Stress) error {
 	slave, err := router.NewSlave(stress.Config.Network.Ssid)
-	stress.Slave = slave
-
+	
 	if err != nil {
+		log.Logger.Error("Slave Object Setup Failed")
 		return err
 	}
-
+	
+	stress.Slave = slave
 	log.Logger.Debug("created slave object")
 
 	err = slave.TransferSamplerToRouter()

@@ -8,12 +8,12 @@
         "percent_diff": 0.015
     },
     "network": {
-        "ssid": "Pumba_HT138",
-        "parent": "v3_aruba_2530"
+        "ssid": "George_Puma6",
+        "parent": "enx00e04c363d25"
     },
     "iterations": [
         {
-            "duration": 2,
+            "duration": 3,
             "cooldown": 10,
             "protocols": [
                 {
