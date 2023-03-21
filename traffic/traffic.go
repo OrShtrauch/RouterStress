@@ -9,11 +9,6 @@ import (
 	"os"
 )
 
-// type TrafficData struct {
-// 	Total           string
-// 	Retransmissions string
-// }
-
 type TrafficData struct {
 	Loss  float64 `json:",string"`
 	Total float64 `json:",string"`
