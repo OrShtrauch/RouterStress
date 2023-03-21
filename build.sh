@@ -1,4 +1,4 @@
-VER=2.6.0
+VER=$(cat version)
 TAG="v$VER"
 OWNER="OrShtrauch"
 REPO="RouterStress"
